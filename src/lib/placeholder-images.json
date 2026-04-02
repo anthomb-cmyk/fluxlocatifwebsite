@@ -1,0 +1,28 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "Interface FluxLocatif affichée sur un ordinateur portable.",
+      "imageUrl": "/hero-fluxlocatif.png",
+      "imageHint": "product dashboard"
+    },
+    {
+      "id": "service-management",
+      "description": "Centre d'opérations locatives avec données structurées et pipeline de candidats",
+      "imageUrl": "/interface-v3.png",
+      "imageHint": "business data dashboard"
+    },
+    {
+      "id": "service-prequalify",
+      "description": "Processus sécurisé de qualification et de filtrage des demandeurs locatifs",
+      "imageUrl": "/interface-v4.png",
+      "imageHint": "secure verification professional"
+    },
+    {
+      "id": "about-mission",
+      "description": "Interface FluxLocatif affichée sur un ordinateur portable.",
+      "imageUrl": "/hero-fluxlocatif.png",
+      "imageHint": "product dashboard"
+    }
+  ]
+}
