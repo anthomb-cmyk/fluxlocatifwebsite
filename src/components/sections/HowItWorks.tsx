@@ -1,75 +1,152 @@
-"use client";
+import { ArrowRight, ClipboardCheck, Inbox, Route, ShieldCheck } from "lucide-react";
 
-import { cn } from "@/lib/utils";
+const steps = [
+  {
+    number: "01",
+    title: "Cadrage des critères",
+    description: "Vos filtres locatifs sont posés clairement dès le départ.",
+    icon: <ClipboardCheck className="h-5 w-5" />,
+    illustration: (
+      <div className="relative h-36 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner">
+        <div className="absolute -right-8 -top-8 h-20 w-20 rounded-full bg-blue-100/60 blur-2xl" />
+        <div className="relative h-full rounded-[18px] border border-white bg-white/95 p-3.5 shadow-sm">
+          <div className="flex items-center justify-between">
+            <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400 font-body">
+              Critères propriétaires
+            </div>
+            <div className="h-5 rounded-full border border-blue-100 bg-blue-50 px-2 text-[9px] font-semibold uppercase tracking-[0.12em] text-blue-600 font-body">
+              Actif
+            </div>
+          </div>
+          <div className="mt-3 grid grid-cols-2 gap-2">
+            {["Revenu", "Crédit", "Historique", "Délai"].map((label, index) => (
+              <div key={label} className="rounded-xl border border-slate-100 bg-slate-50/70 px-2 py-2">
+                <div className="text-[9px] font-medium text-slate-500 font-body">{label}</div>
+                <div className="mt-1.5 h-1.5 rounded-full bg-slate-200">
+                  <div
+                    className={`h-1.5 rounded-full ${
+                      index === 0
+                        ? "w-[88%] bg-blue-400"
+                        : index === 1
+                          ? "w-[76%] bg-emerald-400"
+                          : index === 2
+                            ? "w-[64%] bg-indigo-300"
+                            : "w-[82%] bg-blue-300"
+                    }`}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    number: "02",
+    title: "Gestion des demandes",
+    description: "Les demandes entrantes sont reçues, triées et suivies.",
+    icon: <Inbox className="h-5 w-5" />,
+    illustration: (
+      <div className="relative h-36 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner">
+        <div className="space-y-3">
+          {[1, 2, 3].map((row) => (
+            <div key={row} className="flex items-center gap-3 rounded-[18px] border border-slate-100 bg-white px-3 py-2 shadow-sm">
+              <div className="h-8 w-8 rounded-full bg-slate-100" />
+              <div className="flex-1">
+                <div className="h-2 w-24 rounded-full bg-slate-300/70" />
+                <div className="mt-1.5 h-2 w-16 rounded-full bg-slate-200/80" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ),
+  },
+  {
+    number: "03",
+    title: "Préqualification et matching",
+    description: "Les profils qui correspondent à vos critères remontent en priorité.",
+    icon: <ShieldCheck className="h-5 w-5" />,
+    illustration: (
+      <div className="relative h-36 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner">
+        <div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-100/70 blur-2xl" />
+        <div className="relative flex h-full items-center justify-center">
+          <div className="rounded-[22px] border border-white bg-white px-5 py-4 shadow-sm">
+            <div className="text-[11px] uppercase tracking-[0.18em] text-slate-400 font-body">Compatibilité</div>
+            <div className="mt-2 flex items-end gap-2">
+              <span className="text-3xl font-medium text-slate-900 font-headline">94%</span>
+              <span className="pb-1 text-sm text-emerald-600 font-body">élevée</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    number: "04",
+    title: "Décision mieux préparée",
+    description: "Vous recevez des dossiers qualifiés, plus simples à comparer.",
+    icon: <Route className="h-5 w-5" />,
+    illustration: (
+      <div className="relative h-36 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner">
+        <div className="grid h-full grid-cols-2 gap-3">
+          <div className="rounded-[18px] border border-emerald-100 bg-emerald-50/80 p-3 shadow-sm">
+            <div className="text-[10px] uppercase tracking-[0.18em] text-emerald-600 font-body">Validé</div>
+            <div className="mt-3 h-2.5 w-16 rounded-full bg-emerald-200" />
+            <div className="mt-2 h-2.5 w-12 rounded-full bg-emerald-200" />
+          </div>
+          <div className="rounded-[18px] border border-slate-100 bg-white p-3 shadow-sm">
+            <div className="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-body">À revoir</div>
+            <div className="mt-3 h-2.5 w-14 rounded-full bg-slate-200" />
+            <div className="mt-2 h-2.5 w-10 rounded-full bg-slate-200" />
+          </div>
+        </div>
+      </div>
+    ),
+  },
+];
 
 export function HowItWorks() {
-  const steps = [
-    {
-      number: "01",
-      title: "Mise en place",
-      description: "Nous structurons le dossier locatif et définissons vos critères spécifiques.",
-    },
-    {
-      number: "02",
-      title: "Traitement actif",
-      description: "Notre équipe traite les demandes et organise votre pipeline en temps réel.",
-    },
-    {
-      number: "03",
-      title: "Matching intelligent",
-      description: "Notre algorithme de matching évalue les candidats selon vos critères de revenus, de solvabilité et de compatibilité globale.",
-    },
-    {
-      number: "04",
-      title: "Sélection",
-      description: "Vous recevez les dossiers validés pour prendre votre décision finale.",
-    },
-  ];
-
   return (
-    <section id="how-it-works" className="py-12 md:py-32 bg-background relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[120px] -z-10 rounded-full"></div>
-      
+    <section id="services" className="relative overflow-hidden bg-white py-24 md:py-36">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.05),transparent_34%)]" />
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mb-8 md:mb-24 reveal-animation reveal-title">
-          <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-primary/10 text-primary font-bold text-[10px] uppercase tracking-[0.2em] mb-4 md:mb-6 font-body">
-            <span>Processus opérationnel</span>
+        <div className="reveal-animation reveal-title mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-600 shadow-[0_12px_30px_rgba(15,23,42,0.04)] font-body">
+            <ArrowRight className="h-3.5 w-3.5 text-primary" />
+            Comment FluxLocatif fonctionne
           </div>
-          <h2 className="text-3xl md:text-6xl font-headline font-medium mb-3 md:mb-8 tracking-tighter leading-tight text-foreground text-balance">
-            Déléguez le tri, <br className="hidden sm:block" />
-            <span className="text-primary">gardez le contrôle.</span>
+          <h2 className="mt-6 text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
+            Un cadre opérationnel clair, du premier message au dossier prêt.
           </h2>
-          <p className="text-muted-foreground text-[15px] md:text-xl font-normal max-w-2xl leading-snug md:leading-relaxed font-body">
-            Nous assurons le travail opérationnel de préqualification pour vous aider à décider plus vite.
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-7 text-slate-500 font-body">
+            Vous gardez le contrôle final. FluxLocatif gère les étapes répétitives, le tri et la préqualification.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 md:gap-8 max-w-6xl mx-auto">
-          {steps.map((step, idx) => (
-            <div 
-              key={idx} 
-              className={cn(
-                "group relative p-5 md:p-12 rounded-[1.5rem] md:rounded-[2.5rem] bg-white border border-border/40 shadow-sm hover:border-primary/20 transition-all duration-700 reveal-animation reveal-card",
-                idx === 1 && "delay-75",
-                idx === 2 && "delay-150",
-                idx === 3 && "delay-225"
-              )}
+        <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {steps.map((step) => (
+            <article
+              key={step.number}
+              className="reveal-animation reveal-card group flex h-full flex-col rounded-[32px] border border-white/85 bg-[#fbfcff]/92 p-5 shadow-[0_22px_60px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(15,23,42,0.07)] md:p-6"
             >
-              <div className="flex flex-col gap-4 md:gap-6">
-                <div className="w-10 h-10 md:w-16 md:h-16 bg-muted text-foreground rounded-lg md:rounded-2xl flex items-center justify-center font-medium font-headline text-lg md:text-2xl shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-500">
+              {step.illustration}
+              <div className="mt-5 flex items-center justify-between">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-blue-100 bg-white text-primary shadow-sm">
+                  {step.icon}
+                </div>
+                <span className="text-sm font-semibold tracking-[0.24em] text-slate-300 font-body">
                   {step.number}
-                </div>
-                
-                <div className="space-y-1.5 md:space-y-4">
-                  <h3 className="text-sm md:text-3xl font-medium font-headline tracking-tighter text-foreground group-hover:text-primary transition-colors leading-tight">
-                    {step.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed font-normal text-[10px] md:text-lg font-body line-clamp-3 md:line-clamp-none">
-                    {step.description}
-                  </p>
-                </div>
+                </span>
               </div>
-            </div>
+              <h3 className="mt-4 text-2xl font-medium tracking-tight text-slate-950 font-headline">
+                {step.title}
+              </h3>
+              <p className="mt-3 text-[15px] leading-7 text-slate-500 font-body">
+                {step.description}
+              </p>
+            </article>
           ))}
         </div>
       </div>

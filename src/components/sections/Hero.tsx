@@ -1,78 +1,95 @@
-
 "use client";
 
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { DashboardMockup } from "@/components/ui/dashboard-mockup";
+import { TrustTicker } from "@/components/ui/trust-ticker";
+
+const trustTickerItems = [
+  "Bureau de location externalisé",
+  "Préqualification rigoureuse",
+  "Pipeline locatif structuré",
+  "Matching selon vos critères",
+  "Support locatif pour propriétaires et opérateurs",
+  "Jusqu'à 50 % plus léger qu'un modèle traditionnel",
+];
 
 export function Hero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-[#F8FAFF] pt-24 pb-20 md:pt-32 md:pb-32"
+      className="relative overflow-hidden bg-white pt-[6.25rem] pb-14 md:pt-28 md:pb-20"
     >
-      {/* Premium Grid with Central Masking */}
-      <div 
-        className="absolute inset-0 premium-grid pointer-events-none opacity-60" 
-        style={{ 
-          maskImage: 'radial-gradient(circle at 50% 35%, transparent 0%, transparent 25%, black 80%)',
-          WebkitMaskImage: 'radial-gradient(circle at 50% 35%, transparent 0%, transparent 25%, black 80%)'
-        }} 
-      />
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,#ffffff_0%,#fbfdff_36%,#f7faff_100%)]" />
+        <div className="absolute inset-0 opacity-[0.18] [mask-image:radial-gradient(circle_at_center,transparent_24%,black_82%)]">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(110,140,190,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(110,140,190,0.08)_1px,transparent_1px)] bg-[size:58px_58px]" />
+        </div>
+        <div className="absolute inset-x-0 top-0 h-[360px] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.95),transparent_75%)]" />
+        <div className="absolute left-[-18%] top-[18%] h-[30rem] w-[30rem] rounded-full bg-blue-200/22 blur-[130px]" />
+        <div className="absolute right-[-18%] top-[18%] h-[30rem] w-[30rem] rounded-full bg-blue-200/22 blur-[130px]" />
+        <div className="absolute left-[-12%] bottom-[-14%] h-[26rem] w-[42rem] rounded-full bg-blue-300/18 blur-[125px]" />
+        <div className="absolute right-[-12%] bottom-[-14%] h-[26rem] w-[42rem] rounded-full bg-blue-300/18 blur-[125px]" />
+        <div className="absolute bottom-0 left-0 h-[360px] w-[42%] opacity-40 [mask-image:linear-gradient(to_top,black,transparent)]">
+          <div className="absolute inset-0 bg-[repeating-linear-gradient(152deg,rgba(120,150,210,0.18)_0px,rgba(120,150,210,0.18)_1px,transparent_1px,transparent_24px)]" />
+        </div>
+        <div className="absolute bottom-0 right-0 h-[360px] w-[42%] opacity-40 [mask-image:linear-gradient(to_top,black,transparent)]">
+          <div className="absolute inset-0 bg-[repeating-linear-gradient(28deg,rgba(120,150,210,0.18)_0px,rgba(120,150,210,0.18)_1px,transparent_1px,transparent_24px)]" />
+        </div>
+        <div className="absolute left-1/2 top-[42%] h-[13rem] w-[34rem] -translate-x-1/2 rounded-full bg-white/90 blur-[85px]" />
+        <div className="absolute left-1/2 bottom-[10%] h-[20rem] w-[58rem] -translate-x-1/2 rounded-full bg-blue-200/18 blur-[120px]" />
+        <div className="absolute left-1/2 bottom-[4%] h-[15rem] w-[42rem] -translate-x-1/2 rounded-full bg-white/90 blur-[72px]" />
+      </div>
 
-      {/* Premium Background Effects */}
-      <div className="absolute inset-0 premium-glow pointer-events-none" />
-      
-      {/* Center Brightness - Enhances the clean luminous feel behind text */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] bg-[radial-gradient(50%_50%_at_50%_40%,white_0%,rgba(255,255,255,0.4)_60%,transparent_100%)] pointer-events-none z-0 opacity-80" />
-      
-      {/* Top Center Glow - Subtle */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.05)_0%,transparent_100%)] pointer-events-none" />
-      
-      {/* Bottom Luminous Environment - Broader, Softer, more Atmospheric */}
-      <div className="absolute bottom-0 left-0 right-0 h-[80%] bg-[linear-gradient(to_top,rgba(59,130,246,0.15)_0%,rgba(59,130,246,0.05)_30%,transparent_100%)] pointer-events-none" />
-      <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[140%] h-[600px] bg-[radial-gradient(50%_50%_at_50%_50%,rgba(59,130,246,0.1)_0%,transparent_100%)] blur-[120px] pointer-events-none" />
-      
-      {/* Corner Accents - Softer */}
-      <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-primary/8 rounded-full blur-[150px] opacity-30 pointer-events-none" />
-      <div className="absolute -bottom-32 -right-32 w-[500px] h-[500px] bg-primary/8 rounded-full blur-[150px] opacity-30 pointer-events-none" />
-      
       <div className="container relative z-10 mx-auto px-6">
-        {/* Text Content */}
-        <div className="mx-auto mb-10 flex max-w-[900px] flex-col items-center text-center md:mb-16">
-          <h1 className="reveal-animation reveal-title delay-150 mb-6 text-[28px] font-headline font-medium leading-[1.1] tracking-[-0.03em] text-[#0F172A] text-balance sm:text-5xl md:text-[72px] lg:text-[80px]">
-            Structurez vos locations <br className="hidden md:block" />
-            sans alourdir vos opérations.
+        <div className="mx-auto max-w-[72rem] text-center">
+          <div className="reveal-animation reveal-title inline-flex items-center gap-2 rounded-full border border-white/90 bg-white/88 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-primary shadow-[0_14px_34px_rgba(15,23,42,0.06)] backdrop-blur-md font-body">
+            <Sparkles className="h-3.5 w-3.5" />
+            <span>SUPPORT LOCATIF STRUCTURÉ</span>
+          </div>
+
+          <h1 className="reveal-animation reveal-title mx-auto mt-7 max-w-[56rem] text-balance text-4xl font-medium leading-[0.95] tracking-[-0.055em] text-slate-950 sm:text-[3.45rem] md:text-[4.35rem] lg:text-[4.8rem] font-headline">
+            Louez avec moins d’effort.
           </h1>
 
-          <p className="reveal-animation reveal-title delay-300 mx-auto mb-8 max-w-[640px] text-pretty font-body text-[13px] font-normal leading-[1.6] text-slate-500 md:text-[18px]">
-            Ne perdez plus des heures à trier les demandes. FluxLocatif automatise le filtrage pour que vous ne receviez que les meilleurs candidats.
+          <p className="reveal-animation reveal-title mx-auto mt-6 max-w-[34rem] text-pretty text-base leading-8 text-slate-500 sm:text-[19px] sm:leading-9 font-body">
+            FluxLocatif filtre les demandes et vous aide à avancer plus vite avec les bons candidats.
           </p>
 
-          <div className="reveal-animation reveal-title delay-450 flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row">
-            <Button asChild className="group h-[56px] w-full gap-2 rounded-full border-none bg-[#3B82F6] px-10 text-[16px] font-medium text-white shadow-[0_10px_25px_-5px_rgba(59,130,246,0.4)] transition-all hover:bg-[#2F76EE] hover:scale-[1.02] active:scale-[0.98] sm:w-auto">
-              <Link href="/contact">
-                Démarrer le service
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              variant="ghost"
-              className="h-[56px] w-full rounded-full border border-slate-200 bg-white px-10 text-[16px] font-medium text-slate-600 shadow-sm transition-all hover:bg-slate-50 hover:text-slate-900 hover:scale-[1.02] active:scale-[0.98] sm:w-auto"
+          <div className="reveal-animation reveal-title mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              href="/contact"
+              className="inline-flex h-14 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 via-blue-500 to-blue-600 px-8 text-base font-semibold text-white shadow-[0_16px_40px_rgba(59,130,246,0.24)] transition duration-300 hover:scale-[1.01] hover:shadow-[0_20px_46px_rgba(59,130,246,0.3)] font-body"
             >
-              <Link href="/contact">Réserver un appel</Link>
-            </Button>
+              Démarrer le service
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex h-14 items-center justify-center rounded-full border border-slate-200 bg-white/92 px-8 text-base font-medium text-slate-700 shadow-[0_12px_30px_rgba(15,23,42,0.05)] backdrop-blur-sm transition duration-300 hover:bg-white hover:shadow-[0_14px_36px_rgba(15,23,42,0.08)] font-body"
+            >
+              Réserver un appel
+            </Link>
           </div>
+
         </div>
 
-        {/* Dashboard Mockup Integration */}
-        <div className="reveal-animation reveal-mockup delay-600 relative mx-auto max-w-[1100px] px-2 md:px-0">
-          <div className="relative aspect-[2/3] sm:aspect-[16/9] w-full overflow-hidden rounded-[1.5rem] md:rounded-[2rem] border border-slate-200/50 bg-white shadow-[0_40px_120px_-20px_rgba(15,23,42,0.1),0_0_0_1px_rgba(255,255,255,0.8)_inset] transition-all duration-1000">
-            <DashboardMockup />
+        <div className="reveal-animation reveal-mockup relative mx-auto -mx-9 mt-3 w-[calc(100%+4.5rem)] max-w-[1160px] px-0 sm:mx-auto sm:mt-8 sm:w-full sm:px-1 md:mt-12 md:px-4">
+          <div className="absolute inset-x-8 -bottom-8 h-40 rounded-full bg-blue-200/34 blur-3xl" />
+          <div className="absolute inset-x-16 bottom-8 h-28 rounded-full bg-white/95 blur-[64px]" />
+          <div className="relative scale-[1.02] overflow-hidden rounded-[26px] border border-white/85 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(248,250,252,0.9))] p-[3px] shadow-[0_34px_86px_rgba(15,23,42,0.12)] backdrop-blur-sm transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_46px_110px_rgba(15,23,42,0.16)] sm:scale-100 sm:rounded-[30px] md:rounded-[36px] md:p-3">
+            <div className="pointer-events-none absolute inset-0 rounded-[36px] ring-1 ring-slate-200/70" />
+            <div className="relative overflow-hidden rounded-[24px] border border-slate-200/80 bg-white sm:rounded-[30px]">
+              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.46),transparent_28%)]" />
+              <div className="relative aspect-[0.98/1] w-full overflow-hidden sm:aspect-[1.24/1] md:aspect-[16/9]">
+                <DashboardMockup />
+              </div>
+            </div>
           </div>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.96),transparent_72%)]" />
         </div>
+
+        <TrustTicker items={trustTickerItems} />
       </div>
     </section>
   );

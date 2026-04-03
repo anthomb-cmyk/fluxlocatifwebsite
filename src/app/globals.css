@@ -58,6 +58,7 @@
   }
   body {
     @apply bg-background text-foreground overflow-x-hidden antialiased font-body;
+    background-image: linear-gradient(180deg, rgba(248, 250, 252, 0.55) 0%, rgba(255, 255, 255, 0.92) 24%, rgba(248, 251, 255, 0.78) 100%);
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline tracking-tighter;
@@ -75,18 +76,18 @@
   }
 
   .reveal-title {
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: translateY(24px);
+    transition: all 0.72s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .reveal-card {
-    transform: translateY(40px) scale(0.98);
-    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: translateY(28px) scale(0.985);
+    transition: all 0.72s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .reveal-mockup {
-    transform: translateY(50px) scale(0.95);
-    transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: translateY(36px) scale(0.97);
+    transition: all 0.95s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .reveal-animation.is-visible {
@@ -116,6 +117,25 @@
   .premium-glow {
     background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 80%);
   }
+
+  .premium-surface {
+    @apply backdrop-blur-md;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.05);
+    transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+  }
+
+  .section-grid {
+    background-image:
+      linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  .section-fade {
+    mask-image: radial-gradient(circle at center, black 52%, transparent 88%);
+  }
 }
 
 @keyframes float {
@@ -123,6 +143,7 @@
   50% { transform: translateY(-8px); }
   100% { transform: translateY(0px); }
 }
+
 
 .animate-float {
   animation: float 6s ease-in-out infinite;

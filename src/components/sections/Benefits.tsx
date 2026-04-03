@@ -1,238 +1,268 @@
-"use client";
-
-import { 
-  Mail, 
-  Filter, 
-  LayoutDashboard, 
-  Sparkles,
+import {
+  ArrowUpRight,
+  BadgeCheck,
   CheckCircle2,
-  Users,
-  PieChart,
-  User,
-  Home
+  CircleDollarSign,
+  MoveRight,
+  MessagesSquare,
+  ShieldCheck,
+  ScanSearch,
+  Target,
+  TrendingUp,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const InboxScene = () => (
-  <div className="relative w-full h-32 sm:h-56 bg-slate-50/50 rounded-t-[1.5rem] md:rounded-t-[3.5rem] border-b border-slate-100 p-4 sm:p-8 overflow-hidden flex flex-col justify-center gap-2 sm:gap-4">
-    <div className="absolute top-0 left-0 right-0 h-6 sm:h-10 border-b border-slate-100 flex items-center px-4 sm:px-8 gap-1 sm:gap-2 bg-white/40 backdrop-blur-sm">
-      <div className="w-1.5 h-1.5 rounded-full bg-slate-200"></div>
-      <div className="w-1.5 h-1.5 rounded-full bg-slate-200"></div>
-      <div className="w-1.5 h-1.5 rounded-full bg-slate-200"></div>
-    </div>
-
-    <div className="flex items-center gap-3 sm:gap-5 p-3 sm:p-5 rounded-[1rem] sm:rounded-[1.5rem] border border-slate-200 bg-white shadow-[0_12px_40px_rgba(0,0,0,0.05)] w-full max-w-[280px] sm:max-w-[340px] mx-auto transform hover:translate-y-[-4px] transition-transform duration-700">
-      <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-2xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary shrink-0">
-        <Mail className="h-4 w-4 sm:h-6" />
-      </div>
-      <div className="flex-1 min-w-0">
-        <div className="h-2 w-16 sm:w-28 bg-slate-900 rounded-full mb-1 sm:mb-2"></div>
-        <div className="h-1 w-12 sm:w-20 bg-slate-400/30 rounded-full"></div>
-      </div>
-      <div className="shrink-0 hidden xs:flex flex-col items-end gap-1">
-        <div className="px-1.5 py-0.5 rounded-md bg-emerald-500/10 text-[7px] sm:text-[10px] font-bold text-emerald-600 uppercase tracking-tighter border border-emerald-500/20 font-body">
-          Qualifié
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
-const ScoreScene = () => (
-  <div className="relative w-full h-32 sm:h-56 bg-slate-50/50 rounded-t-[1.5rem] md:rounded-t-[3.5rem] border-b border-slate-100 flex items-center justify-center p-4 sm:p-8">
-    <div className="bg-white p-3 sm:p-7 rounded-[1rem] sm:rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-slate-100 w-full max-w-[220px] sm:max-w-[280px] space-y-2 sm:space-y-6">
-      <div className="flex items-center justify-between">
-        <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-lg bg-slate-50 flex items-center justify-center border border-slate-100">
-          <Filter className="h-3.5 w-3.5 sm:h-5 text-slate-400" />
-        </div>
-        <div className="hidden xs:flex flex-col items-end">
-          <div className="px-1.5 py-0.5 rounded-full bg-emerald-500/10 text-[7px] sm:text-[10px] font-bold text-emerald-600 uppercase tracking-widest border border-emerald-500/20 font-body">Excellent</div>
-        </div>
-      </div>
-      <div className="space-y-2 sm:space-y-3">
-        <div className="flex justify-between items-center text-[8px] sm:text-[10px] font-bold uppercase tracking-widest text-slate-400 font-body">
-          <span className="hidden sm:inline">Solvabilité</span>
-          <span className="sm:hidden">Solv.</span>
-          <span className="text-emerald-500">9.2 / 10</span>
-        </div>
-        <div className="space-y-1 sm:space-y-2">
-          <div className="flex items-center gap-1.5 py-1 sm:py-2 bg-emerald-50/40 px-2 sm:px-3 rounded-md sm:rounded-lg text-[7px] sm:text-[9px] font-bold text-emerald-600 border border-emerald-100/50 font-body">
-            <CheckCircle2 className="h-2.5 w-2.5 sm:h-3" /> <span className="truncate">REVENUS VALIDÉS</span>
+const benefitCards = [
+  {
+    eyebrow: "Flux entrant",
+    title: "Demandes entrantes",
+    description: "Moins de temps perdu sur les messages répétitifs.",
+    icon: <MessagesSquare className="h-5 w-5" />,
+    illustration: (
+      <div className="relative h-36 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner">
+        <div className="absolute -right-10 -top-10 h-20 w-20 rounded-full bg-blue-100/50 blur-2xl" />
+        <div className="relative space-y-2.5">
+          <div className="ml-auto flex w-[78%] items-center gap-2 rounded-2xl border border-blue-100 bg-blue-50/85 px-3 py-2 shadow-sm">
+            <div className="h-6 w-6 rounded-full bg-blue-500/15" />
+            <div className="flex-1">
+              <div className="h-2 w-16 rounded-full bg-blue-300/80" />
+              <div className="mt-1.5 h-2 w-24 rounded-full bg-blue-200/80" />
+            </div>
+          </div>
+          <div className="flex w-[86%] items-center gap-2 rounded-2xl border border-slate-100 bg-white px-3 py-2 shadow-sm">
+            <div className="h-6 w-6 rounded-full bg-slate-100" />
+            <div className="flex-1">
+              <div className="h-2 w-24 rounded-full bg-slate-300/70" />
+              <div className="mt-1.5 h-2 w-20 rounded-full bg-slate-200/80" />
+            </div>
+          </div>
+          <div className="ml-auto flex w-[64%] items-center gap-2 rounded-2xl border border-emerald-100 bg-emerald-50/85 px-3 py-2 shadow-sm">
+            <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+            <div className="flex-1">
+              <div className="h-2 w-12 rounded-full bg-emerald-300/80" />
+              <div className="mt-1.5 h-2 w-16 rounded-full bg-emerald-200/80" />
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-);
-
-const PipelineScene = () => (
-  <div className="relative w-full h-32 sm:h-56 bg-slate-50/50 rounded-t-[1.5rem] md:rounded-t-[3.5rem] border-b border-slate-100 flex flex-col items-center justify-center p-4 gap-2 overflow-hidden">
-    <div className="w-full max-w-[140px] sm:max-w-[200px] p-3 sm:p-4 bg-white rounded-lg sm:rounded-xl border border-slate-200 shadow-[0_15px_35px_rgba(0,0,0,0.06)] transform rotate-[-1deg] z-10">
-      <div className="flex justify-between items-center mb-2 sm:mb-3">
-        <div className="h-1.5 w-12 sm:w-16 bg-slate-900 rounded-full"></div>
-        <div className="h-3 w-3 rounded-full bg-primary/10 flex items-center justify-center">
-          <div className="h-1 w-1 rounded-full bg-primary animate-pulse"></div>
-        </div>
-      </div>
-      <div className="h-1 w-full bg-slate-50 rounded-full overflow-hidden">
-        <div className="w-[85%] h-full bg-primary"></div>
-      </div>
-    </div>
-  </div>
-);
-
-const MatchScene = () => (
-  <div className="relative w-full h-32 sm:h-56 bg-slate-50/50 rounded-t-[1.5rem] md:rounded-t-[3.5rem] border-b border-slate-100 flex items-center justify-center p-4 sm:p-8 overflow-hidden">
-    <div className="flex items-center gap-2 sm:gap-4">
-      <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center z-10">
-        <User className="h-4 w-4 sm:h-5 sm:w-5 text-slate-400" />
-      </div>
-      <div className="flex flex-col items-center gap-1 z-0 -mx-4 sm:-mx-6">
-        <div className="w-12 sm:w-16 h-0.5 bg-emerald-500/30 border-t border-dashed border-emerald-500"></div>
-        <div className="px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-100 text-[7px] sm:text-[9px] font-bold text-emerald-600 uppercase tracking-widest whitespace-nowrap">98% Match</div>
-      </div>
-      <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center z-10">
-        <Home className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
-      </div>
-    </div>
-  </div>
-);
-
-const CostScene = () => (
-  <div className="relative w-full h-32 sm:h-56 bg-slate-50/50 rounded-t-[1.5rem] md:rounded-t-[3.5rem] border-b border-slate-100 flex items-center justify-center p-4 sm:p-8 overflow-hidden">
-    <div className="relative z-10 w-full max-w-[200px] sm:max-w-[240px] bg-white rounded-lg sm:rounded-xl shadow-lg border border-slate-100/80 p-3 sm:p-5 flex flex-col gap-3 sm:gap-4">
-      <div className="flex items-center justify-between border-b border-slate-50 pb-2">
-        <span className="text-[9px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-wider font-body">Comparatif des coûts</span>
-        <PieChart className="h-3 w-3 sm:h-4 sm:w-4 text-primary" />
-      </div>
-      <div className="flex items-end gap-3 sm:gap-4 h-16 sm:h-20">
-        <div className="flex flex-col gap-1.5 flex-1 h-full justify-end">
-          <div className="w-full bg-slate-100 rounded-t-md relative overflow-hidden h-full">
-            <div className="absolute bottom-0 left-0 right-0 h-full bg-slate-200"></div>
+    ),
+  },
+  {
+    eyebrow: "Validation",
+    title: "Préqualification",
+    description: "Les dossiers avancent avec plus de rigueur dès le départ.",
+    icon: <ScanSearch className="h-5 w-5" />,
+    illustration: (
+      <div className="relative h-36 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner">
+        <div className="rounded-[18px] border border-white bg-white/95 p-3.5 shadow-sm">
+          <div className="flex items-center justify-between">
+            <div className="text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-400 font-body">
+              Critères locataire
+            </div>
+            <div className="rounded-full bg-emerald-50 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-600 font-body">
+              Validé
+            </div>
           </div>
-          <span className="text-[7px] sm:text-[9px] text-center text-slate-400 font-medium uppercase tracking-wider">Traditionnel</span>
-        </div>
-        <div className="flex flex-col gap-1.5 flex-1 h-full justify-end">
-          <div className="w-full bg-emerald-50 rounded-t-md relative overflow-hidden flex items-end h-full">
-            <div className="w-full h-[50%] bg-emerald-400 rounded-t-md"></div>
+          <div className="mt-3 space-y-2">
+            <div className="flex items-center gap-2 rounded-xl border border-emerald-100 bg-emerald-50/70 px-3 py-2 text-[11px] font-medium text-emerald-700 font-body">
+              <CheckCircle2 className="h-3.5 w-3.5" />
+              Revenus vérifiés
+            </div>
+            <div className="flex items-center gap-2 rounded-xl border border-blue-100 bg-blue-50/70 px-3 py-2 text-[11px] font-medium text-blue-700 font-body">
+              <ShieldCheck className="h-3.5 w-3.5" />
+              Critères compatibles
+            </div>
+            <div className="mt-0.5 flex items-center gap-2">
+              <div className="h-1.5 flex-1 rounded-full bg-slate-100">
+                <div className="h-1.5 w-[82%] rounded-full bg-emerald-400" />
+              </div>
+              <span className="text-[11px] font-semibold text-emerald-600 font-body">94%</span>
+            </div>
           </div>
-          <span className="text-[7px] sm:text-[9px] text-center text-emerald-600 font-bold uppercase tracking-wider">-50%</span>
         </div>
       </div>
-    </div>
-  </div>
-);
+    ),
+  },
+  {
+    eyebrow: "Workflow",
+    title: "Pipeline structuré",
+    description: "Chaque étape reste visible et plus simple à piloter.",
+    icon: <Target className="h-5 w-5" />,
+    illustration: (
+      <div className="relative h-36 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner">
+        <div className="grid h-full grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] items-center gap-1.5">
+          {["Entrée", "Tri", "Validation", "Envoi"].map((label, index) => (
+            <div key={label} className="flex h-full flex-col justify-between rounded-[16px] border border-white bg-white/95 p-2 shadow-sm">
+              <div className={`h-1.5 w-6 rounded-full ${index === 0 ? "bg-blue-300" : index === 1 ? "bg-amber-300" : index === 2 ? "bg-indigo-300" : "bg-emerald-300"}`} />
+              <div className="text-[11px] uppercase tracking-[0.12em] text-slate-400 font-body">{label}</div>
+            </div>
+          ))}
+          <MoveRight className="h-3.5 w-3.5 text-slate-300" />
+          <MoveRight className="h-3.5 w-3.5 text-slate-300" />
+          <MoveRight className="h-3.5 w-3.5 text-slate-300" />
+        </div>
+      </div>
+    ),
+  },
+  {
+    eyebrow: "Résultat",
+    title: "Des opérations plus efficaces",
+    description: "Vous gardez la main sur la décision finale, sans porter tout le volume opérationnel.",
+    icon: <TrendingUp className="h-5 w-5" />,
+    illustration: (
+      <div className="relative h-36 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner">
+        <div className="absolute -left-8 -bottom-8 h-20 w-20 rounded-full bg-blue-100/55 blur-2xl" />
+        <div className="relative grid h-full grid-cols-[1.4fr_1fr] gap-2.5">
+          <div className="rounded-[16px] border border-white bg-white/95 p-3 shadow-sm">
+            <div className="flex items-center justify-between">
+              <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400 font-body">
+                Performance
+              </div>
+              <div className="text-[11px] font-semibold text-emerald-600 font-body">+27%</div>
+            </div>
+            <div className="mt-3 grid h-12 grid-cols-5 items-end gap-1.5">
+              {[24, 30, 38, 50, 64].map((height, index) => (
+                <div
+                  key={`${height}-${index}`}
+                  className={`rounded-md ${
+                    index < 3 ? "bg-slate-200" : index === 3 ? "bg-blue-300" : "bg-emerald-400"
+                  }`}
+                  style={{ height: `${height}%` }}
+                />
+              ))}
+            </div>
+            <div className="mt-2 h-1.5 rounded-full bg-slate-100">
+              <div className="h-1.5 w-[76%] rounded-full bg-blue-400" />
+            </div>
+          </div>
+          <div className="rounded-[16px] border border-white bg-white/95 p-3 shadow-sm">
+            <div className="text-[10px] uppercase tracking-[0.14em] text-slate-400 font-body">Efficacité</div>
+            <div className="mt-2 flex h-[72px] items-center justify-center rounded-xl bg-emerald-50/70 text-[22px] font-semibold text-emerald-600 font-headline">
+              91
+            </div>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    eyebrow: "Résultat",
+    title: "Jusqu'à 50 % moins cher",
+    description: "Une structure premium plus légère qu'une compagnie de location traditionnelle.",
+    icon: <CircleDollarSign className="h-5 w-5" />,
+    illustration: (
+      <div className="relative h-36 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner">
+        <div className="grid h-full grid-cols-2 gap-2.5">
+          <div className="rounded-[16px] border border-white bg-white/95 p-3 shadow-sm">
+            <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400 font-body">Traditionnel</div>
+            <div className="mt-3 space-y-2">
+              <div className="h-2 rounded-full bg-slate-100">
+                <div className="h-2 w-full rounded-full bg-slate-300" />
+              </div>
+              <div className="h-2 rounded-full bg-slate-100">
+                <div className="h-2 w-[86%] rounded-full bg-slate-300" />
+              </div>
+            </div>
+          </div>
+          <div className="rounded-[16px] border border-blue-100 bg-blue-50/70 p-3 shadow-sm">
+            <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-blue-600 font-body">FluxLocatif</div>
+            <div className="mt-3 space-y-2">
+              <div className="h-2 rounded-full bg-blue-100">
+                <div className="h-2 w-[52%] rounded-full bg-blue-400" />
+              </div>
+              <div className="h-2 rounded-full bg-blue-100">
+                <div className="h-2 w-[47%] rounded-full bg-blue-400" />
+              </div>
+            </div>
+            <div className="mt-2 text-[11px] font-medium text-emerald-600 font-body">Jusqu'à 50%</div>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+];
 
 export function Benefits() {
-  const primaryBenefits = [
-    {
-      scene: <InboxScene />,
-      title: "Traitement des demandes",
-      description: "Suivi constant et réactif de 100% des messages prospects.",
-      icon: <Mail className="h-5 w-5" />
-    },
-    {
-      scene: <ScoreScene />,
-      title: "Préqualification",
-      description: "Analyse exhaustive pour ne livrer que des dossiers premium.",
-      icon: <Filter className="h-5 w-5" />
-    },
-  ];
-
-  const secondaryBenefits = [
-    {
-      scene: <PipelineScene />,
-      title: "Pilotage Pipeline",
-      description: "Organisation structurée de chaque candidature.",
-      icon: <LayoutDashboard className="h-5 w-5" />
-    },
-    {
-      scene: <MatchScene />,
-      title: "Matching intelligent",
-      description: "Notre algorithme de matching aligne précisément les profils avec vos critères.",
-      icon: <Users className="h-5 w-5" />
-    },
-    {
-      scene: <CostScene />,
-      title: "Efficacité financière",
-      description: "Jusqu'à 50 % moins cher qu'une compagnie de location traditionnelle.",
-      icon: <PieChart className="h-5 w-5" />
-    },
-  ];
+  const topCards = benefitCards.slice(0, 3);
+  const bottomCards = benefitCards.slice(3);
 
   return (
-    <section id="scope" className="py-16 md:py-40 bg-[#FAFAFA] relative">
-      <div className="container mx-auto px-6 max-w-7xl relative">
-        <div className="text-center mb-12 md:mb-24 reveal-animation reveal-title">
-          <div className="inline-flex items-center gap-2.5 py-1.5 px-4 rounded-full bg-primary/5 text-primary font-bold text-[10px] uppercase tracking-[0.25em] mb-8 border border-primary/10 font-body">
-            <Sparkles className="h-3 w-3" />
-            <span>Excellence Opérationnelle</span>
+    <section id="benefits" className="relative overflow-hidden bg-[#f8fbff] py-20 md:py-36">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(59,130,246,0.08),transparent_40%)]" />
+      <div className="container relative mx-auto px-6">
+        <div className="reveal-animation reveal-title mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary shadow-[0_12px_30px_rgba(15,23,42,0.04)] font-body">
+            <ArrowUpRight className="h-3.5 w-3.5" />
+            Bénéfices concrets
           </div>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-headline font-medium mb-6 md:mb-10 tracking-tighter leading-tight text-slate-900 text-balance">
-            Un service conçu pour <br className="hidden md:block" /> les propriétaires exigeants.
+          <h2 className="mt-6 text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
+            Les bénéfices clés de FluxLocatif, en un coup d'oeil.
           </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-7 text-slate-500 font-body">
+            Moins de charge manuelle, plus de dossiers qualifiés, et un pipeline locatif beaucoup plus lisible.
+          </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 md:gap-10 mb-6 md:mb-10">
-          {primaryBenefits.map((benefit, idx) => (
-            <div
-              key={idx}
+        <div className="mt-10 grid grid-cols-2 gap-3.5 md:grid-cols-3 md:gap-5">
+          {topCards.map((card, idx) => (
+            <article
+              key={card.title}
               className={cn(
-                "group relative bg-white rounded-[1.5rem] md:rounded-[3rem] border border-slate-200/60 overflow-hidden flex flex-col transition-all duration-700 hover:shadow-xl reveal-animation reveal-card",
-                idx === 1 && "delay-150"
+                "reveal-animation reveal-card group rounded-[30px] border border-white/90 bg-white/96 p-4 shadow-[0_22px_70px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_85px_rgba(15,23,42,0.08)] md:p-6",
+                idx === 0 && "col-span-2 md:col-span-1",
+                idx === 1 && "col-span-1 md:col-span-1 md:-mt-6",
+                idx === 2 && "col-span-1 mt-6 md:col-span-1 md:mt-4"
               )}
             >
-              {benefit.scene}
-              <div className="p-4 md:p-12 space-y-2 md:space-y-6">
-                <div className="flex items-center gap-2 md:gap-3">
-                  <div className="w-6 h-6 md:w-8 md:h-8 rounded-md md:rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:text-primary transition-all duration-500">
-                    <div className="h-3.5 w-3.5 md:h-5 md:w-5">
-                      {benefit.icon}
-                    </div>
-                  </div>
-                  <h3 className="text-sm md:text-3xl font-medium tracking-tight text-slate-900 font-headline">
-                    {benefit.title}
-                  </h3>
+              {card.illustration}
+              <div className="mt-5 flex items-center gap-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-blue-100 bg-[#fbfcff] text-primary shadow-sm">
+                  {card.icon}
                 </div>
-                <p className="text-slate-500 leading-relaxed font-normal text-[11px] md:text-xl font-body line-clamp-2 md:line-clamp-none">
-                  {benefit.description}
+                <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 font-body">
+                  {card.eyebrow}
+                </span>
+              </div>
+              <h3 className="mt-4 text-[1.95rem] leading-[1.05] font-medium tracking-tight text-slate-950 font-headline md:text-2xl">
+                {card.title}
+              </h3>
+              <p className="mt-3 text-base leading-7 text-slate-500 font-body md:text-[15px]">
+                {card.description}
+              </p>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-4 rounded-[28px] border border-white/85 bg-white/72 p-2.5 shadow-[0_18px_50px_rgba(15,23,42,0.04)] md:mt-10 md:rounded-none md:border-0 md:bg-transparent md:p-0 md:shadow-none">
+          <div className="grid grid-cols-2 gap-3.5 md:grid-cols-2 md:gap-5">
+            {bottomCards.map((card, idx) => (
+              <article
+                key={card.title}
+                className={cn(
+                  "reveal-animation reveal-card group rounded-[26px] border border-white/90 bg-white/96 p-4 shadow-[0_20px_60px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_85px_rgba(15,23,42,0.08)] md:rounded-[30px] md:p-7",
+                  idx === 1 && "mt-6 md:mt-8"
+                )}
+              >
+                {card.illustration}
+                <div className="mt-5 flex items-center gap-3">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-blue-100 bg-[#fbfcff] text-primary shadow-sm">
+                    {card.icon}
+                  </div>
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500 font-body">
+                    {card.eyebrow}
+                  </span>
+                </div>
+                <h3 className="mt-4 text-[1.95rem] leading-[1.05] font-medium tracking-tight text-slate-950 font-headline md:text-2xl">
+                  {card.title}
+                </h3>
+                <p className="mt-3 text-base leading-7 text-slate-500 font-body md:text-[15px]">
+                  {card.description}
                 </p>
-              </div>
-            </div>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
-          {secondaryBenefits.map((benefit, idx) => (
-            <div
-              key={idx}
-              className={cn(
-                "group bg-white rounded-[1.2rem] md:rounded-[2.5rem] border border-slate-200/60 overflow-hidden flex flex-col transition-all duration-700 hover:shadow-lg reveal-animation reveal-card",
-                idx === 0 && "delay-150",
-                idx === 1 && "delay-300",
-                idx === 2 && "delay-450",
-                idx === 2 && "col-span-2 lg:col-span-1"
-              )}
-            >
-              {benefit.scene}
-              <div className="p-4 md:p-8 space-y-2 md:space-y-4 flex-1 flex flex-col">
-                <div className="w-6 h-6 md:w-8 md:h-8 rounded-md md:rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:text-primary transition-all duration-700 shrink-0">
-                  <div className="h-3.5 w-3.5 md:h-5 md:w-5">
-                    {benefit.icon}
-                  </div>
-                </div>
-                <div className="space-y-1 md:space-y-2 flex-1">
-                  <h3 className="text-sm md:text-lg font-medium tracking-tight text-slate-900 font-headline">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-slate-500 leading-relaxed font-normal text-[10px] md:text-base font-body line-clamp-2 md:line-clamp-none">
-                    {benefit.description}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

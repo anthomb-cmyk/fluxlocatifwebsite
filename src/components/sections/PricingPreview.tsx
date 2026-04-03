@@ -1,112 +1,132 @@
-"use client";
+import Link from "next/link";
+import { Check, Sparkles } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-export function PricingPreview() {
-  const plans = [
-    {
-      name: "Démarrage",
-      price: "$399",
-      period: "frais unique",
-      limit: "1 logement actif",
-      features: [
-        "Mise en place dossier",
-        "Gestion demandes",
-        "Préqualification",
-        "Pipeline locatif",
-        "Suivi de base",
-      ],
-    },
-    {
-      name: "Croissance",
-      price: "$699",
-      period: "/mois",
-      limit: "Jusqu&apos;à 3 logements",
-      features: [
-        "Inclus Démarrage",
-        "Suivi actif candidats",
-        "Gestion multi-flux",
-        "Priorité support",
-        "Support soutenu",
-      ],
-      featured: true,
-    },
-    {
-      name: "Échelle",
-      price: "$1200",
-      period: "/mois",
-      limit: "Jusqu&apos;à 6 logements",
-      features: [
-        "Inclus Croissance",
-        "Structure multi-unités",
-        "Coordination locative",
-        "Vision claire flux",
-        "Support renforcé",
-      ],
-      className: "col-span-2 lg:col-span-1"
-    },
-  ];
+const plans = [
+  {
+    name: "Démarrage",
+    price: "$399",
+    period: "frais unique",
+    scope: "1 logement actif",
+    description:
+      "Pour lancer un mandat locatif avec une structure claire dès le départ.",
+    features: [
+      "Cadrage initial des critères",
+      "Organisation du dossier locatif",
+      "Gestion des demandes entrantes",
+      "Préqualification de base",
+      "Pipeline de suivi structuré",
+    ],
+  },
+  {
+    name: "Croissance",
+    price: "$699",
+    period: "/mois",
+    scope: "Jusqu'à 3 logements",
+    description:
+      "Pour les propriétaires et opérateurs qui veulent déléguer une part active du travail locatif.",
+    features: [
+      "Tout le forfait Démarrage",
+      "Suivi actif des candidatures",
+      "Matching intelligent selon vos critères",
+      "Relances et coordination du pipeline",
+      "Cadence locative priorisée",
+    ],
+    featured: true,
+  },
+  {
+    name: "Échelle",
+    price: "$1 200",
+    period: "/mois",
+    scope: "Jusqu'à 6 logements",
+    description:
+      "Pour les portefeuilles plus denses qui ont besoin d'un bureau de location externalisé plus soutenu.",
+    features: [
+      "Tout le forfait Croissance",
+      "Pilotage multi-unités",
+      "Traitement renforcé du volume entrant",
+      "Vision consolidée du pipeline",
+      "Accompagnement opérationnel élargi",
+    ],
+  },
+];
 
+export function PricingPreview() {
   return (
-    <section id="pricing" className="py-20 md:py-28 lg:py-32 bg-background relative">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[600px] bg-primary/5 -z-10 blur-[120px] rounded-full opacity-40"></div>
-      
+    <section id="pricing" className="relative overflow-hidden bg-white py-24 md:py-36">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.04),transparent_30%)]" />
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 md:mb-20 reveal-animation reveal-title">
-          <h2 className="text-3xl md:text-5xl font-headline font-medium mb-4 md:mb-6 tracking-tighter leading-none text-slate-900">Tarification transparente</h2>
-          <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto font-normal font-body leading-relaxed">
-            Un support opérationnel structuré adapté à la taille de votre portefeuille locatif.
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary shadow-[0_12px_30px_rgba(15,23,42,0.04)] font-body">
+            <Sparkles className="h-3.5 w-3.5" />
+            Tarification claire
+          </div>
+          <h2 className="mt-6 text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
+            Des forfaits pensés pour alléger la location, pas pour vous vendre une usine à gaz.
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-500 font-body">
+            FluxLocatif vous apporte une structure opérationnelle premium avec des coûts plus légers que ceux d'une compagnie de location traditionnelle, tout en gardant un cadre simple à comprendre.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-8 max-w-6xl mx-auto">
-          {plans.map((plan, idx) => (
-            <div
-              key={idx}
+        <div className="mt-14 grid gap-5 lg:grid-cols-3">
+          {plans.map((plan) => (
+            <article
+              key={plan.name}
               className={cn(
-                "relative bg-white/60 backdrop-blur-xl rounded-[1.5rem] md:rounded-[2.5rem] p-5 md:p-10 flex flex-col transition-all duration-700 hover:shadow-xl group reveal-animation reveal-card",
-                plan.featured ? "ring-1 md:ring-2 ring-primary shadow-2xl md:scale-105 z-10 border-transparent bg-white" : "border border-border/60",
-                idx === 1 && "delay-75",
-                idx === 2 && "delay-150",
-                plan.className
+                "relative flex h-full flex-col rounded-[32px] border border-slate-200/70 bg-[#fbfcff] p-7 shadow-[0_20px_60px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_26px_80px_rgba(15,23,42,0.07)] md:p-8",
+                plan.featured &&
+                  "border-blue-200 bg-white shadow-[0_28px_90px_rgba(59,130,246,0.13)]"
               )}
             >
               {plan.featured && (
-                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 md:px-8 py-1 rounded-full text-[7px] md:text-[10px] font-medium uppercase tracking-[0.15em] shadow-lg shadow-primary/20 font-body whitespace-nowrap">
-                   Conseillé
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-white shadow-[0_12px_30px_rgba(59,130,246,0.24)] font-body">
+                  Le plus choisi
                 </div>
               )}
-              <div className="mb-6 md:mb-10">
-                <h3 className="text-[10px] md:text-xs font-medium uppercase tracking-widest text-primary mb-3 md:mb-6 font-headline">{plan.name}</h3>
-                <div className="flex items-baseline gap-1">
-                  <span className="text-2xl md:text-5xl font-medium font-headline tracking-tighter text-slate-900">{plan.price}</span>
-                  <span className="text-muted-foreground font-normal text-[8px] md:text-sm font-body">{plan.period}</span>
+
+              <div className="mt-3">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-primary font-body">
+                  {plan.name}
+                </p>
+                <div className="mt-5 flex items-end gap-2">
+                  <span className="text-4xl font-medium tracking-[-0.05em] text-slate-950 md:text-5xl font-headline">
+                    {plan.price}
+                  </span>
+                  <span className="pb-1 text-sm text-slate-500 font-body">{plan.period}</span>
                 </div>
-                <div className="h-px w-full bg-border/60 my-4 md:my-6"></div>
-                <p className="text-[10px] md:text-base font-medium text-slate-900 font-body">{plan.limit}</p>
+                <p className="mt-3 text-base font-medium text-slate-900 font-body">{plan.scope}</p>
+                <p className="mt-4 text-base leading-7 text-slate-500 font-body">{plan.description}</p>
               </div>
 
-              <ul className="space-y-2 md:space-y-4 mb-6 md:mb-10 flex-1">
-                {plan.features.map((feature, fIdx) => (
-                  <li key={fIdx} className="flex items-center gap-2 md:gap-3 text-[10px] md:text-sm font-normal text-slate-600 font-body leading-relaxed">
-                    <div className="bg-primary/10 p-0.5 md:p-1 rounded-full shrink-0">
-                      <Check className="h-2.5 w-2.5 md:h-3.5 md:w-3.5 text-primary" />
+              <div className="my-8 h-px w-full bg-slate-200/80" />
+
+              <ul className="flex-1 space-y-4">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-3 text-sm leading-6 text-slate-600 font-body">
+                    <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-50 text-primary">
+                      <Check className="h-3.5 w-3.5" />
                     </div>
-                    <span className="truncate">{feature}</span>
+                    <span>{feature}</span>
                   </li>
                 ))}
               </ul>
 
-              <Button asChild variant={plan.featured ? "default" : "outline"} className={cn(
-                "w-full h-10 md:h-14 rounded-full font-medium text-[12px] md:text-[16px] transition-all duration-500 font-body px-2 md:px-4",
-                plan.featured ? 'shadow-xl' : 'hover:bg-primary hover:text-white hover:border-primary'
-              )}>
-                <Link href="/contact">Démarrer</Link>
+              <Button
+                asChild
+                variant={plan.featured ? "default" : "outline"}
+                className={cn(
+                  "mt-8 h-14 rounded-full px-6 text-base font-semibold font-body",
+                  plan.featured
+                    ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-[0_16px_40px_rgba(59,130,246,0.24)]"
+                    : "border-slate-200 bg-white text-slate-700 shadow-[0_10px_30px_rgba(15,23,42,0.04)]"
+                )}
+              >
+                <Link href="/contact">Démarrer le service</Link>
               </Button>
-            </div>
+            </article>
           ))}
         </div>
       </div>

@@ -3,8 +3,7 @@
 /**
  * @fileOverview Ce composant gère les animations de révélation au défilement (Scroll Reveal)
  * en utilisant un Intersection Observer. Il ajoute la classe 'is-visible' aux éléments
- * ayant la classe 'reveal-animation' lorsqu'ils entrent dans le viewport, et la retire
- * lorsqu'ils en sortent pour permettre le rejeu (replay).
+ * ayant la classe 'reveal-animation' lorsqu'ils entrent dans le viewport.
  */
 
 import { useEffect } from 'react';
@@ -23,9 +22,7 @@ export function ScrollRevealHandler() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-        } else {
-          // Replay: Yes - Retire la classe pour permettre une nouvelle animation lors du re-entry
-          entry.target.classList.remove('is-visible');
+          observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
