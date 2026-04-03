@@ -1,24 +1,23 @@
 "use client";
 
-type TrustTickerProps = {
-  items: string[];
-};
+const items = [
+  "Tri initial des demandes",
+  "Préqualification avant présentation",
+  "Suivi des conversations locatives",
+  "Organisation claire des dossiers",
+];
 
-export function TrustTicker({ items }: TrustTickerProps) {
+export function TrustTicker() {
   return (
-    <div id="proof-strip" className="reveal-animation reveal-title mx-auto mt-8 w-full max-w-5xl">
+    <div id="proof-strip" className="reveal-animation reveal-title mx-auto mt-5 w-full max-w-5xl py-4">
       <p className="mb-3 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400 font-body">
-        Repères FluxLocatif
+        Ce que FluxLocatif prend en charge
       </p>
-      <div className="rounded-[26px] border border-slate-200/80 bg-white/90 p-3 shadow-[0_16px_42px_rgba(15,23,42,0.06)] backdrop-blur-md md:p-4">
-        <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="rounded-[26px] border border-slate-200/80 bg-white/90 p-2.5 shadow-[0_16px_42px_rgba(15,23,42,0.06)] backdrop-blur-md md:p-3">
+        <div className="grid grid-cols-2 gap-2.5 md:grid-cols-2 lg:grid-cols-4">
           {items.map((item) => (
-            <div
-              key={item}
-              className="inline-flex min-h-12 items-center gap-2.5 rounded-2xl border border-slate-200/70 bg-white px-3.5 py-2.5 text-[13px] font-medium tracking-[0.01em] text-slate-600 transition duration-300 hover:border-slate-300 hover:text-slate-800"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
-              <span className="font-body">{item}</span>
+            <div key={item} className="rounded-[16px] border border-slate-100 bg-white px-3 py-2.5 shadow-sm">
+              <p className="mt-1 text-[12px] font-medium leading-5 text-slate-700">{item}</p>
             </div>
           ))}
         </div>

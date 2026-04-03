@@ -3,7 +3,6 @@ import {
   ArrowUpRight,
   BadgeCheck,
   Building2,
-  CircleCheck,
   Clock3,
   Layers3,
   MessageSquareMore,
@@ -22,21 +21,14 @@ import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const trustItems = [
-  "Bureau de location externalisé pour propriétaires et opérateurs actifs",
-  "Matching intelligent selon vos critères de location",
-  "Préqualification rigoureuse avant présentation au propriétaire",
-  "Jusqu'à 50 % moins cher qu'une compagnie de location traditionnelle",
-];
-
 const painPoints = [
   {
     icon: <MessageSquareMore className="h-5 w-5" />,
     title: "Trop de temps perdu sur les messages entrants",
     description:
-      "FluxLocatif absorbe le volume initial pour éviter que votre équipe répète les mêmes réponses toute la journée.",
+      "Nous filtrons le volume entrant pour éviter les réponses répétitives.",
     illustration: (
-      <div className="relative h-48 overflow-hidden rounded-[24px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner">
+      <div className="relative h-32 overflow-hidden rounded-[24px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner md:h-44">
         <div className="flex items-center gap-2">
           <div className="h-2.5 w-2.5 rounded-full bg-red-300" />
           <div className="h-2.5 w-2.5 rounded-full bg-amber-300" />
@@ -70,11 +62,11 @@ const painPoints = [
   },
   {
     icon: <Layers3 className="h-5 w-5" />,
-    title: "Un pipeline locatif difficile à suivre",
+    title: "Un suivi locatif difficile à garder clair",
     description:
-      "Toutes les étapes sont regroupées dans un cadre clair pour suivre qui avance, qui bloque et quoi relancer.",
+      "Toutes les étapes restent visibles pour savoir quoi traiter, quoi relancer et quoi présenter.",
     illustration: (
-      <div className="relative h-40 overflow-hidden rounded-[24px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner">
+      <div className="relative h-32 overflow-hidden rounded-[24px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner md:h-44">
         <div className="grid h-full grid-cols-3 gap-3">
           {[
             ["Entrantes", "18"],
@@ -98,11 +90,11 @@ const painPoints = [
   },
   {
     icon: <Users2 className="h-5 w-5" />,
-    title: "Trop de candidats peu alignés avec vos critères",
+    title: "Trop de profils éloignés de vos critères",
     description:
-      "Le matching intelligent aide à faire remonter plus vite les dossiers qui ressemblent réellement à vos critères.",
+      "Le tri initial aide à faire remonter plus vite les dossiers les plus pertinents.",
     illustration: (
-      <div className="relative h-40 overflow-hidden rounded-[24px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner">
+      <div className="relative h-32 overflow-hidden rounded-[24px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner md:h-44">
         <div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-100/70 blur-2xl" />
         <div className="relative flex h-full items-center justify-center gap-4">
           <div className="flex h-16 w-16 items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm">
@@ -128,19 +120,19 @@ const whyFluxLocatif = [
   {
     title: "Un service opérationnel, pas un outil à piloter seul",
     description:
-      "Une extension structurée de vos opérations, sans vous laisser seul devant un logiciel.",
+      "Une extension de vos opérations locatives, sans vous laisser seul devant un logiciel.",
     icon: <ShieldCheck className="h-5 w-5" />,
   },
   {
-    title: "Une approche rigoureuse centrée sur la qualité des dossiers",
+    title: "Une méthode rigoureuse centrée sur les bons profils",
     description:
-      "Les dossiers avancent selon vos critères, pas selon le volume de messages reçus.",
+      "Les profils avancent selon vos filtres, pas selon le volume de demandes reçues.",
     icon: <BadgeCheck className="h-5 w-5" />,
   },
   {
-    title: "Une structure plus légère que les modèles traditionnels",
+    title: "Un modèle plus léger que les options traditionnelles",
     description:
-      "Une structure premium, jusqu'à 50 % plus légère qu'un modèle locatif traditionnel.",
+      "Jusqu’à 50 % moins cher qu’une agence de location traditionnelle.",
     icon: <TrendingDown className="h-5 w-5" />,
   },
 ];
@@ -158,22 +150,6 @@ export default function Home() {
       <main className="flex-grow">
         <Hero />
 
-        <section className="reveal-animation reveal-title border-y border-slate-100/80 bg-[#fcfdff]">
-          <div className="container mx-auto px-6 py-7 md:py-9">
-            <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-              {trustItems.map((item) => (
-                <div
-                  key={item}
-                  className="premium-surface flex items-start gap-3 rounded-[24px] px-5 py-4 transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_60px_rgba(15,23,42,0.08)]"
-                >
-                  <CircleCheck className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" />
-                  <p className="text-sm leading-6 text-slate-600 font-body">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section className="relative overflow-hidden bg-[#fbfcff] py-24 md:py-36">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.06),transparent_38%)]" />
           <div className="section-grid section-fade absolute inset-0 opacity-60" />
@@ -184,32 +160,30 @@ export default function Home() {
                 Les frictions que nous enlevons
               </div>
               <h2 className="mx-auto mt-6 max-w-3xl text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
-                Moins de dispersion, plus de structure dans vos locations.
+                Les 3 problèmes qu’on enlève de votre quotidien.
               </h2>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-7 text-slate-500 font-body">
-                Nous prenons en charge les demandes entrantes, la préqualification et le suivi pour que vous passiez plus vite aux dossiers solides.
+                FluxLocatif enlève le volume inutile, clarifie le suivi et aide à faire remonter les bons profils.
               </p>
             </div>
 
-            <div className="mt-12 grid grid-cols-2 gap-3.5 md:grid-cols-4 md:gap-5">
+            <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
               {painPoints.map((item, idx) => (
                 <article
                   key={item.title}
                   className={cn(
                     "reveal-animation reveal-card group rounded-[30px] border border-white/85 bg-white/94 p-4 shadow-[0_24px_70px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_85px_rgba(15,23,42,0.08)] md:rounded-[32px] md:p-8",
-                    idx === 0 && "col-span-2 md:col-span-2",
-                    idx === 1 && "col-span-1 md:col-span-1 md:-mt-6",
-                    idx === 2 && "col-span-1 mt-7 md:col-span-1 md:mt-4"
+                    idx === 0 && "sm:col-span-2 lg:col-span-1"
                   )}
                 >
                   {item.illustration}
                   <div className="mt-5 flex h-11 w-11 items-center justify-center rounded-2xl border border-blue-100 bg-blue-50 text-primary shadow-sm">
                     {item.icon}
                   </div>
-                  <h3 className="mt-5 text-[1.95rem] leading-[1.05] font-medium tracking-tight text-slate-950 font-headline md:text-2xl">
+                  <h3 className="mt-5 text-[1.55rem] leading-[1.05] font-medium tracking-tight text-slate-950 font-headline md:text-2xl">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-base leading-7 text-slate-500 font-body md:text-[15px]">
+                  <p className="mt-3 text-[15px] leading-6 text-slate-500 font-body">
                     {item.description}
                   </p>
                 </article>
@@ -230,10 +204,10 @@ export default function Home() {
                   Pourquoi FluxLocatif
                 </div>
                 <h2 className="mt-6 max-w-2xl text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
-                  Une approche premium pour alléger la location sans diluer vos standards.
+                  Une façon plus simple d’opérer vos locations.
                 </h2>
                 <p className="mt-6 max-w-xl text-lg leading-7 text-slate-500 font-body">
-                  FluxLocatif structure l'opérationnel en amont pour vous laisser les vraies décisions.
+                  Nous prenons le travail répétitif en charge pour vous laisser les décisions importantes.
                 </p>
 
                 <div className="mt-8 space-y-4">
@@ -280,7 +254,7 @@ export default function Home() {
                 <div className="mt-8 rounded-[26px] border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-6 shadow-inner">
                   <p className="text-sm uppercase tracking-[0.2em] text-slate-500 font-body">Point clé</p>
                   <p className="mt-3 text-lg leading-8 text-slate-700 font-body">
-                    Vous gardez le contrôle des décisions finales. Nous faisons le travail préparatoire qui permet d'aller plus vite vers les candidats les plus qualifiés.
+                    Vous gardez le contrôle final. Nous faisons le travail préparatoire pour simplifier vos décisions et alléger la gestion quotidienne.
                   </p>
                 </div>
               </div>

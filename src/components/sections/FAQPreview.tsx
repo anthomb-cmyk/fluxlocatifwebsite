@@ -27,9 +27,9 @@ const faqs = [
       "Le matching sert à mieux aligner les candidatures avec vos critères réels: revenus, solvabilité, compatibilité du dossier et niveau de priorité. L'objectif est de vous faire gagner du temps et d'améliorer la qualité des dossiers transmis.",
   },
   {
-    question: "Pourquoi dites-vous que le service peut coûter jusqu'à 50 % moins cher ?",
+    question: "Comment se positionne le coût du service ?",
     answer:
-      "Parce que FluxLocatif est structuré pour prendre en charge une partie très précise et répétitive du travail locatif, avec une approche plus légère qu'une compagnie de location traditionnelle. Vous obtenez plus de structure et de cadence sans payer pour un modèle plus lourd que nécessaire.",
+      "Le service se concentre sur les tâches locatives répétitives à forte charge opérationnelle. Cette approche permet une organisation plus souple et un modèle plus efficace que des options plus lourdes.",
   },
 ];
 

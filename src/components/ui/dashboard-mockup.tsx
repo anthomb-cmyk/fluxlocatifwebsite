@@ -101,74 +101,58 @@ export function DashboardMockup() {
           </div>
         </header>
 
-        <div className="md:hidden flex-1 p-2.5 overflow-hidden">
-          <div className="h-full rounded-2xl border border-slate-100 bg-white p-3 shadow-sm">
-            <div className="mb-3 grid grid-cols-3 gap-2">
-              {sidebarItems.slice(0, 3).map((item) => (
-                <div key={item.label} className={cn(
-                  "flex items-center justify-center gap-1.5 rounded-xl border px-2 py-1.5",
-                  item.active ? "border-blue-100 bg-blue-50 text-blue-600" : "border-slate-100 bg-slate-50 text-slate-500"
-                )}>
-                  {item.icon}
-                  <span className="text-[12px]">{item.label.split(" ")[0]}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="grid grid-cols-2 gap-2.5">
-              {mobileMetrics.map((m) => (
-                <div key={m.label} className="relative overflow-hidden rounded-xl border border-slate-100 bg-[#fbfcff] p-3">
-                  <div className={cn("absolute -right-5 -top-5 h-14 w-14 rounded-full blur-2xl opacity-25", m.bg)} />
-                  <p className="text-[11px] uppercase tracking-[0.12em] text-slate-400">{m.label}</p>
-                  <p className="mt-1 text-[24px] leading-none text-slate-900">{m.value}</p>
-                  <p className={cn("mt-2 text-[12px]", m.color)}>{m.trend}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-3 rounded-xl border border-slate-100 bg-slate-50/70 p-3">
-              <div className="mb-2 flex items-center justify-between">
-                <p className="text-[12px] text-slate-600">Pipeline</p>
-                <span className="text-[12px] text-emerald-600">En progression</span>
+        <div className="md:hidden flex-1 p-2 overflow-hidden">
+          <div className="h-full rounded-[18px] border border-slate-100 bg-white p-2.5 shadow-sm">
+            <div className="flex items-center justify-between rounded-xl border border-slate-100 bg-slate-50/70 px-3 py-2">
+              <div className="min-w-0">
+                <p className="text-[12px] font-medium text-slate-900">Vue locative</p>
+                <p className="text-[11px] text-slate-500">Aperçu simplifié</p>
               </div>
-              <div className="grid grid-cols-3 gap-2">
-                <div className="rounded-lg border border-blue-100 bg-blue-50/70 p-2 text-center">
-                  <p className="text-[11px] text-slate-500">Entrée</p>
-                  <p className="mt-1 text-[16px] text-slate-900">18</p>
-                </div>
-                <div className="rounded-lg border border-amber-100 bg-amber-50/70 p-2 text-center">
-                  <p className="text-[11px] text-slate-500">Tri</p>
-                  <p className="mt-1 text-[16px] text-slate-900">9</p>
-                </div>
-                <div className="rounded-lg border border-emerald-100 bg-emerald-50/70 p-2 text-center">
-                  <p className="text-[11px] text-slate-500">Envoi</p>
-                  <p className="mt-1 text-[16px] text-slate-900">4</p>
-                </div>
+              <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-medium text-emerald-600">
+                Actif
+              </span>
+            </div>
+
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              <div className="rounded-xl border border-slate-100 bg-[#fbfcff] p-3">
+                <p className="text-[11px] uppercase tracking-[0.08em] text-slate-400">Demandes</p>
+                <p className="mt-1 text-[20px] font-medium text-slate-900">312</p>
+                <p className="mt-1 text-[11px] text-emerald-600">+243</p>
+              </div>
+
+              <div className="rounded-xl border border-slate-100 bg-[#fbfcff] p-3">
+                <p className="text-[11px] uppercase tracking-[0.08em] text-slate-400">Préqualifiés</p>
+                <p className="mt-1 text-[20px] font-medium text-slate-900">58</p>
+                <p className="mt-1 text-[11px] text-emerald-600">+12%</p>
               </div>
             </div>
 
             <div className="mt-3 overflow-hidden rounded-xl border border-slate-100 bg-white">
-              <div className="flex items-center justify-between border-b border-slate-100 bg-[#F8FAFC]/70 px-2.5 py-2">
-                <p className="text-[12px] text-slate-600">Meilleur dossier</p>
-                <Filter className="h-3.5 w-3.5 text-slate-300" />
+              <div className="border-b border-slate-100 px-3 py-2">
+                <p className="text-[12px] font-medium text-slate-900">Dossiers récents</p>
               </div>
-              {mobileCandidates.map((c, i) => (
-                <div key={i} className="flex items-center justify-between px-2.5 py-2.5">
-                  <div className="flex items-center gap-2.5">
-                    <div className="h-8 w-8 overflow-hidden rounded-full border border-slate-200 bg-slate-100">
-                      <img src={c.img} alt={c.name} className="h-full w-full object-cover" />
-                    </div>
-                    <div>
-                      <p className="text-[13px] leading-none text-slate-900">{c.name}</p>
-                      <p className="mt-1 text-[11px] leading-none text-slate-400">{c.property}</p>
-                    </div>
+
+              <div className="divide-y divide-slate-100">
+                <div className="flex items-center justify-between px-3 py-2.5">
+                  <div>
+                    <p className="text-[12px] font-medium text-slate-900">Léa M.</p>
+                    <p className="text-[11px] text-slate-500">Loft Vieux-Mtl</p>
                   </div>
-                  <div className="text-right">
-                    <span className={cn("inline-block rounded-full border px-2.5 py-0.5 text-[11px]", c.statusColor)}>{c.status}</span>
-                    <p className="mt-1 text-[12px] text-emerald-600">Score {c.score}</p>
-                  </div>
+                  <span className="rounded-full bg-blue-50 px-2.5 py-1 text-[11px] font-medium text-blue-600">
+                    En cours
+                  </span>
                 </div>
-              ))}
+
+                <div className="flex items-center justify-between px-3 py-2.5">
+                  <div>
+                    <p className="text-[12px] font-medium text-slate-900">Julien R.</p>
+                    <p className="text-[11px] text-slate-500">Appartement Plateau</p>
+                  </div>
+                  <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-medium text-emerald-600">
+                    Vérifié
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

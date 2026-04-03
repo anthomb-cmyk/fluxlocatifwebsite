@@ -5,15 +5,6 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { DashboardMockup } from "@/components/ui/dashboard-mockup";
 import { TrustTicker } from "@/components/ui/trust-ticker";
 
-const trustTickerItems = [
-  "Bureau de location externalisé",
-  "Préqualification rigoureuse",
-  "Pipeline locatif structuré",
-  "Matching selon vos critères",
-  "Support locatif pour propriétaires et opérateurs",
-  "Jusqu'à 50 % plus léger qu'un modèle traditionnel",
-];
-
 export function Hero() {
   return (
     <section
@@ -45,15 +36,15 @@ export function Hero() {
         <div className="mx-auto max-w-[72rem] text-center">
           <div className="reveal-animation reveal-title inline-flex items-center gap-2 rounded-full border border-white/90 bg-white/88 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-primary shadow-[0_14px_34px_rgba(15,23,42,0.06)] backdrop-blur-md font-body">
             <Sparkles className="h-3.5 w-3.5" />
-            <span>SUPPORT LOCATIF STRUCTURÉ</span>
+            <span>SERVICE LOCATIF EXTERNALISÉ</span>
           </div>
 
-          <h1 className="reveal-animation reveal-title mx-auto mt-7 max-w-[56rem] text-balance text-4xl font-medium leading-[0.95] tracking-[-0.055em] text-slate-950 sm:text-[3.45rem] md:text-[4.35rem] lg:text-[4.8rem] font-headline">
-            Louez avec moins d’effort.
+          <h1 className="reveal-animation reveal-title mx-auto mt-7 max-w-[30rem] sm:max-w-[32rem] text-balance text-4xl font-medium leading-[0.95] tracking-[-0.055em] text-slate-950 sm:text-[3.45rem] md:text-[4.35rem] lg:text-[4.8rem] font-headline">
+            Moins de gestion. Plus de bons dossiers.
           </h1>
 
-          <p className="reveal-animation reveal-title mx-auto mt-6 max-w-[34rem] text-pretty text-base leading-8 text-slate-500 sm:text-[19px] sm:leading-9 font-body">
-            FluxLocatif filtre les demandes et vous aide à avancer plus vite avec les bons candidats.
+          <p className="reveal-animation reveal-title mx-auto mt-6 max-w-[26rem] sm:max-w-[28rem] text-pretty text-base leading-8 text-slate-500 sm:text-[19px] sm:leading-9 font-body">
+            Nous prenons en charge le tri initial, la préqualification et le suivi pour vous faire gagner du temps sur chaque location.
           </p>
 
           <div className="reveal-animation reveal-title mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -74,14 +65,14 @@ export function Hero() {
 
         </div>
 
-        <div className="reveal-animation reveal-mockup relative mx-auto -mx-9 mt-3 w-[calc(100%+4.5rem)] max-w-[1160px] px-0 sm:mx-auto sm:mt-8 sm:w-full sm:px-1 md:mt-12 md:px-4">
+        <div className="reveal-animation reveal-mockup relative mx-auto -mx-5 mt-5 w-[calc(100%+2.5rem)] max-w-[1160px] px-0 sm:mx-auto sm:mt-8 sm:w-full sm:px-1 md:mt-12 md:px-4">
           <div className="absolute inset-x-8 -bottom-8 h-40 rounded-full bg-blue-200/34 blur-3xl" />
           <div className="absolute inset-x-16 bottom-8 h-28 rounded-full bg-white/95 blur-[64px]" />
-          <div className="relative scale-[1.02] overflow-hidden rounded-[26px] border border-white/85 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(248,250,252,0.9))] p-[3px] shadow-[0_34px_86px_rgba(15,23,42,0.12)] backdrop-blur-sm transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_46px_110px_rgba(15,23,42,0.16)] sm:scale-100 sm:rounded-[30px] md:rounded-[36px] md:p-3">
+          <div className="relative overflow-hidden rounded-[24px] border border-white/85 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(248,250,252,0.9))] p-[3px] shadow-[0_28px_70px_rgba(15,23,42,0.10)] backdrop-blur-sm transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_40px_90px_rgba(15,23,42,0.14)] sm:rounded-[30px] md:rounded-[36px] md:p-3">
             <div className="pointer-events-none absolute inset-0 rounded-[36px] ring-1 ring-slate-200/70" />
             <div className="relative overflow-hidden rounded-[24px] border border-slate-200/80 bg-white sm:rounded-[30px]">
               <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.46),transparent_28%)]" />
-              <div className="relative aspect-[0.98/1] w-full overflow-hidden sm:aspect-[1.24/1] md:aspect-[16/9]">
+              <div className="relative aspect-[1.42/1] w-full overflow-hidden sm:aspect-[1.30/1] md:aspect-[16/9]">
                 <DashboardMockup />
               </div>
             </div>
@@ -89,7 +80,7 @@ export function Hero() {
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.96),transparent_72%)]" />
         </div>
 
-        <TrustTicker items={trustTickerItems} />
+        <TrustTicker />
       </div>
     </section>
   );

@@ -1,6 +1,5 @@
 import {
   ArrowUpRight,
-  BadgeCheck,
   CheckCircle2,
   CircleDollarSign,
   MoveRight,
@@ -14,12 +13,12 @@ import { cn } from "@/lib/utils";
 
 const benefitCards = [
   {
-    eyebrow: "Flux entrant",
-    title: "Demandes entrantes",
-    description: "Moins de temps perdu sur les messages répétitifs.",
+    eyebrow: "Temps",
+    title: "Moins de messages à gérer",
+    description: "Le tri initial enlève une partie du volume répétitif.",
     icon: <MessagesSquare className="h-5 w-5" />,
     illustration: (
-      <div className="relative h-36 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner">
+      <div className="relative h-28 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner md:h-36">
         <div className="absolute -right-10 -top-10 h-20 w-20 rounded-full bg-blue-100/50 blur-2xl" />
         <div className="relative space-y-2.5">
           <div className="ml-auto flex w-[78%] items-center gap-2 rounded-2xl border border-blue-100 bg-blue-50/85 px-3 py-2 shadow-sm">
@@ -48,35 +47,31 @@ const benefitCards = [
     ),
   },
   {
-    eyebrow: "Validation",
-    title: "Préqualification",
-    description: "Les dossiers avancent avec plus de rigueur dès le départ.",
+    eyebrow: "Qualité",
+    title: "Des dossiers mieux préparés",
+    description: "Les profils avancent avec plus de rigueur avant d’être présentés.",
     icon: <ScanSearch className="h-5 w-5" />,
     illustration: (
-      <div className="relative h-36 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner">
-        <div className="rounded-[18px] border border-white bg-white/95 p-3.5 shadow-sm">
-          <div className="flex items-center justify-between">
-            <div className="text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-400 font-body">
-              Critères locataire
-            </div>
-            <div className="rounded-full bg-emerald-50 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-600 font-body">
-              Validé
-            </div>
+      <div className="relative h-28 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner md:h-36">
+        <div className="rounded-[18px] border border-white bg-white/95 p-3 shadow-sm">
+          <div className="flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-400 font-body">
+            <span>Checklist</span>
+            <span className="rounded-full bg-emerald-50 px-2 py-1 text-emerald-600">Validé</span>
           </div>
-          <div className="mt-3 space-y-2">
-            <div className="flex items-center gap-2 rounded-xl border border-emerald-100 bg-emerald-50/70 px-3 py-2 text-[11px] font-medium text-emerald-700 font-body">
-              <CheckCircle2 className="h-3.5 w-3.5" />
-              Revenus vérifiés
+          <div className="mt-2.5 space-y-2">
+            <div className="flex items-center gap-2 rounded-xl border border-emerald-100 bg-emerald-50/70 px-2.5 py-1.5 text-[11px] font-medium text-emerald-700 font-body">
+              <CheckCircle2 className="h-3.5 w-3.5 shrink-0" />
+              Critères revenus
             </div>
-            <div className="flex items-center gap-2 rounded-xl border border-blue-100 bg-blue-50/70 px-3 py-2 text-[11px] font-medium text-blue-700 font-body">
-              <ShieldCheck className="h-3.5 w-3.5" />
-              Critères compatibles
+            <div className="flex items-center gap-2 rounded-xl border border-blue-100 bg-blue-50/70 px-2.5 py-1.5 text-[11px] font-medium text-blue-700 font-body">
+              <ShieldCheck className="h-3.5 w-3.5 shrink-0" />
+              Profil validé
             </div>
-            <div className="mt-0.5 flex items-center gap-2">
+            <div className="mt-1 flex items-center gap-2">
               <div className="h-1.5 flex-1 rounded-full bg-slate-100">
-                <div className="h-1.5 w-[82%] rounded-full bg-emerald-400" />
+                <div className="h-1.5 w-[88%] rounded-full bg-emerald-400" />
               </div>
-              <span className="text-[11px] font-semibold text-emerald-600 font-body">94%</span>
+              <span className="text-[11px] font-semibold text-emerald-600 font-body">88%</span>
             </div>
           </div>
         </div>
@@ -84,12 +79,12 @@ const benefitCards = [
     ),
   },
   {
-    eyebrow: "Workflow",
-    title: "Pipeline structuré",
-    description: "Chaque étape reste visible et plus simple à piloter.",
+    eyebrow: "Suivi",
+    title: "Une vue plus claire du pipeline",
+    description: "Les étapes restent faciles à suivre et à comparer.",
     icon: <Target className="h-5 w-5" />,
     illustration: (
-      <div className="relative h-36 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner">
+      <div className="relative h-28 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner md:h-36">
         <div className="grid h-full grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] items-center gap-1.5">
           {["Entrée", "Tri", "Validation", "Envoi"].map((label, index) => (
             <div key={label} className="flex h-full flex-col justify-between rounded-[16px] border border-white bg-white/95 p-2 shadow-sm">
@@ -105,53 +100,49 @@ const benefitCards = [
     ),
   },
   {
-    eyebrow: "Résultat",
-    title: "Des opérations plus efficaces",
-    description: "Vous gardez la main sur la décision finale, sans porter tout le volume opérationnel.",
+    eyebrow: "Décision",
+    title: "Des décisions plus simples",
+    description: "Vous gardez le choix final avec moins de travail préparatoire.",
     icon: <TrendingUp className="h-5 w-5" />,
     illustration: (
-      <div className="relative h-36 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner">
+      <div className="relative h-28 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner md:h-36">
         <div className="absolute -left-8 -bottom-8 h-20 w-20 rounded-full bg-blue-100/55 blur-2xl" />
-        <div className="relative grid h-full grid-cols-[1.4fr_1fr] gap-2.5">
+        <div className="relative grid h-full grid-cols-[1.25fr_1fr] gap-2.5">
           <div className="rounded-[16px] border border-white bg-white/95 p-3 shadow-sm">
-            <div className="flex items-center justify-between">
-              <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400 font-body">
-                Performance
+            <div className="text-[10px] uppercase tracking-[0.14em] text-slate-400 font-body">Avant / Après</div>
+            <div className="mt-3 space-y-2.5">
+              <div>
+                <p className="text-[10px] text-slate-400">Avant</p>
+                <div className="mt-1 h-2 rounded-full bg-slate-100">
+                  <div className="h-2 w-[38%] rounded-full bg-slate-300" />
+                </div>
               </div>
-              <div className="text-[11px] font-semibold text-emerald-600 font-body">+27%</div>
-            </div>
-            <div className="mt-3 grid h-12 grid-cols-5 items-end gap-1.5">
-              {[24, 30, 38, 50, 64].map((height, index) => (
-                <div
-                  key={`${height}-${index}`}
-                  className={`rounded-md ${
-                    index < 3 ? "bg-slate-200" : index === 3 ? "bg-blue-300" : "bg-emerald-400"
-                  }`}
-                  style={{ height: `${height}%` }}
-                />
-              ))}
-            </div>
-            <div className="mt-2 h-1.5 rounded-full bg-slate-100">
-              <div className="h-1.5 w-[76%] rounded-full bg-blue-400" />
+              <div>
+                <p className="text-[10px] text-slate-400">Après</p>
+                <div className="mt-1 h-2 rounded-full bg-blue-100">
+                  <div className="h-2 w-[82%] rounded-full bg-blue-400" />
+                </div>
+              </div>
             </div>
           </div>
           <div className="rounded-[16px] border border-white bg-white/95 p-3 shadow-sm">
-            <div className="text-[10px] uppercase tracking-[0.14em] text-slate-400 font-body">Efficacité</div>
+            <div className="text-[10px] uppercase tracking-[0.14em] text-slate-400 font-body">Score</div>
             <div className="mt-2 flex h-[72px] items-center justify-center rounded-xl bg-emerald-50/70 text-[22px] font-semibold text-emerald-600 font-headline">
               91
             </div>
+            <p className="mt-1.5 text-center text-[10px] text-slate-500">Efficacité locative</p>
           </div>
         </div>
       </div>
     ),
   },
   {
-    eyebrow: "Résultat",
-    title: "Jusqu'à 50 % moins cher",
-    description: "Une structure premium plus légère qu'une compagnie de location traditionnelle.",
+    eyebrow: "Coût",
+    title: "Une alternative plus souple",
+    description: "Une alternative plus efficace qu’un modèle locatif plus lourd.",
     icon: <CircleDollarSign className="h-5 w-5" />,
     illustration: (
-      <div className="relative h-36 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner">
+      <div className="relative h-28 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner md:h-36">
         <div className="grid h-full grid-cols-2 gap-2.5">
           <div className="rounded-[16px] border border-white bg-white/95 p-3 shadow-sm">
             <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400 font-body">Traditionnel</div>
@@ -174,7 +165,7 @@ const benefitCards = [
                 <div className="h-2 w-[47%] rounded-full bg-blue-400" />
               </div>
             </div>
-            <div className="mt-2 text-[11px] font-medium text-emerald-600 font-body">Jusqu'à 50%</div>
+            <div className="mt-2 text-[11px] font-medium text-emerald-600 font-body">Coût optimisé</div>
           </div>
         </div>
       </div>
@@ -196,22 +187,20 @@ export function Benefits() {
             Bénéfices concrets
           </div>
           <h2 className="mt-6 text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
-            Les bénéfices clés de FluxLocatif, en un coup d'oeil.
+            Ce que vous gagnez concrètement.
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-7 text-slate-500 font-body">
-            Moins de charge manuelle, plus de dossiers qualifiés, et un pipeline locatif beaucoup plus lisible.
+            Moins de gestion répétitive, plus de clarté et des dossiers plus simples à traiter.
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 gap-3.5 md:grid-cols-3 md:gap-5">
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-5">
           {topCards.map((card, idx) => (
             <article
               key={card.title}
               className={cn(
                 "reveal-animation reveal-card group rounded-[30px] border border-white/90 bg-white/96 p-4 shadow-[0_22px_70px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_85px_rgba(15,23,42,0.08)] md:p-6",
-                idx === 0 && "col-span-2 md:col-span-1",
-                idx === 1 && "col-span-1 md:col-span-1 md:-mt-6",
-                idx === 2 && "col-span-1 mt-6 md:col-span-1 md:mt-4"
+                idx === 0 && "sm:col-span-2 md:col-span-1"
               )}
             >
               {card.illustration}
@@ -223,10 +212,10 @@ export function Benefits() {
                   {card.eyebrow}
                 </span>
               </div>
-              <h3 className="mt-4 text-[1.95rem] leading-[1.05] font-medium tracking-tight text-slate-950 font-headline md:text-2xl">
+              <h3 className="mt-4 text-[1.5rem] leading-[1.05] font-medium tracking-tight text-slate-950 font-headline md:text-2xl">
                 {card.title}
               </h3>
-              <p className="mt-3 text-base leading-7 text-slate-500 font-body md:text-[15px]">
+              <p className="mt-3 text-[15px] leading-6 text-slate-500 font-body">
                 {card.description}
               </p>
             </article>
@@ -234,14 +223,11 @@ export function Benefits() {
         </div>
 
         <div className="mt-4 rounded-[28px] border border-white/85 bg-white/72 p-2.5 shadow-[0_18px_50px_rgba(15,23,42,0.04)] md:mt-10 md:rounded-none md:border-0 md:bg-transparent md:p-0 md:shadow-none">
-          <div className="grid grid-cols-2 gap-3.5 md:grid-cols-2 md:gap-5">
-            {bottomCards.map((card, idx) => (
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-5">
+            {bottomCards.map((card) => (
               <article
                 key={card.title}
-                className={cn(
-                  "reveal-animation reveal-card group rounded-[26px] border border-white/90 bg-white/96 p-4 shadow-[0_20px_60px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_85px_rgba(15,23,42,0.08)] md:rounded-[30px] md:p-7",
-                  idx === 1 && "mt-6 md:mt-8"
-                )}
+                className="reveal-animation reveal-card group rounded-[26px] border border-white/90 bg-white/96 p-4 shadow-[0_20px_60px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_85px_rgba(15,23,42,0.08)] md:rounded-[30px] md:p-7"
               >
                 {card.illustration}
                 <div className="mt-5 flex items-center gap-3">
@@ -252,17 +238,16 @@ export function Benefits() {
                     {card.eyebrow}
                   </span>
                 </div>
-                <h3 className="mt-4 text-[1.95rem] leading-[1.05] font-medium tracking-tight text-slate-950 font-headline md:text-2xl">
+                <h3 className="mt-4 text-[1.5rem] leading-[1.05] font-medium tracking-tight text-slate-950 font-headline md:text-2xl">
                   {card.title}
                 </h3>
-                <p className="mt-3 text-base leading-7 text-slate-500 font-body md:text-[15px]">
+                <p className="mt-3 text-[15px] leading-6 text-slate-500 font-body">
                   {card.description}
                 </p>
               </article>
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );
