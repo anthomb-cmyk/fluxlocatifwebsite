@@ -15,6 +15,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'FluxLocatif - Optimisation locative pour propriétaires actifs',
   description: 'FluxLocatif centralise les demandes, filtre les profils pertinents et structure votre processus de location.',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
