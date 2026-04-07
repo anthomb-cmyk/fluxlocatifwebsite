@@ -1,0 +1,15 @@
+import { chromium, devices } from 'playwright';
+import fs from 'fs';
+const outDir = '/tmp/fluxlocatif-mobile-requested';
+fs.mkdirSync(outDir, { recursive: true });
+const browser = await chromium.launch({ headless: true, args: ['--no-sandbox'] });
+const context = await browser.newContext({ ...devices['iPhone 14 Pro Max'] });
+const page = await context.newPage();
+await page.goto('http://127.0.0.1:3000', { waitUntil: 'domcontentloaded' });
+await page.waitForTimeout(2200);
+const benefits = page.locator('section#benefits').first();
+await benefits.scrollIntoViewIfNeeded();
+await page.waitForTimeout(600);
+await benefits.screenshot({ path: `${outDir}/04-benefices-section-complete.png` });
+await browser.close();
+console.log(outDir);

@@ -1,10 +1,10 @@
 "use client";
 
 const items = [
-  "Tri initial des demandes",
+  "Bureau locatif externalisé",
   "Préqualification avant présentation",
-  "Suivi des conversations locatives",
-  "Organisation claire des dossiers",
+  "Matching selon vos critères",
+  "Suivi plus léger pour vos équipes",
 ];
 
 export function TrustTicker() {
