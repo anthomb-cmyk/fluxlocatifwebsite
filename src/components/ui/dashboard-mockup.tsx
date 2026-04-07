@@ -113,47 +113,83 @@ export function DashboardMockup() {
               </span>
             </div>
 
-            <div className="mt-3 grid grid-cols-2 gap-2">
+            <div className="mt-2.5 grid grid-cols-3 gap-2">
+              {["Demandes", "Tri", "Validés"].map((tab, idx) => (
+                <div
+                  key={tab}
+                  className={cn(
+                    "rounded-lg border px-2 py-1.5 text-center text-[11px] font-medium",
+                    idx === 0
+                      ? "border-blue-100 bg-blue-50 text-blue-600"
+                      : "border-slate-100 bg-white text-slate-500"
+                  )}
+                >
+                  {tab}
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-2.5 grid grid-cols-2 gap-2">
               <div className="rounded-xl border border-slate-100 bg-[#fbfcff] p-3">
                 <p className="text-[11px] uppercase tracking-[0.08em] text-slate-400">Demandes</p>
-                <p className="mt-1 text-[20px] font-medium text-slate-900">312</p>
+                <p className="mt-1 text-[21px] font-medium text-slate-900">312</p>
                 <p className="mt-1 text-[11px] text-emerald-600">+243</p>
               </div>
 
               <div className="rounded-xl border border-slate-100 bg-[#fbfcff] p-3">
                 <p className="text-[11px] uppercase tracking-[0.08em] text-slate-400">Préqualifiés</p>
-                <p className="mt-1 text-[20px] font-medium text-slate-900">58</p>
+                <p className="mt-1 text-[21px] font-medium text-slate-900">58</p>
                 <p className="mt-1 text-[11px] text-emerald-600">+12%</p>
               </div>
             </div>
 
-            <div className="mt-3 overflow-hidden rounded-xl border border-slate-100 bg-white">
-              <div className="border-b border-slate-100 px-3 py-2">
-                <p className="text-[12px] font-medium text-slate-900">Dossiers récents</p>
+            <div className="mt-2.5 rounded-xl border border-slate-100 bg-white p-2.5">
+              <div className="mb-2 flex items-center justify-between">
+                <p className="text-[12px] font-medium text-slate-700">Pipeline</p>
+                <p className="text-[11px] text-emerald-600">En progression</p>
               </div>
-
-              <div className="divide-y divide-slate-100">
-                <div className="flex items-center justify-between px-3 py-2.5">
-                  <div>
-                    <p className="text-[12px] font-medium text-slate-900">Léa M.</p>
-                    <p className="text-[11px] text-slate-500">Loft Vieux-Mtl</p>
-                  </div>
-                  <span className="rounded-full bg-blue-50 px-2.5 py-1 text-[11px] font-medium text-blue-600">
-                    En cours
-                  </span>
+              <div className="grid grid-cols-3 gap-2">
+                <div className="rounded-lg border border-blue-100 bg-blue-50/70 p-2 text-center">
+                  <p className="text-[11px] text-slate-500">Entrée</p>
+                  <p className="mt-1 text-[16px] font-medium text-slate-900">18</p>
                 </div>
-
-                <div className="flex items-center justify-between px-3 py-2.5">
-                  <div>
-                    <p className="text-[12px] font-medium text-slate-900">Julien R.</p>
-                    <p className="text-[11px] text-slate-500">Appartement Plateau</p>
-                  </div>
-                  <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-medium text-emerald-600">
-                    Vérifié
-                  </span>
+                <div className="rounded-lg border border-amber-100 bg-amber-50/70 p-2 text-center">
+                  <p className="text-[11px] text-slate-500">Tri</p>
+                  <p className="mt-1 text-[16px] font-medium text-slate-900">9</p>
+                </div>
+                <div className="rounded-lg border border-emerald-100 bg-emerald-50/70 p-2 text-center">
+                  <p className="text-[11px] text-slate-500">Envoi</p>
+                  <p className="mt-1 text-[16px] font-medium text-slate-900">4</p>
                 </div>
               </div>
             </div>
+
+            {mobileCandidates?.[0] && (
+              <div className="mt-2.5 overflow-hidden rounded-xl border border-slate-100 bg-white">
+                <div className="flex items-center justify-between border-b border-slate-100 px-3 py-2">
+                  <p className="text-[12px] font-medium text-slate-700">Dossier vedette</p>
+                  <p className="text-[11px] text-slate-400">91/100</p>
+                </div>
+                <div className="flex items-center justify-between px-3 py-3">
+                  <div className="flex items-center gap-2.5">
+                    <div className="h-9 w-9 overflow-hidden rounded-full border border-slate-200 bg-slate-100">
+                      <img
+                        src={mobileCandidates[0].img}
+                        alt={mobileCandidates[0].name}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <div>
+                      <p className="text-[13px] font-medium text-slate-900">{mobileCandidates[0].name}</p>
+                      <p className="text-[11px] text-slate-400">{mobileCandidates[0].property}</p>
+                    </div>
+                  </div>
+                  <span className={cn("rounded-full border px-2.5 py-1 text-[11px]", mobileCandidates[0].statusColor)}>
+                    {mobileCandidates[0].status}
+                  </span>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -225,7 +261,7 @@ export function DashboardMockup() {
                     <td className="px-8 py-4 text-[13px] text-slate-500">{c.property}</td>
                     <td className="px-8 py-4 text-[13px] text-slate-600">{c.income}</td>
                     <td className="px-8 py-4">
-                      <span className={cn("rounded-full border px-2.5 py-1 text-[10px]", c.statusColor)}>{c.status}</span>
+                      <span className={cn("inline-flex items-center whitespace-nowrap rounded-full border px-2.5 py-1 text-[10px]", c.statusColor)}>{c.status}</span>
                     </td>
                     <td className="px-8 py-4 text-right">
                       <div className="inline-flex items-center gap-2">
