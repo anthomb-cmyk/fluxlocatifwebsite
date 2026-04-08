@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-white pt-[6.25rem] pb-14 md:pt-28 md:pb-20"
+      className="relative overflow-hidden bg-white pt-20 pb-9 md:pt-28 md:pb-20"
     >
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#ffffff_0%,#fbfdff_36%,#f7faff_100%)]" />
@@ -34,30 +34,32 @@ export function Hero() {
 
       <div className="container relative z-10 mx-auto px-6">
         <div className="mx-auto max-w-[72rem] text-center">
-          <div className="reveal-animation reveal-title inline-flex items-center gap-2 rounded-full border border-white/90 bg-white/88 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.24em] text-primary shadow-[0_14px_34px_rgba(15,23,42,0.06)] backdrop-blur-md font-body">
+          <div className="reveal-animation reveal-title inline-flex items-center gap-2 rounded-full border border-white/90 bg-white/88 px-3.5 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary shadow-[0_14px_34px_rgba(15,23,42,0.06)] backdrop-blur-md font-body sm:px-4 sm:py-2.5 sm:text-[11px] sm:tracking-[0.24em]">
             <Sparkles className="h-3.5 w-3.5" />
             <span>SERVICE DE LOCATION EXTERNALISÉ</span>
           </div>
 
-          <h1 className="reveal-animation reveal-title mx-auto mt-7 max-w-[30rem] sm:max-w-[32rem] text-balance text-4xl font-medium leading-[0.95] tracking-[-0.055em] text-slate-950 sm:text-[3.45rem] md:text-[4.35rem] lg:text-[4.8rem] font-headline">
-            Louez plus vite avec de meilleurs candidats.
+          <h1 className="reveal-animation reveal-title mx-auto mt-5 max-w-[22rem] text-balance text-[2.6rem] font-medium leading-[0.94] tracking-[-0.045em] text-slate-950 sm:mt-7 sm:max-w-[32rem] sm:text-[3.45rem] md:text-[4.35rem] lg:text-[4.8rem] font-headline">
+            Louez plus vite
+            <br className="sm:hidden" />
+            {" "}avec de meilleurs candidats.
           </h1>
 
-          <p className="reveal-animation reveal-title mx-auto mt-6 max-w-[26rem] sm:max-w-[28rem] text-pretty text-base leading-8 text-slate-500 sm:text-[19px] sm:leading-9 font-body">
+          <p className="reveal-animation reveal-title mx-auto mt-4 max-w-[21rem] text-pretty text-[15.5px] leading-[1.65] text-slate-500 sm:mt-6 sm:max-w-[28rem] sm:text-[19px] sm:leading-9 font-body">
             FluxLocatif prend en charge le tri initial, la préqualification et le suivi pour vous faire avancer plus vite vers les bons dossiers.
           </p>
 
-          <div className="reveal-animation reveal-title mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="reveal-animation reveal-title mt-6 flex flex-col items-center justify-center gap-3 sm:mt-8 sm:gap-4 sm:flex-row">
             <Link
               href="/contact"
-              className="inline-flex h-14 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 via-blue-500 to-blue-600 px-8 text-base font-semibold text-white shadow-[0_16px_40px_rgba(59,130,246,0.24)] transition duration-300 hover:scale-[1.01] hover:shadow-[0_20px_46px_rgba(59,130,246,0.3)] font-body"
+              className="inline-flex h-12 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 via-blue-500 to-blue-600 px-6 text-[15px] font-semibold text-white shadow-[0_12px_30px_rgba(59,130,246,0.24)] transition duration-300 hover:scale-[1.01] hover:shadow-[0_20px_46px_rgba(59,130,246,0.3)] sm:h-14 sm:px-8 sm:text-base font-body"
             >
               Démarrer le service
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex h-14 items-center justify-center rounded-full border border-slate-200 bg-white/92 px-8 text-base font-medium text-slate-700 shadow-[0_12px_30px_rgba(15,23,42,0.05)] backdrop-blur-sm transition duration-300 hover:bg-white hover:shadow-[0_14px_36px_rgba(15,23,42,0.08)] font-body"
+              className="inline-flex h-12 items-center justify-center rounded-full border border-slate-200 bg-white/92 px-6 text-[15px] font-medium text-slate-700 shadow-[0_10px_26px_rgba(15,23,42,0.05)] backdrop-blur-sm transition duration-300 hover:bg-white hover:shadow-[0_14px_36px_rgba(15,23,42,0.08)] sm:h-14 sm:px-8 sm:text-base font-body"
             >
               Réserver un appel
             </Link>
@@ -65,14 +67,14 @@ export function Hero() {
 
         </div>
 
-        <div className="reveal-animation reveal-mockup relative mx-auto -mx-6 mt-4 w-[calc(100%+3rem)] max-w-[1160px] px-0 sm:mx-auto sm:mt-8 sm:w-full sm:px-1 md:mt-12 md:px-4">
+        <div className="reveal-animation reveal-mockup relative mx-auto -mx-4 mt-3 w-[calc(100%+2rem)] max-w-[1160px] px-0 sm:mx-auto sm:mt-8 sm:w-full sm:px-1 md:mt-12 md:px-4">
           <div className="absolute inset-x-8 -bottom-8 h-40 rounded-full bg-blue-200/34 blur-3xl" />
           <div className="absolute inset-x-16 bottom-8 h-28 rounded-full bg-white/95 blur-[64px]" />
           <div className="relative overflow-hidden rounded-[24px] border border-white/85 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(248,250,252,0.9))] p-[3px] shadow-[0_28px_70px_rgba(15,23,42,0.10)] backdrop-blur-sm transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_40px_90px_rgba(15,23,42,0.14)] sm:rounded-[30px] md:rounded-[36px] md:p-3">
             <div className="pointer-events-none absolute inset-0 rounded-[36px] ring-1 ring-slate-200/70" />
             <div className="relative overflow-hidden rounded-[24px] border border-slate-200/80 bg-white sm:rounded-[30px]">
               <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.46),transparent_28%)]" />
-              <div className="relative aspect-[1.30/1] w-full overflow-hidden sm:aspect-[1.24/1] md:aspect-[16/9]">
+              <div className="relative aspect-[1.5/1] w-full overflow-hidden sm:aspect-[1.24/1] md:aspect-[16/9]">
                 <DashboardMockup />
               </div>
             </div>
