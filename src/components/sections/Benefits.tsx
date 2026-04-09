@@ -262,8 +262,10 @@ export function Benefits() {
             <article
               key={card.title}
               className={cn(
-                "group scroll-fade-up hover-tilt rounded-[24px] border border-white/90 bg-white/96 p-3.5 shadow-[0_20px_60px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_85px_rgba(15,23,42,0.08)] sm:rounded-[28px] sm:p-4 md:rounded-[30px] md:p-6",
-                `scroll-delay-${Math.min(idx, 4)}`,
+                "group hover-tilt rounded-[24px] border border-white/90 bg-white/96 p-3.5 shadow-[0_20px_60px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_85px_rgba(15,23,42,0.08)] sm:rounded-[28px] sm:p-4 md:rounded-[30px] md:p-6",
+                idx === 0 && "scroll-from-left",
+                idx === 1 && "scroll-fade-up scroll-delay-1",
+                idx === 2 && "scroll-from-right scroll-delay-2",
                 idx === 0 && "col-span-2 md:col-span-1"
               )}
             >
@@ -292,8 +294,9 @@ export function Benefits() {
               <article
                 key={card.title}
                 className={cn(
-                  "group scroll-fade-up hover-tilt rounded-[24px] border border-white/90 bg-white/96 p-3.5 shadow-[0_20px_60px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_85px_rgba(15,23,42,0.08)] sm:rounded-[26px] sm:p-4 md:rounded-[30px] md:p-7",
-                  `scroll-delay-${Math.min(idx + topCards.length, 4)}`
+                  "group hover-tilt rounded-[24px] border border-white/90 bg-white/96 p-3.5 shadow-[0_20px_60px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_85px_rgba(15,23,42,0.08)] sm:rounded-[26px] sm:p-4 md:rounded-[30px] md:p-7",
+                  idx === 0 && "scroll-from-left",
+                  idx === 1 && "scroll-from-right scroll-delay-1"
                 )}
               >
                 {card.illustration}

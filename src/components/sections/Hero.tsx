@@ -58,7 +58,7 @@ export function Hero() {
             <span>SERVICE LOCATIF EXTERNALISÉ</span>
           </div>
 
-          <h1 className="scroll-blur-in mx-auto mt-5 max-w-[22rem] text-balance text-[2.6rem] font-medium leading-[0.94] tracking-[-0.045em] text-slate-950 sm:mt-7 sm:max-w-[32rem] sm:text-[3.45rem] md:text-[4.35rem] lg:text-[4.8rem] font-headline">
+          <h1 className="scroll-blur-in mx-auto mt-5 max-w-[22rem] text-balance text-[2rem] font-medium leading-[1.08] tracking-[-0.045em] text-slate-950 sm:mt-7 sm:max-w-[32rem] sm:text-[2.8rem] md:text-[3.5rem] lg:text-[4rem] font-headline">
             On répond, on trie, on structure.
           </h1>
 

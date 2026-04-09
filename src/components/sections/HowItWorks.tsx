@@ -150,8 +150,11 @@ export function HowItWorks() {
             <article
               key={step.number}
               className={cn(
-                "group scroll-tilt-in hover-tilt flex h-full flex-col rounded-[24px] border border-white/85 bg-[#fbfcff]/92 p-3.5 shadow-[0_20px_54px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(15,23,42,0.07)] sm:rounded-[28px] sm:p-4 md:rounded-[32px] md:p-6",
-                `scroll-delay-${Math.min(idx, 4)}`
+                "group hover-tilt flex h-full flex-col rounded-[24px] border border-white/85 bg-[#fbfcff]/92 p-3.5 shadow-[0_20px_54px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(15,23,42,0.07)] sm:rounded-[28px] sm:p-4 md:rounded-[32px] md:p-6",
+                idx === 0 && "scroll-from-left",
+                idx === 1 && "scroll-fade-up scroll-delay-1",
+                idx === 2 && "scroll-fade-up scroll-delay-2",
+                idx === 3 && "scroll-from-right scroll-delay-3"
               )}
             >
               {step.illustration}

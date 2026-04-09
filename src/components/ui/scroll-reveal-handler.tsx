@@ -13,17 +13,8 @@ export function ScrollRevealHandler() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const revealSelector = [
-      ".reveal-animation",
-      ".scroll-fade-up",
-      ".scroll-scale-in",
-      ".scroll-tilt-in",
-      ".scroll-from-left",
-      ".scroll-from-right",
-      ".scroll-blur-in",
-      ".scroll-clip-reveal",
-      ".scroll-line-draw",
-    ].join(", ");
+    const revealSelector =
+      ".reveal-animation, .scroll-fade-up, .scroll-from-left, .scroll-from-right, .scroll-scale-in, .scroll-blur-in, .scroll-clip-reveal, .scroll-tilt-in";
 
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"

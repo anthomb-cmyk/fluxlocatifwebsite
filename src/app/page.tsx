@@ -191,8 +191,10 @@ export default function Home() {
                 <article
                   key={item.title}
                   className={cn(
-                    "group scroll-fade-up hover-tilt rounded-[24px] border border-white/85 bg-white/94 p-3.5 shadow-[0_20px_60px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_85px_rgba(15,23,42,0.08)] sm:rounded-[28px] sm:p-4 md:rounded-[32px] md:p-8",
-                    `scroll-delay-${Math.min(idx, 4)}`,
+                    "group hover-tilt rounded-[24px] border border-white/85 bg-white/94 p-3.5 shadow-[0_20px_60px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_85px_rgba(15,23,42,0.08)] sm:rounded-[28px] sm:p-4 md:rounded-[32px] md:p-8",
+                    idx === 0 && "scroll-fade-up",
+                    idx === 1 && "scroll-from-left scroll-delay-1",
+                    idx === 2 && "scroll-from-right scroll-delay-2",
                     idx === 0 && "col-span-2 lg:col-span-1"
                   )}
                 >
@@ -229,10 +231,14 @@ export default function Home() {
             </div>
 
             <div className="mt-12 grid gap-5 lg:grid-cols-2">
-              {serviceBlocks.map((service) => (
+              {serviceBlocks.map((service, idx) => (
                 <article
                   key={service.title}
-                  className="reveal-animation reveal-card rounded-[32px] border border-white/90 bg-[#fbfcff] p-6 shadow-[0_20px_60px_rgba(15,23,42,0.04)] md:p-8"
+                  className={cn(
+                    "rounded-[32px] border border-white/90 bg-[#fbfcff] p-6 shadow-[0_20px_60px_rgba(15,23,42,0.04)] md:p-8",
+                    idx === 0 && "scroll-from-left",
+                    idx === 1 && "scroll-from-right scroll-delay-1"
+                  )}
                 >
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-blue-100 bg-white text-primary shadow-sm">
                     {service.icon}
@@ -281,8 +287,10 @@ export default function Home() {
                 <div
                   key={item.title}
                   className={cn(
-                    "scroll-fade-up hover-tilt rounded-[28px] border border-slate-200/70 bg-[#fbfcff] p-6 shadow-[0_18px_46px_rgba(15,23,42,0.04)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_56px_rgba(15,23,42,0.08)]",
-                    `scroll-delay-${Math.min(index, 4)}`
+                    "hover-tilt rounded-[28px] border border-slate-200/70 bg-[#fbfcff] p-6 shadow-[0_18px_46px_rgba(15,23,42,0.04)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_56px_rgba(15,23,42,0.08)]",
+                    index === 0 && "scroll-from-left",
+                    index === 1 && "scroll-fade-up scroll-delay-1",
+                    index === 2 && "scroll-from-right scroll-delay-2"
                   )}
                 >
                   <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-blue-100 bg-white text-primary">
