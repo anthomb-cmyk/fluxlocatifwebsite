@@ -194,7 +194,7 @@ export default function Home() {
                     "group hover-tilt rounded-[24px] border border-white/85 bg-white/94 p-3.5 shadow-[0_20px_60px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_85px_rgba(15,23,42,0.08)] sm:rounded-[28px] sm:p-4 md:rounded-[32px] md:p-8",
                     idx === 0 && "scroll-fade-up",
                     idx === 1 && "scroll-from-left scroll-delay-1",
-                    idx === 2 && "scroll-from-right scroll-delay-2"
+                    idx === 2 && "col-span-2 sm:col-span-1 scroll-from-right scroll-delay-2"
                   )}
                 >
                   {item.illustration}
