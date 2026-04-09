@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { DashboardMockup } from "@/components/ui/dashboard-mockup";
-import { TrustTicker } from "@/components/ui/trust-ticker";
 
 export function Hero() {
   useEffect(() => {
@@ -99,7 +98,6 @@ export function Hero() {
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.96),transparent_72%)]" />
         </div>
 
-        <TrustTicker />
       </div>
     </section>
   );
