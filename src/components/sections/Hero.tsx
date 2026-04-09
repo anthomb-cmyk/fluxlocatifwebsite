@@ -74,7 +74,7 @@ export function Hero() {
             <div className="pointer-events-none absolute inset-0 rounded-[36px] ring-1 ring-slate-200/70" />
             <div className="relative overflow-hidden rounded-[24px] border border-slate-200/80 bg-white sm:rounded-[30px]">
               <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.46),transparent_28%)]" />
-              <div className="relative aspect-[1.34/1] w-full overflow-hidden sm:aspect-[1.24/1] md:aspect-[16/9]">
+              <div className="relative aspect-[1.08/1] w-full overflow-hidden sm:aspect-[1.24/1] md:aspect-[16/9]">
                 <DashboardMockup />
               </div>
             </div>
