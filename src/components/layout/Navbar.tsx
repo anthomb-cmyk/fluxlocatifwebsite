@@ -76,7 +76,7 @@ export function Navbar() {
 
       <div
         className={cn(
-          "mx-auto mt-3 max-w-[1240px] overflow-hidden rounded-[28px] border border-white/85 bg-white/95 backdrop-blur-xl shadow-[0_20px_40px_-28px_rgba(15,23,42,0.24)] transition-all duration-300 md:hidden",
+          "mx-auto mt-3 w-full max-w-full overflow-hidden rounded-[28px] border border-white/85 bg-white/95 backdrop-blur-xl shadow-[0_20px_40px_-28px_rgba(15,23,42,0.24)] transition-all duration-300 md:hidden md:max-w-[1240px]",
           isOpen ? "max-h-[420px] py-5 opacity-100" : "pointer-events-none max-h-0 border-transparent py-0 opacity-0"
         )}
       >
@@ -85,7 +85,7 @@ export function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-lg font-medium tracking-tight text-slate-900 hover:text-primary font-body"
+              className="truncate text-lg font-medium tracking-tight text-slate-900 hover:text-primary font-body"
               onClick={() => setIsOpen(false)}
             >
               {link.name}

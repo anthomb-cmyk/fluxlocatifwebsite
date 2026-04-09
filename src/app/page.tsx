@@ -25,7 +25,7 @@ const painPoints = [
     description:
       "Les mêmes questions reviennent, les messages s’accumulent et le tri prend rapidement trop de place.",
     illustration: (
-      <div className="relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-44 md:rounded-[24px] md:p-4">
+      <div className="card-illustration relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-44 md:rounded-[24px] md:p-4">
         <div className="flex items-center gap-2">
           <div className="h-2.5 w-2.5 rounded-full bg-red-300" />
           <div className="h-2.5 w-2.5 rounded-full bg-amber-300" />
@@ -63,7 +63,7 @@ const painPoints = [
     description:
       "Quand plusieurs candidats avancent en même temps, le pipeline devient vite plus lourd à suivre.",
     illustration: (
-      <div className="relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-44 md:rounded-[24px] md:p-4">
+      <div className="card-illustration relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-44 md:rounded-[24px] md:p-4">
         <div className="grid h-full grid-cols-3 gap-3">
           {[
             { mobile: "Entrée", desktop: "Entrantes", value: "18" },
@@ -94,7 +94,7 @@ const painPoints = [
     description:
       "Sans cadre clair, il devient plus difficile de faire ressortir rapidement les dossiers les plus pertinents.",
     illustration: (
-      <div className="relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-44 md:rounded-[24px] md:p-4">
+      <div className="card-illustration relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-44 md:rounded-[24px] md:p-4">
         <div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-100/70 blur-2xl" />
         <div className="relative flex h-full items-center justify-center gap-2.5 sm:gap-3 md:gap-4">
           <div className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm sm:h-14 sm:w-14 md:h-16 md:w-16">
@@ -186,7 +186,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="mt-12 grid grid-cols-2 gap-3.5 sm:mt-14 md:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+            <div className="mt-12 grid grid-cols-1 gap-3.5 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
               {painPoints.map((item, idx) => (
                 <article
                   key={item.title}
@@ -194,8 +194,7 @@ export default function Home() {
                     "group hover-tilt rounded-[24px] border border-white/85 bg-white/94 p-3.5 shadow-[0_20px_60px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_85px_rgba(15,23,42,0.08)] sm:rounded-[28px] sm:p-4 md:rounded-[32px] md:p-8",
                     idx === 0 && "scroll-fade-up",
                     idx === 1 && "scroll-from-left scroll-delay-1",
-                    idx === 2 && "scroll-from-right scroll-delay-2",
-                    idx === 0 && "col-span-2 lg:col-span-1"
+                    idx === 2 && "scroll-from-right scroll-delay-2"
                   )}
                 >
                   {item.illustration}
@@ -282,7 +281,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="mx-auto mt-10 grid max-w-5xl gap-4 md:grid-cols-3">
+            <div className="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
               {whyFluxLocatif.map((item, index) => (
                 <div
                   key={item.title}

@@ -1,10 +1,7 @@
 import {
   ArrowUpRight,
-  CheckCircle2,
   CircleDollarSign,
-  MoveRight,
   MessagesSquare,
-  ShieldCheck,
   ScanSearch,
   Target,
   TrendingUp,
@@ -18,28 +15,27 @@ const benefitCards = [
     description: "Le tri initial enlève une part importante des échanges répétitifs.",
     icon: <MessagesSquare className="h-5 w-5" />,
     illustration: (
-      <div className="relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
-        <div className="absolute -right-10 -top-10 h-20 w-20 rounded-full bg-blue-100/50 blur-2xl" />
-        <div className="relative space-y-2 sm:space-y-2.5">
-          <div className="ml-auto flex w-[86%] items-center gap-2 rounded-2xl border border-blue-100 bg-blue-50/85 px-2 py-1.5 shadow-sm sm:w-[82%] sm:px-2.5 sm:py-2 md:w-[78%] md:px-3">
-            <div className="h-6 w-6 rounded-full bg-blue-500/15" />
-            <div className="flex-1">
-              <div className="h-2 w-16 rounded-full bg-blue-300/80" />
-              <div className="mt-1.5 h-2 w-24 rounded-full bg-blue-200/80" />
-            </div>
+      <div className="card-illustration relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 md:h-36">
+        <div className="flex h-full flex-col justify-between">
+          <div className="flex items-center justify-between">
+            <span className="text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-400 font-body">Messages entrants</span>
+            <span className="rounded-full bg-red-50 px-2 py-0.5 text-[9px] font-semibold text-red-500 font-body">23</span>
           </div>
-          <div className="flex w-[92%] items-center gap-2 rounded-2xl border border-slate-100 bg-white px-2 py-1.5 shadow-sm sm:w-[90%] sm:px-2.5 sm:py-2 md:w-[86%] md:px-3">
-            <div className="h-6 w-6 rounded-full bg-slate-100" />
-            <div className="flex-1">
-              <div className="h-2 w-24 rounded-full bg-slate-300/70" />
-              <div className="mt-1.5 h-2 w-20 rounded-full bg-slate-200/80" />
+          <div className="space-y-1.5">
+            <div className="flex items-center gap-2 rounded-xl border border-slate-100 bg-white px-2 py-1.5 shadow-sm opacity-30">
+              <div className="h-5 w-5 shrink-0 rounded-full bg-slate-200" />
+              <div className="flex-1"><div className="h-1.5 w-20 rounded-full bg-slate-200" /></div>
+              <span className="text-[9px] text-slate-300 font-body">Trié</span>
             </div>
-          </div>
-          <div className="ml-auto hidden w-[64%] items-center gap-2 rounded-2xl border border-emerald-100 bg-emerald-50/85 px-3 py-2 shadow-sm sm:flex">
-            <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-            <div className="flex-1">
-              <div className="h-2 w-12 rounded-full bg-emerald-300/80" />
-              <div className="mt-1.5 h-2 w-16 rounded-full bg-emerald-200/80" />
+            <div className="flex items-center gap-2 rounded-xl border border-slate-100 bg-white px-2 py-1.5 shadow-sm opacity-50">
+              <div className="h-5 w-5 shrink-0 rounded-full bg-slate-200" />
+              <div className="flex-1"><div className="h-1.5 w-16 rounded-full bg-slate-200" /></div>
+              <span className="text-[9px] text-slate-300 font-body">Trié</span>
+            </div>
+            <div className="flex items-center gap-2 rounded-xl border border-blue-100 bg-blue-50/80 px-2 py-1.5 shadow-sm">
+              <div className="h-5 w-5 shrink-0 rounded-full bg-blue-200/60" />
+              <div className="flex-1"><div className="h-1.5 w-24 rounded-full bg-blue-300/60" /></div>
+              <span className="text-[9px] font-medium text-blue-500 font-body">→ Vous</span>
             </div>
           </div>
         </div>
@@ -52,46 +48,22 @@ const benefitCards = [
     description: "Les profils sont qualifiés plus tôt, avec un cadre de vérification clair.",
     icon: <ScanSearch className="h-5 w-5" />,
     illustration: (
-      <div className="relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
-        <div className="rounded-[14px] border border-white bg-white/95 p-2.5 shadow-sm sm:hidden">
-          <div className="flex items-center justify-between">
-            <span className="text-[11px] font-semibold text-slate-600 font-body">Vérifs</span>
-            <span className="rounded-full bg-emerald-50 px-2 py-1 text-[10px] font-semibold text-emerald-600 font-body">OK</span>
-          </div>
-          <div className="mt-2 space-y-1.5">
-            {["Revenu", "Profil"].map((label, idx) => (
-              <div key={label} className="flex items-center justify-between rounded-lg border border-slate-100 bg-slate-50/80 px-2 py-1.5">
-                <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
-                  <span className="text-[10px] font-medium text-slate-600 font-body">{label}</span>
+      <div className="card-illustration relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 md:h-36">
+        <div className="flex h-full flex-col justify-between rounded-[14px] border border-white bg-white/95 p-2.5 shadow-sm">
+          <span className="text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-400 font-body">Checklist dossier</span>
+          <div className="space-y-1.5">
+            {[
+              { label: "Revenus vérifiés", done: true },
+              { label: "Références confirmées", done: true },
+              { label: "Disponibilité OK", done: true },
+            ].map((item) => (
+              <div key={item.label} className={`flex items-center gap-2 rounded-lg border px-2 py-1 ${item.done ? "border-emerald-100 bg-emerald-50" : "border-slate-100 bg-slate-50"}`}>
+                <div className={`flex h-3 w-3 shrink-0 items-center justify-center rounded-full ${item.done ? "bg-emerald-500" : "bg-slate-200"}`}>
+                  {item.done && <div className="h-1 w-1.5 -translate-y-px rotate-45 border-b border-r border-white" />}
                 </div>
-                <div className="h-1.5 w-10 rounded-full bg-slate-100">
-                  <div className={`h-1.5 rounded-full ${idx === 0 ? "w-[80%] bg-emerald-400" : "w-[88%] bg-blue-400"}`} />
-                </div>
+                <span className={`text-[9px] font-medium font-body ${item.done ? "text-emerald-700" : "text-slate-400"}`}>{item.label}</span>
               </div>
             ))}
-          </div>
-        </div>
-        <div className="hidden rounded-[16px] border border-white bg-white/95 p-3 shadow-sm sm:block md:rounded-[18px]">
-          <div className="flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-400 font-body">
-            <span>Checklist</span>
-            <span className="rounded-full bg-emerald-50 px-2 py-1 text-emerald-600">Validé</span>
-          </div>
-          <div className="mt-2.5 space-y-2">
-            <div className="flex items-center gap-2 rounded-xl border border-emerald-100 bg-emerald-50/70 px-2.5 py-1.5 text-[11px] font-medium text-emerald-700 font-body">
-              <CheckCircle2 className="h-3.5 w-3.5 shrink-0" />
-              Critères revenus
-            </div>
-            <div className="flex items-center gap-2 rounded-xl border border-blue-100 bg-blue-50/70 px-2.5 py-1.5 text-[11px] font-medium text-blue-700 font-body">
-              <ShieldCheck className="h-3.5 w-3.5 shrink-0" />
-              Profil validé
-            </div>
-            <div className="mt-1 flex items-center gap-2">
-              <div className="h-1.5 flex-1 rounded-full bg-slate-100">
-                <div className="h-1.5 w-[88%] rounded-full bg-emerald-400" />
-              </div>
-              <span className="text-[11px] font-semibold text-emerald-600 font-body">88%</span>
-            </div>
           </div>
         </div>
       </div>
@@ -103,34 +75,21 @@ const benefitCards = [
     description: "L’avancement reste lisible pour comparer les étapes et prioriser les actions.",
     icon: <Target className="h-5 w-5" />,
     illustration: (
-      <div className="relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
-        <div className="grid h-full grid-cols-[1fr_auto_1fr_auto_1fr] items-center gap-1.5 sm:hidden">
+      <div className="card-illustration relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 md:h-36">
+        <div className="grid h-full grid-cols-3 gap-2">
           {[
-            ["E", "18", "bg-blue-300"],
-            ["T", "9", "bg-amber-300"],
-            ["V", "4", "bg-emerald-300"],
-          ].map(([label, value, color]) => (
-            <div key={label} className="flex h-full flex-col justify-between rounded-[12px] border border-white bg-white/95 p-2 shadow-sm">
-              <div className={`h-1.5 w-6 rounded-full ${color}`} />
+            { label: "Entrées", value: "18", color: "bg-blue-400", bg: "bg-blue-50", border: "border-blue-100" },
+            { label: "Qualifiés", value: "9", color: "bg-amber-400", bg: "bg-amber-50", border: "border-amber-100" },
+            { label: "Prêts", value: "4", color: "bg-emerald-400", bg: "bg-emerald-50", border: "border-emerald-100" },
+          ].map((col) => (
+            <div key={col.label} className={`flex flex-col justify-between rounded-xl border p-2 shadow-sm ${col.bg} ${col.border}`}>
+              <div className={`h-1.5 w-5 rounded-full ${col.color}`} />
               <div>
-                <div className="text-[9px] uppercase tracking-[0.1em] text-slate-400 font-body">{label}</div>
-                <div className="mt-0.5 text-[11px] font-semibold text-slate-800 font-body">{value}</div>
+                <div className="text-[9px] font-medium text-slate-500 font-body">{col.label}</div>
+                <div className="mt-0.5 font-headline text-[1.4rem] font-medium leading-none text-slate-900">{col.value}</div>
               </div>
             </div>
           ))}
-          <MoveRight className="h-3 w-3 text-slate-300" />
-          <MoveRight className="h-3 w-3 text-slate-300" />
-        </div>
-        <div className="hidden h-full grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] items-center gap-1.5 sm:grid">
-          {["Entrée", "Tri", "Validation", "Envoi"].map((label, index) => (
-            <div key={label} className="flex h-full flex-col justify-between rounded-[16px] border border-white bg-white/95 p-2 shadow-sm">
-              <div className={`h-1.5 w-6 rounded-full ${index === 0 ? "bg-blue-300" : index === 1 ? "bg-amber-300" : index === 2 ? "bg-indigo-300" : "bg-emerald-300"}`} />
-              <div className="text-[11px] uppercase tracking-[0.12em] text-slate-400 font-body">{label}</div>
-            </div>
-          ))}
-          <MoveRight className="h-3.5 w-3.5 text-slate-300" />
-          <MoveRight className="h-3.5 w-3.5 text-slate-300" />
-          <MoveRight className="h-3.5 w-3.5 text-slate-300" />
         </div>
       </div>
     ),
@@ -141,58 +100,21 @@ const benefitCards = [
     description: "Vous gardez la décision finale avec un travail préparatoire déjà structuré.",
     icon: <TrendingUp className="h-5 w-5" />,
     illustration: (
-      <div className="relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
-        <div className="absolute -left-8 -bottom-8 h-20 w-20 rounded-full bg-blue-100/55 blur-2xl" />
-        <div className="relative grid h-full grid-cols-2 gap-2 sm:hidden">
-          <div className="min-w-0 rounded-[12px] border border-white bg-white/95 p-2 shadow-sm">
-            <div className="text-[10px] uppercase tracking-[0.08em] text-slate-400 font-body">Évol.</div>
-            <div className="mt-2 space-y-1.5">
-              <div className="space-y-1">
-                <div className="text-[9px] text-slate-400 font-body">Avant</div>
-                <div className="h-2 rounded-full bg-slate-100">
-                  <div className="h-2 w-[38%] rounded-full bg-slate-300" />
-                </div>
-              </div>
-              <div className="space-y-1">
-                <div className="text-[9px] text-slate-400 font-body">Après</div>
-                <div className="h-2 rounded-full bg-blue-100">
-                  <div className="h-2 w-[82%] rounded-full bg-blue-400" />
-                </div>
-              </div>
+      <div className="card-illustration relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 md:h-36">
+        <div className="flex h-full flex-col justify-between">
+          <span className="text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-400 font-body">Arbitrage final</span>
+          <div className="grid grid-cols-2 gap-2">
+            <div className="flex flex-col items-center justify-center rounded-xl border border-emerald-100 bg-emerald-50 py-2">
+              <div className="font-headline text-[1.3rem] font-medium leading-none text-emerald-600">✓</div>
+              <span className="mt-1 text-[9px] font-medium text-emerald-600 font-body">Approuvé</span>
+            </div>
+            <div className="flex flex-col items-center justify-center rounded-xl border border-slate-100 bg-white py-2">
+              <div className="font-headline text-[1.3rem] font-medium leading-none text-slate-300">—</div>
+              <span className="mt-1 text-[9px] font-medium text-slate-400 font-body">À revoir</span>
             </div>
           </div>
-          <div className="min-w-0 rounded-[12px] border border-white bg-white/95 p-2 shadow-sm">
-            <div className="text-[10px] uppercase tracking-[0.12em] text-slate-400 font-body">Score</div>
-            <div className="mt-2 flex h-[40px] items-center justify-center rounded-lg bg-emerald-50/70 text-[18px] font-semibold text-emerald-600 font-headline">
-              91
-            </div>
-            <div className="mt-1 text-center text-[9px] text-slate-500 font-body">Net</div>
-          </div>
-        </div>
-        <div className="relative hidden h-full grid-cols-[1.25fr_1fr] gap-2.5 sm:grid">
-          <div className="rounded-[16px] border border-white bg-white/95 p-3 shadow-sm">
-            <div className="text-[10px] uppercase tracking-[0.14em] text-slate-400 font-body">Avant / Après</div>
-            <div className="mt-3 space-y-2.5">
-              <div>
-                <p className="text-[10px] text-slate-400">Avant</p>
-                <div className="mt-1 h-2 rounded-full bg-slate-100">
-                  <div className="h-2 w-[38%] rounded-full bg-slate-300" />
-                </div>
-              </div>
-              <div>
-                <p className="text-[10px] text-slate-400">Après</p>
-                <div className="mt-1 h-2 rounded-full bg-blue-100">
-                  <div className="h-2 w-[82%] rounded-full bg-blue-400" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="rounded-[16px] border border-white bg-white/95 p-3 shadow-sm">
-            <div className="text-[10px] uppercase tracking-[0.14em] text-slate-400 font-body">Score</div>
-            <div className="mt-2 flex h-[72px] items-center justify-center rounded-xl bg-emerald-50/70 text-[22px] font-semibold text-emerald-600 font-headline">
-              91
-            </div>
-            <p className="mt-1.5 text-center text-[10px] text-slate-500">Efficacité locative</p>
+          <div className="rounded-lg bg-slate-50 px-2 py-1.5 text-center">
+            <span className="text-[9px] text-slate-500 font-body">Décision finale = vous</span>
           </div>
         </div>
       </div>
@@ -205,30 +127,31 @@ const benefitCards = [
       "Selon le volume et l’organisation recherchée, FluxLocatif peut coûter jusqu’à 50 % moins cher qu’une agence de location conventionnelle.",
     icon: <CircleDollarSign className="h-5 w-5" />,
     illustration: (
-      <div className="relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
-        <div className="grid h-full grid-cols-2 gap-2.5">
-          <div className="rounded-[12px] border border-white bg-white/95 p-2.5 shadow-sm sm:rounded-[16px] sm:p-3">
-            <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-400 font-body sm:text-[10px] sm:tracking-[0.16em]">Avant</div>
-            <div className="mt-2 space-y-1.5 sm:mt-3 sm:space-y-2">
+      <div className="card-illustration relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 md:h-36">
+        <div className="flex h-full flex-col justify-between">
+          <span className="text-[9px] font-semibold uppercase tracking-[0.12em] text-slate-400 font-body">Coût mensuel</span>
+          <div className="space-y-2">
+            <div>
+              <div className="mb-1 flex items-center justify-between">
+                <span className="text-[9px] text-slate-400 font-body">Agence trad.</span>
+                <span className="text-[9px] font-medium text-slate-500 font-body">~1 400$/m</span>
+              </div>
               <div className="h-2 rounded-full bg-slate-100">
                 <div className="h-2 w-full rounded-full bg-slate-300" />
               </div>
-              <div className="h-2 rounded-full bg-slate-100">
-                <div className="h-2 w-[86%] rounded-full bg-slate-300" />
+            </div>
+            <div>
+              <div className="mb-1 flex items-center justify-between">
+                <span className="text-[9px] font-medium text-blue-600 font-body">FluxLocatif</span>
+                <span className="text-[9px] font-semibold text-emerald-600 font-body">699$/m</span>
+              </div>
+              <div className="h-2 rounded-full bg-blue-50">
+                <div className="h-2 w-[50%] rounded-full bg-blue-400" />
               </div>
             </div>
           </div>
-          <div className="rounded-[12px] border border-blue-100 bg-blue-50/70 p-2.5 shadow-sm sm:rounded-[16px] sm:p-3">
-            <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-blue-600 font-body sm:text-[10px] sm:tracking-[0.16em]">Après</div>
-            <div className="mt-2 space-y-1.5 sm:mt-3 sm:space-y-2">
-              <div className="h-2 rounded-full bg-blue-100">
-                <div className="h-2 w-[52%] rounded-full bg-blue-400" />
-              </div>
-              <div className="h-2 rounded-full bg-blue-100">
-                <div className="h-2 w-[47%] rounded-full bg-blue-400" />
-              </div>
-            </div>
-            <div className="mt-2 text-[10px] font-medium text-emerald-600 font-body sm:text-[11px]">-50%</div>
+          <div className="rounded-lg border border-emerald-100 bg-emerald-50 px-2 py-1 text-center">
+            <span className="text-[9px] font-semibold text-emerald-600 font-body">Jusqu&apos;à 50% d&apos;économies</span>
           </div>
         </div>
       </div>
@@ -257,7 +180,7 @@ export function Benefits() {
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 gap-3.5 md:grid-cols-3 md:gap-5">
+        <div className="mt-10 grid grid-cols-1 gap-3.5 sm:grid-cols-2 md:grid-cols-3 md:gap-5">
           {topCards.map((card, idx) => (
             <article
               key={card.title}
@@ -265,8 +188,7 @@ export function Benefits() {
                 "group hover-tilt rounded-[24px] border border-white/90 bg-white/96 p-3.5 shadow-[0_20px_60px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_85px_rgba(15,23,42,0.08)] sm:rounded-[28px] sm:p-4 md:rounded-[30px] md:p-6",
                 idx === 0 && "scroll-from-left",
                 idx === 1 && "scroll-fade-up scroll-delay-1",
-                idx === 2 && "scroll-from-right scroll-delay-2",
-                idx === 0 && "col-span-2 md:col-span-1"
+                idx === 2 && "scroll-from-right scroll-delay-2"
               )}
             >
               {card.illustration}

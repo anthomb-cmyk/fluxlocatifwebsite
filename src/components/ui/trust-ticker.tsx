@@ -26,7 +26,7 @@ export function TrustTicker({ className }: { className?: string }) {
         {repeated.map((item, i) => (
           <span
             key={i}
-            className="inline-flex items-center gap-3 px-4 text-[13px] font-medium text-slate-500 font-body shrink-0"
+            className="inline-flex items-center gap-3 px-4 text-[11px] font-medium text-slate-500 font-body shrink-0 sm:text-[13px]"
           >
             <span className="h-1 w-1 rounded-full bg-blue-400 shrink-0" />
             {item}

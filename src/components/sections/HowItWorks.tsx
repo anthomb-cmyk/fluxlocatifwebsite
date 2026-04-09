@@ -9,51 +9,22 @@ const steps = [
       "Alignement sur vos standards de sélection et vos priorités locatives.",
     icon: <ClipboardCheck className="h-5 w-5" />,
     illustration: (
-      <div className="relative h-28 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-32 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
-        <div className="absolute -right-8 -top-8 h-20 w-20 rounded-full bg-blue-100/60 blur-2xl" />
-        <div className="relative h-full rounded-[16px] border border-white bg-white/95 p-2.5 shadow-sm sm:hidden">
+      <div className="card-illustration relative h-28 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-32 md:h-36">
+        <div className="flex h-full flex-col justify-between rounded-[14px] border border-white bg-white/95 p-3 shadow-sm">
           <div className="flex items-center justify-between">
-            <div className="text-[9px] font-semibold uppercase tracking-[0.14em] text-slate-400 font-body">
-              Critères
-            </div>
-            <div className="h-4 w-4 rounded-full border border-blue-100 bg-blue-50" />
+            <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400 font-body">Vos critères</span>
+            <span className="rounded-full bg-blue-50 px-2 py-0.5 text-[9px] font-semibold text-blue-600 font-body">Actif</span>
           </div>
-          <div className="mt-2.5 grid grid-cols-2 gap-1.5">
-            {["Revenu", "Crédit"].map((label, index) => (
-              <div key={label} className="rounded-lg border border-slate-100 bg-slate-50/70 px-1.5 py-1.5">
-                <div className="text-[8px] font-medium text-slate-500 font-body">{label}</div>
-                <div className="mt-1 h-1.5 rounded-full bg-slate-200">
-                  <div className={`h-1.5 rounded-full ${index === 0 ? "w-[82%] bg-blue-400" : "w-[72%] bg-emerald-400"}`} />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="relative hidden h-full rounded-[18px] border border-white bg-white/95 p-3 shadow-sm sm:block md:p-3.5">
-          <div className="flex items-center justify-between">
-            <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400 font-body">
-              Critères propriétaires
-            </div>
-            <div className="h-5 rounded-full border border-blue-100 bg-blue-50 px-2 text-[9px] font-semibold uppercase tracking-[0.12em] text-blue-600 font-body">
-              Actif
-            </div>
-          </div>
-          <div className="mt-3 grid grid-cols-2 gap-2">
-            {["Revenu", "Crédit", "Historique", "Délai"].map((label, index) => (
-              <div key={label} className="rounded-xl border border-slate-100 bg-slate-50/70 px-2 py-2">
-                <div className="text-[9px] font-medium text-slate-500 font-body">{label}</div>
-                <div className="mt-1.5 h-1.5 rounded-full bg-slate-200">
-                  <div
-                    className={`h-1.5 rounded-full ${
-                      index === 0
-                        ? "w-[88%] bg-blue-400"
-                        : index === 1
-                          ? "w-[76%] bg-emerald-400"
-                          : index === 2
-                            ? "w-[64%] bg-indigo-300"
-                            : "w-[82%] bg-blue-300"
-                    }`}
-                  />
+          <div className="space-y-2">
+            {[
+              { label: "Revenu min.", pct: "88%", color: "bg-blue-400" },
+              { label: "Historique", pct: "76%", color: "bg-emerald-400" },
+              { label: "Délai dispo.", pct: "64%", color: "bg-indigo-300" },
+            ].map((item) => (
+              <div key={item.label} className="flex items-center gap-2">
+                <span className="w-16 shrink-0 text-[9px] text-slate-500 font-body">{item.label}</span>
+                <div className="h-1.5 flex-1 rounded-full bg-slate-100">
+                  <div className={`h-1.5 rounded-full ${item.color}`} style={{ width: item.pct }} />
                 </div>
               </div>
             ))}
@@ -68,17 +39,25 @@ const steps = [
     description: "Traitement et tri du volume entrant dans un cadre clair.",
     icon: <Inbox className="h-5 w-5" />,
     illustration: (
-      <div className="relative h-28 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-32 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
-        <div className="space-y-2 sm:space-y-3">
-          {[1, 2, 3].map((row) => (
-            <div key={row} className={`flex items-center gap-2 rounded-[14px] border border-slate-100 bg-white px-2 py-1.5 shadow-sm sm:gap-3 sm:rounded-[18px] sm:px-3 sm:py-2 ${row === 3 ? "hidden sm:flex" : ""}`}>
-              <div className="h-6 w-6 rounded-full bg-slate-100 sm:h-8 sm:w-8" />
-              <div className="flex-1">
-                <div className="h-2 w-24 rounded-full bg-slate-300/70" />
-                <div className="mt-1 h-2 w-16 rounded-full bg-slate-200/80 sm:mt-1.5" />
+      <div className="card-illustration relative h-28 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-32 md:h-36">
+        <div className="flex h-full flex-col justify-between">
+          <div className="flex items-center justify-between px-1">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-400 font-body">Boîte de réception</span>
+            <span className="flex h-4 w-4 items-center justify-center rounded-full bg-blue-500 text-[8px] font-bold text-white">7</span>
+          </div>
+          <div className="space-y-1.5">
+            {[
+              { name: "Marc D.", type: "Studio — Plateau", color: "bg-blue-100", dot: "bg-blue-400" },
+              { name: "Sarah L.", type: "3½ — Rosemont", color: "bg-slate-50", dot: "bg-slate-300" },
+              { name: "Julien R.", type: "Condo — Griffintown", color: "bg-emerald-50", dot: "bg-emerald-400" },
+            ].map((item) => (
+              <div key={item.name} className={`flex items-center gap-2 rounded-xl border border-white px-2 py-1.5 shadow-sm ${item.color}`}>
+                <div className={`h-1.5 w-1.5 rounded-full shrink-0 ${item.dot}`} />
+                <span className="text-[10px] font-medium text-slate-700 font-body">{item.name}</span>
+                <span className="ml-auto truncate text-[9px] text-slate-400 font-body">{item.type}</span>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     ),
@@ -89,15 +68,32 @@ const steps = [
     description: "Qualification des profils et hiérarchisation selon vos critères.",
     icon: <ShieldCheck className="h-5 w-5" />,
     illustration: (
-      <div className="relative h-28 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-32 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
-        <div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-100/70 blur-2xl" />
-        <div className="relative flex h-full items-center justify-center">
-          <div className="rounded-[18px] border border-white bg-white px-3.5 py-3 shadow-sm sm:rounded-[22px] sm:px-5 sm:py-4">
-            <div className="text-[9px] uppercase tracking-[0.14em] text-slate-400 font-body sm:text-[11px] sm:tracking-[0.18em]">Compatibilité</div>
-            <div className="mt-1.5 flex items-end gap-1.5 sm:mt-2 sm:gap-2">
-              <span className="text-[2rem] font-medium text-slate-900 font-headline sm:text-3xl">94%</span>
-              <span className="pb-1 text-[11px] text-emerald-600 font-body sm:text-sm">élevée</span>
+      <div className="card-illustration relative h-28 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-32 md:h-36">
+        <div className="flex h-full flex-col items-center justify-center gap-2">
+          <div className="flex w-full items-center justify-between rounded-xl border border-emerald-100 bg-emerald-50/80 px-3 py-2 shadow-sm">
+            <div className="flex items-center gap-2">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500/10">
+                <div className="h-2 w-2 rounded-full bg-emerald-500" />
+              </div>
+              <span className="text-[10px] font-medium text-slate-700 font-body">Marc D.</span>
             </div>
+            <span className="text-[10px] font-semibold text-emerald-600 font-body">94 pts</span>
+          </div>
+          <div className="flex w-full items-center justify-between rounded-xl border border-blue-100 bg-blue-50/60 px-3 py-2 shadow-sm">
+            <div className="flex items-center gap-2">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-500/10">
+                <div className="h-2 w-2 rounded-full bg-blue-400" />
+              </div>
+              <span className="text-[10px] font-medium text-slate-700 font-body">Sarah L.</span>
+            </div>
+            <span className="text-[10px] font-semibold text-blue-600 font-body">81 pts</span>
+          </div>
+          <div className="flex w-full items-center justify-between rounded-xl border border-slate-100 bg-white px-3 py-2 shadow-sm">
+            <div className="flex items-center gap-2">
+              <div className="h-6 w-6 rounded-full bg-slate-100" />
+              <span className="text-[10px] font-medium text-slate-400 font-body">En attente</span>
+            </div>
+            <span className="text-[10px] text-slate-300 font-body">—</span>
           </div>
         </div>
       </div>
@@ -109,17 +105,25 @@ const steps = [
     description: "Remise de dossiers mieux préparés pour arbitrage rapide.",
     icon: <Route className="h-5 w-5" />,
     illustration: (
-      <div className="relative h-28 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-32 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
-        <div className="grid h-full grid-cols-2 gap-2 sm:gap-3">
-          <div className="rounded-[14px] border border-emerald-100 bg-emerald-50/80 p-2.5 shadow-sm sm:rounded-[18px] sm:p-3">
-            <div className="text-[9px] uppercase tracking-[0.12em] text-emerald-600 font-body sm:text-[10px] sm:tracking-[0.18em]">Validé</div>
-            <div className="mt-3 h-2.5 w-16 rounded-full bg-emerald-200" />
-            <div className="mt-2 h-2.5 w-12 rounded-full bg-emerald-200" />
+      <div className="card-illustration relative h-28 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-32 md:h-36">
+        <div className="flex h-full flex-col justify-between rounded-[14px] border border-white bg-white/95 p-3 shadow-sm">
+          <div className="flex items-center justify-between">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-400 font-body">Dossier prêt</span>
+            <span className="rounded-full border border-emerald-100 bg-emerald-50 px-2 py-0.5 text-[9px] font-semibold text-emerald-600 font-body">À valider</span>
           </div>
-          <div className="rounded-[14px] border border-slate-100 bg-white p-2.5 shadow-sm sm:rounded-[18px] sm:p-3">
-            <div className="text-[9px] uppercase tracking-[0.12em] text-slate-400 font-body sm:text-[10px] sm:tracking-[0.18em]">À revoir</div>
-            <div className="mt-3 h-2.5 w-14 rounded-full bg-slate-200" />
-            <div className="mt-2 h-2.5 w-10 rounded-full bg-slate-200" />
+          <div className="space-y-1.5">
+            <div className="flex items-center gap-2">
+              <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
+              <span className="text-[10px] text-slate-600 font-body">Revenu vérifié · 3× le loyer</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
+              <span className="text-[10px] text-slate-600 font-body">Historique locatif solide</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400" />
+              <span className="text-[10px] text-slate-600 font-body">Disponible dès le 1er juin</span>
+            </div>
           </div>
         </div>
       </div>
@@ -145,7 +149,7 @@ export function HowItWorks() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-3.5 md:mt-14 md:grid-cols-2 md:gap-5 xl:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 gap-3.5 sm:grid-cols-2 md:mt-14 md:grid-cols-2 md:gap-5 xl:grid-cols-4">
           {steps.map((step, idx) => (
             <article
               key={step.number}

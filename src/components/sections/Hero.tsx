@@ -57,7 +57,7 @@ export function Hero() {
             <span>SERVICE LOCATIF EXTERNALISÉ</span>
           </div>
 
-          <h1 className="scroll-blur-in mx-auto mt-5 max-w-[22rem] text-balance text-[2rem] font-medium leading-[1.08] tracking-[-0.045em] text-slate-950 sm:mt-7 sm:max-w-[32rem] sm:text-[2.8rem] md:text-[3.5rem] lg:text-[4rem] font-headline">
+          <h1 className="scroll-blur-in mx-auto mt-5 w-full max-w-[22rem] px-2 text-balance text-[2rem] font-medium leading-[1.08] tracking-[-0.045em] text-slate-950 sm:mt-7 sm:max-w-[32rem] sm:px-0 sm:text-[2.8rem] md:text-[3.5rem] lg:text-[4rem] font-headline">
             On répond, on trie, on structure.
           </h1>
 
@@ -68,14 +68,14 @@ export function Hero() {
           <div className="reveal-animation reveal-title mt-6 flex flex-col items-center justify-center gap-3 sm:mt-8 sm:gap-4 sm:flex-row">
             <Link
               href="/contact"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 via-blue-500 to-blue-600 px-6 text-[15px] font-semibold text-white shadow-[0_12px_30px_rgba(59,130,246,0.24)] transition duration-300 hover:scale-[1.01] hover:shadow-[0_20px_46px_rgba(59,130,246,0.3)] sm:h-14 sm:px-8 sm:text-base font-body"
+              className="inline-flex h-12 w-full items-center justify-center rounded-full bg-gradient-to-r from-blue-500 via-blue-500 to-blue-600 px-6 text-[15px] font-semibold text-white shadow-[0_12px_30px_rgba(59,130,246,0.24)] transition duration-300 hover:scale-[1.01] hover:shadow-[0_20px_46px_rgba(59,130,246,0.3)] sm:h-14 sm:w-auto sm:px-8 sm:text-base font-body"
             >
               Démarrer le service
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex h-12 items-center justify-center rounded-full border border-slate-200 bg-white/92 px-6 text-[15px] font-medium text-slate-700 shadow-[0_10px_26px_rgba(15,23,42,0.05)] backdrop-blur-sm transition duration-300 hover:bg-white hover:shadow-[0_14px_36px_rgba(15,23,42,0.08)] sm:h-14 sm:px-8 sm:text-base font-body"
+              className="inline-flex h-12 w-full items-center justify-center rounded-full border border-slate-200 bg-white/92 px-6 text-[15px] font-medium text-slate-700 shadow-[0_10px_26px_rgba(15,23,42,0.05)] backdrop-blur-sm transition duration-300 hover:bg-white hover:shadow-[0_14px_36px_rgba(15,23,42,0.08)] sm:h-14 sm:w-auto sm:px-8 sm:text-base font-body"
             >
               Réserver un appel
             </Link>
