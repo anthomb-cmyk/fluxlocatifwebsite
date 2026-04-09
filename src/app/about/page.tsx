@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { LayoutDashboard, Target, Users, Sparkles, Filter, CheckCircle2 } from "lucide-react";
 import { DashboardMockup } from "@/components/ui/dashboard-mockup";
+
+export const metadata: Metadata = {
+  title: "À propos | FluxLocatif",
+  description:
+    "Découvrez la mission de FluxLocatif et notre approche du support locatif externalisé pour propriétaires et équipes de gestion.",
+};
 
 export default function AboutPage() {
   return (
@@ -48,7 +55,7 @@ export default function AboutPage() {
                   <h2 className="text-3xl md:text-5xl font-headline font-medium tracking-tighter text-foreground">Notre Engagement</h2>
                   <div className="space-y-6">
                     <p className="text-muted-foreground text-lg md:text-xl leading-relaxed font-normal font-body">
-                      Nous ne sommes pas là pour "gérer" vos immeubles. Nous sommes là pour optimiser votre tunnel de location.
+                      Nous ne sommes pas là pour &quot;gérer&quot; vos immeubles. Nous sommes là pour optimiser votre tunnel de location.
                     </p>
                     <p className="text-muted-foreground text-lg md:text-xl leading-relaxed font-normal font-body">
                       Chaque candidat que nous vous envoyons est passé par un processus de préqualification rigoureux. Si ce n&apos;est pas parfait, vous ne le voyez pas.

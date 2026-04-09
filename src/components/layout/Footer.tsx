@@ -34,16 +34,18 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-muted-foreground font-body font-normal">
               <li><Link href="/contact" className="hover:text-primary transition-colors">Remplir le formulaire</Link></li>
               <li><Link href="/contact" className="hover:text-primary transition-colors">Réserver un appel</Link></li>
-              <li className="font-medium text-primary">(514) XXX-XXXX</li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4 text-[12px] text-muted-foreground font-body font-normal">
-          <p>© {new Date().getFullYear()} FluxLocatif. Tous droits réservés.</p>
-          <div className="flex gap-6">
-            <Link href="#" className="hover:text-primary transition-colors">Mentions légales</Link>
-            <Link href="#" className="hover:text-primary transition-colors">Confidentialité</Link>
+        <div className="mt-12">
+          <div className="scroll-line-draw h-px w-full bg-border/80" />
+          <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[12px] text-muted-foreground font-body font-normal">
+            <p>© {new Date().getFullYear()} FluxLocatif. Tous droits réservés.</p>
+            <div className="flex gap-6">
+              <Link href="/mentions-legales" className="hover:text-primary transition-colors">Mentions légales</Link>
+              <Link href="/politique-confidentialite" className="hover:text-primary transition-colors">Confidentialité</Link>
+            </div>
           </div>
         </div>
       </div>

@@ -262,7 +262,8 @@ export function Benefits() {
             <article
               key={card.title}
               className={cn(
-                "reveal-animation reveal-card group rounded-[24px] border border-white/90 bg-white/96 p-3.5 shadow-[0_20px_60px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_85px_rgba(15,23,42,0.08)] sm:rounded-[28px] sm:p-4 md:rounded-[30px] md:p-6",
+                "group scroll-fade-up hover-tilt rounded-[24px] border border-white/90 bg-white/96 p-3.5 shadow-[0_20px_60px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_85px_rgba(15,23,42,0.08)] sm:rounded-[28px] sm:p-4 md:rounded-[30px] md:p-6",
+                `scroll-delay-${Math.min(idx, 4)}`,
                 idx === 0 && "col-span-2 md:col-span-1"
               )}
             >
@@ -287,10 +288,13 @@ export function Benefits() {
 
         <div className="mt-4 rounded-[28px] border border-white/85 bg-white/72 p-2.5 shadow-[0_18px_50px_rgba(15,23,42,0.04)] md:mt-10 md:rounded-none md:border-0 md:bg-transparent md:p-0 md:shadow-none">
           <div className="grid grid-cols-2 gap-3.5 md:gap-5">
-            {bottomCards.map((card) => (
+            {bottomCards.map((card, idx) => (
               <article
                 key={card.title}
-                className="reveal-animation reveal-card group rounded-[24px] border border-white/90 bg-white/96 p-3.5 shadow-[0_20px_60px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_85px_rgba(15,23,42,0.08)] sm:rounded-[26px] sm:p-4 md:rounded-[30px] md:p-7"
+                className={cn(
+                  "group scroll-fade-up hover-tilt rounded-[24px] border border-white/90 bg-white/96 p-3.5 shadow-[0_20px_60px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_85px_rgba(15,23,42,0.08)] sm:rounded-[26px] sm:p-4 md:rounded-[30px] md:p-7",
+                  `scroll-delay-${Math.min(idx + topCards.length, 4)}`
+                )}
               >
                 {card.illustration}
                 <div className="mt-3.5 flex items-center gap-2.5 sm:mt-4 md:mt-5 md:gap-3">

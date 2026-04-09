@@ -1,9 +1,16 @@
 
+import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { FAQPreview } from "@/components/sections/FAQPreview";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "FAQ | FluxLocatif",
+  description:
+    "Trouvez les réponses aux questions fréquentes sur le fonctionnement, les services et le modèle FluxLocatif.",
+};
 
 export default function FAQPage() {
   return (
@@ -23,7 +30,7 @@ export default function FAQPage() {
 
         <section className="py-20 bg-muted/30 border-t">
           <div className="container mx-auto px-4 text-center max-w-2xl">
-            <h2 className="text-2xl font-headline font-medium mb-4">Vous avez d'autres questions ?</h2>
+            <h2 className="text-2xl font-headline font-medium mb-4">Vous avez d&apos;autres questions ?</h2>
             <p className="text-muted-foreground mb-8 font-body font-normal">
               Notre équipe est là pour vous aider à comprendre comment FluxLocatif peut transformer votre gestion.
             </p>

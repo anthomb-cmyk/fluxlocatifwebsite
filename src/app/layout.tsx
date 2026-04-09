@@ -15,6 +15,19 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'FluxLocatif - Optimisation locative pour propriétaires actifs',
   description: 'FluxLocatif centralise les demandes, filtre les profils pertinents et structure votre processus de location.',
+  openGraph: {
+    title: 'FluxLocatif - Optimisation locative pour propriétaires actifs',
+    description: 'FluxLocatif centralise les demandes, filtre les profils pertinents et structure votre processus de location.',
+    url: 'https://fluxlocatif.com',
+    siteName: 'FluxLocatif',
+    locale: 'fr_CA',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'FluxLocatif - Optimisation locative pour propriétaires actifs',
+    description: 'FluxLocatif centralise les demandes, filtre les profils pertinents et structure votre processus de location.',
+  },
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',

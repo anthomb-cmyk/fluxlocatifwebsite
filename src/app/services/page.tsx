@@ -1,5 +1,4 @@
-'use client';
-
+import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Filter, LayoutDashboard, CheckCircle2, ArrowRight } from "lucide-react";
@@ -7,6 +6,12 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Services | FluxLocatif",
+  description:
+    "Découvrez les services FluxLocatif: bureau de location externalisé, préqualification et vetting des profils locatifs.",
+};
 
 export default function ServicesPage() {
   const services = [
@@ -19,7 +24,7 @@ export default function ServicesPage() {
         "Gestion complète des appels & emails",
         "Centralisation des flux de demandes"
       ],
-      imageSrc: "/interface-v3.png",
+      imageSrc: "/interface-v3.webp",
       imageAlt: "Interface Bureau de location externalisé FluxLocatif"
     },
     {
@@ -31,7 +36,7 @@ export default function ServicesPage() {
         "Analyse de solvabilité rigoureuse",
         "Contrôle systématique des références"
       ],
-      imageSrc: "/interface-v4.png",
+      imageSrc: "/interface-v4.webp",
       imageAlt: "Interface Préqualification et vetting FluxLocatif"
     }
   ];
@@ -61,7 +66,8 @@ export default function ServicesPage() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
                 
                 <div className={cn(
-                  "lg:col-span-5 reveal-animation",
+                  "lg:col-span-5",
+                  idx % 2 === 1 ? "scroll-from-right" : "scroll-from-left",
                   idx % 2 === 1 ? "lg:order-last" : ""
                 )}>
                   <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-primary mb-8 shadow-sm">
@@ -93,15 +99,15 @@ export default function ServicesPage() {
                   </Button>
                 </div>
 
-                <div className="lg:col-span-7">
+                <div className={cn("lg:col-span-7", idx % 2 === 1 ? "scroll-from-left" : "scroll-from-right")}>
                   <div className="relative aspect-[16/10] w-full">
                     <div className="relative h-full w-full rounded-[2.5rem] overflow-hidden shadow-2xl">
                       <Image
                         src={service.imageSrc}
                         alt={service.imageAlt}
-                        fill
-                        unoptimized
-                        className="object-cover object-center"
+                        width={1600}
+                        height={1000}
+                        className="h-full w-full object-cover object-center"
                         priority={idx === 0}
                       />
                     </div>

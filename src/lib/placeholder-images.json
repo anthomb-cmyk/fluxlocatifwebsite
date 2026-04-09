@@ -9,13 +9,13 @@
     {
       "id": "service-management",
       "description": "Centre d'opérations locatives avec données structurées et pipeline de candidats",
-      "imageUrl": "/interface-v3.png",
+      "imageUrl": "/interface-v3.webp",
       "imageHint": "business data dashboard"
     },
     {
       "id": "service-prequalify",
       "description": "Processus sécurisé de qualification et de filtrage des demandeurs locatifs",
-      "imageUrl": "/interface-v4.png",
+      "imageUrl": "/interface-v4.webp",
       "imageHint": "secure verification professional"
     },
     {

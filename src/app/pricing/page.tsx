@@ -1,9 +1,16 @@
+import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { PricingPreview } from "@/components/sections/PricingPreview";
 import { FAQPreview } from "@/components/sections/FAQPreview";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Tarifs | FluxLocatif",
+  description:
+    "Consultez les forfaits FluxLocatif pour externaliser la gestion locative entrante et structurer votre processus de sélection.",
+};
 
 export default function PricingPage() {
   return (
@@ -21,7 +28,10 @@ export default function PricingPage() {
 
         <PricingPreview />
 
-        <section className="py-20 bg-background border-t border-b">
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="scroll-line-draw h-px w-full bg-border/80" />
+          </div>
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-headline font-medium mb-12 text-center">Inclus dans tous nos forfaits</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -38,13 +48,19 @@ export default function PricingPage() {
               ))}
             </div>
           </div>
+          <div className="container mx-auto px-4 mt-16">
+            <div className="scroll-line-draw h-px w-full bg-border/80" />
+          </div>
         </section>
 
         <FAQPreview />
 
         <section className="py-20 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="scroll-line-draw h-px w-full bg-border/80" />
+          </div>
           <div className="container mx-auto px-4 text-center max-w-2xl">
-            <h2 className="text-3xl font-headline font-medium mb-6">Besoin d'un plan sur mesure ?</h2>
+            <h2 className="text-3xl font-headline font-medium mb-6">Besoin d&apos;un plan sur mesure ?</h2>
             <p className="text-lg text-muted-foreground mb-8 font-body">
               Pour les portefeuilles de plus de 6 unités ou les besoins spécifiques à grande échelle, contactez-nous pour une proposition personnalisée.
             </p>

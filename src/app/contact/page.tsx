@@ -1,8 +1,14 @@
-
+import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { Phone, Mail, Clock, Sparkles } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Contact | FluxLocatif",
+  description:
+    "Contactez FluxLocatif pour discuter de votre volume locatif, de vos critères et d’une mise en place adaptée.",
+};
 
 export default function ContactPage() {
   return (

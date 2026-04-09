@@ -94,7 +94,7 @@ export function ContactForm() {
         <div className="w-16 h-16 md:w-24 md:h-24 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-6 md:mb-10 shadow-inner">
           <CheckCircle2 className="h-8 w-8 md:h-12 md:h-12" />
         </div>
-        <h3 className="text-2xl md:text-4xl font-medium font-headline mb-4 md:mb-6 tracking-tight text-slate-900">C'est en route !</h3>
+        <h3 className="text-2xl md:text-4xl font-medium font-headline mb-4 md:mb-6 tracking-tight text-slate-900">C&apos;est en route !</h3>
         <p className="text-base md:text-xl text-muted-foreground mb-8 md:mb-12 font-normal max-w-md mx-auto leading-relaxed font-body">
           Merci pour votre confiance. Notre équipe analyse vos besoins et nous vous contacterons sous peu.
         </p>

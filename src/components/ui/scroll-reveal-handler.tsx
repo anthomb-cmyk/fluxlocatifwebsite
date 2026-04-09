@@ -13,6 +13,29 @@ export function ScrollRevealHandler() {
   const pathname = usePathname();
 
   useEffect(() => {
+    const revealSelector = [
+      ".reveal-animation",
+      ".scroll-fade-up",
+      ".scroll-scale-in",
+      ".scroll-tilt-in",
+      ".scroll-from-left",
+      ".scroll-from-right",
+      ".scroll-blur-in",
+      ".scroll-clip-reveal",
+      ".scroll-line-draw",
+    ].join(", ");
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) {
+      document.querySelectorAll(revealSelector).forEach((el) => {
+        el.classList.add("is-visible");
+      });
+      return;
+    }
+
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px',
@@ -28,7 +51,7 @@ export function ScrollRevealHandler() {
     }, observerOptions);
 
     const observeElements = () => {
-      const elements = document.querySelectorAll('.reveal-animation');
+      const elements = document.querySelectorAll(revealSelector);
       elements.forEach((el) => {
         observer.observe(el);
       });

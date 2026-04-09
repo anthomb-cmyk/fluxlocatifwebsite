@@ -178,7 +178,7 @@ export default function Home() {
                 <Sparkles className="h-3.5 w-3.5" />
                 LES FRICTIONS QUE NOUS ENLEVONS
               </div>
-              <h2 className="mx-auto mt-6 max-w-3xl text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
+              <h2 className="scroll-blur-in mx-auto mt-6 max-w-3xl text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
                 Ce qui alourdit le plus les locations.
               </h2>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-7 text-slate-500 font-body">
@@ -191,7 +191,8 @@ export default function Home() {
                 <article
                   key={item.title}
                   className={cn(
-                    "reveal-animation reveal-card group rounded-[24px] border border-white/85 bg-white/94 p-3.5 shadow-[0_20px_60px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_85px_rgba(15,23,42,0.08)] sm:rounded-[28px] sm:p-4 md:rounded-[32px] md:p-8",
+                    "group scroll-fade-up hover-tilt rounded-[24px] border border-white/85 bg-white/94 p-3.5 shadow-[0_20px_60px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_85px_rgba(15,23,42,0.08)] sm:rounded-[28px] sm:p-4 md:rounded-[32px] md:p-8",
+                    `scroll-delay-${Math.min(idx, 4)}`,
                     idx === 0 && "col-span-2 lg:col-span-1"
                   )}
                 >
@@ -276,10 +277,13 @@ export default function Home() {
             </div>
 
             <div className="mx-auto mt-10 grid max-w-5xl gap-4 md:grid-cols-3">
-              {whyFluxLocatif.map((item) => (
+              {whyFluxLocatif.map((item, index) => (
                 <div
                   key={item.title}
-                  className="reveal-animation reveal-card rounded-[28px] border border-slate-200/70 bg-[#fbfcff] p-6 shadow-[0_18px_46px_rgba(15,23,42,0.04)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_56px_rgba(15,23,42,0.08)]"
+                  className={cn(
+                    "scroll-fade-up hover-tilt rounded-[28px] border border-slate-200/70 bg-[#fbfcff] p-6 shadow-[0_18px_46px_rgba(15,23,42,0.04)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_56px_rgba(15,23,42,0.08)]",
+                    `scroll-delay-${Math.min(index, 4)}`
+                  )}
                 >
                   <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-blue-100 bg-white text-primary">
                     {item.icon}
@@ -303,9 +307,9 @@ export default function Home() {
             <div className="reveal-animation reveal-title mx-auto max-w-4xl rounded-[40px] border border-white/90 bg-white/94 px-6 py-10 text-center shadow-[0_30px_90px_rgba(15,23,42,0.08)] backdrop-blur-sm md:px-10 md:py-16">
               <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary shadow-[0_12px_30px_rgba(15,23,42,0.05)] font-body">
                 <Sparkles className="h-3.5 w-3.5" />
-                Prêt à structurer vos locations
+                Commencer dès aujourd&apos;hui
               </div>
-              <h2 className="mx-auto mt-6 max-w-3xl text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
+              <h2 className="scroll-blur-in mx-auto mt-6 max-w-3xl text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
                 Prêt à structurer vos locations ?
               </h2>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-500 font-body">

@@ -68,7 +68,7 @@ const aiLeadQualificationAndRoutingFlow = ai.defineFlow(
     inputSchema: AiLeadQualificationAndRoutingInputSchema,
     outputSchema: AiLeadQualificationAndRoutingOutputSchema,
   },
-  async (input) => {
+  async (input: AiLeadQualificationAndRoutingInput) => {
     const { output } = await aiLeadQualificationAndRoutingPrompt(input);
     return output!;
   }

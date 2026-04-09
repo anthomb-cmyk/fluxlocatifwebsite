@@ -1,4 +1,5 @@
 import { ArrowRight, ClipboardCheck, Inbox, Route, ShieldCheck } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const steps = [
   {
@@ -145,10 +146,13 @@ export function HowItWorks() {
         </div>
 
         <div className="mt-12 grid grid-cols-2 gap-3.5 md:mt-14 md:grid-cols-2 md:gap-5 xl:grid-cols-4">
-          {steps.map((step) => (
+          {steps.map((step, idx) => (
             <article
               key={step.number}
-              className="reveal-animation reveal-card group flex h-full flex-col rounded-[24px] border border-white/85 bg-[#fbfcff]/92 p-3.5 shadow-[0_20px_54px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(15,23,42,0.07)] sm:rounded-[28px] sm:p-4 md:rounded-[32px] md:p-6"
+              className={cn(
+                "group scroll-tilt-in hover-tilt flex h-full flex-col rounded-[24px] border border-white/85 bg-[#fbfcff]/92 p-3.5 shadow-[0_20px_54px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(15,23,42,0.07)] sm:rounded-[28px] sm:p-4 md:rounded-[32px] md:p-6",
+                `scroll-delay-${Math.min(idx, 4)}`
+              )}
             >
               {step.illustration}
               <div className="mt-3.5 flex items-center justify-between sm:mt-4 md:mt-5">

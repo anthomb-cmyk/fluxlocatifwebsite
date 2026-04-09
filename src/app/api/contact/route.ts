@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { aiLeadQualificationAndRouting } from "@/ai/flows/ai-lead-qualification-and-routing";
 
 const contactSchema = z.object({
   name: z.string().min(2),
@@ -24,6 +25,72 @@ function buildHtmlEmail(data: z.infer<typeof contactSchema>) {
       </table>
     </div>
   `;
+}
+
+function buildAiAnalysisHtml(
+  data: z.infer<typeof contactSchema>,
+  analysis: Awaited<ReturnType<typeof aiLeadQualificationAndRouting>>
+) {
+  const keyNeedsHtml = analysis.keyNeeds
+    .map((need) => `<li style="margin-bottom: 6px;">${need}</li>`)
+    .join("");
+  const nextStepsHtml = analysis.suggestedNextSteps
+    .map((step) => `<li style="margin-bottom: 6px;">${step}</li>`)
+    .join("");
+
+  return `
+    <div style="font-family: Arial, Helvetica, sans-serif; color: #0f172a; line-height: 1.5;">
+      <h2 style="margin: 0 0 16px;">Analyse IA du lead : ${data.name}</h2>
+      <table style="border-collapse: collapse; width: 100%; max-width: 680px; margin-bottom: 16px;">
+        <tr><td style="padding: 8px; border: 1px solid #e2e8f0;"><strong>Score</strong></td><td style="padding: 8px; border: 1px solid #e2e8f0;">${analysis.qualificationScore}/5</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #e2e8f0;"><strong>Priorité</strong></td><td style="padding: 8px; border: 1px solid #e2e8f0;">${analysis.priority}</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #e2e8f0;"><strong>Type de client</strong></td><td style="padding: 8px; border: 1px solid #e2e8f0;">${analysis.customerType}</td></tr>
+      </table>
+
+      <h3 style="margin: 0 0 8px;">Besoins clés identifiés</h3>
+      <ul style="margin: 0 0 16px 20px; padding: 0;">${keyNeedsHtml}</ul>
+
+      <h3 style="margin: 0 0 8px;">Prochaines étapes suggérées</h3>
+      <ul style="margin: 0 0 16px 20px; padding: 0;">${nextStepsHtml}</ul>
+
+      ${
+        analysis.suggestedSalesTeamMember
+          ? `<p style="margin: 0;"><strong>Routage conseillé :</strong> ${analysis.suggestedSalesTeamMember}</p>`
+          : ""
+      }
+    </div>
+  `;
+}
+
+async function sendResendEmail({
+  apiKey,
+  fromEmail,
+  toEmail,
+  replyTo,
+  subject,
+  html,
+}: {
+  apiKey: string;
+  fromEmail: string;
+  toEmail: string;
+  replyTo?: string;
+  subject: string;
+  html: string;
+}) {
+  return fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      from: fromEmail,
+      to: [toEmail],
+      reply_to: replyTo,
+      subject,
+      html,
+    }),
+  });
 }
 
 export async function POST(req: Request) {
@@ -53,19 +120,13 @@ export async function POST(req: Request) {
       );
     }
 
-    const response = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: fromEmail,
-        to: [toEmail],
-        reply_to: parsed.data.email,
-        subject: `Nouveau lead contact: ${parsed.data.name}`,
-        html: buildHtmlEmail(parsed.data),
-      }),
+    const response = await sendResendEmail({
+      apiKey,
+      fromEmail,
+      toEmail,
+      replyTo: parsed.data.email,
+      subject: `Nouveau lead contact: ${parsed.data.name}`,
+      html: buildHtmlEmail(parsed.data),
     });
 
     if (!response.ok) {
@@ -75,6 +136,33 @@ export async function POST(req: Request) {
         { message: "Impossible d'envoyer l'email de notification." },
         { status: 502 }
       );
+    }
+
+    try {
+      const aiAnalysis = await aiLeadQualificationAndRouting({
+        name: parsed.data.name,
+        email: parsed.data.email,
+        company: parsed.data.company,
+        phone: parsed.data.phone,
+        propertyCount: parsed.data.propertyCount,
+        message: parsed.data.message,
+      });
+
+      const aiEmailResponse = await sendResendEmail({
+        apiKey,
+        fromEmail,
+        toEmail,
+        replyTo: parsed.data.email,
+        subject: `Analyse IA du lead : ${parsed.data.name}`,
+        html: buildAiAnalysisHtml(parsed.data, aiAnalysis),
+      });
+
+      if (!aiEmailResponse.ok) {
+        const aiEmailError = await aiEmailResponse.text();
+        console.error("Resend AI analysis email error:", aiEmailError);
+      }
+    } catch (aiError) {
+      console.error("AI lead analysis failed:", aiError);
     }
 
     return NextResponse.json({ success: true });
