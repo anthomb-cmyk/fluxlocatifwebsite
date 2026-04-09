@@ -7,7 +7,7 @@ const steps = [
     description: "Vos filtres locatifs sont posés clairement dès le départ.",
     icon: <ClipboardCheck className="h-5 w-5" />,
     illustration: (
-      <div className="relative h-36 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner">
+      <div className="relative h-28 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-32 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
         <div className="absolute -right-8 -top-8 h-20 w-20 rounded-full bg-blue-100/60 blur-2xl" />
         <div className="relative h-full rounded-[18px] border border-white bg-white/95 p-3.5 shadow-sm">
           <div className="flex items-center justify-between">
@@ -48,7 +48,7 @@ const steps = [
     description: "Les demandes entrantes sont reçues, triées et suivies.",
     icon: <Inbox className="h-5 w-5" />,
     illustration: (
-      <div className="relative h-36 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner">
+      <div className="relative h-28 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-32 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
         <div className="space-y-3">
           {[1, 2, 3].map((row) => (
             <div key={row} className="flex items-center gap-3 rounded-[18px] border border-slate-100 bg-white px-3 py-2 shadow-sm">
@@ -69,7 +69,7 @@ const steps = [
     description: "Les profils qui correspondent à vos critères remontent en priorité.",
     icon: <ShieldCheck className="h-5 w-5" />,
     illustration: (
-      <div className="relative h-36 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner">
+      <div className="relative h-28 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-32 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
         <div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-100/70 blur-2xl" />
         <div className="relative flex h-full items-center justify-center">
           <div className="rounded-[22px] border border-white bg-white px-5 py-4 shadow-sm">
@@ -89,7 +89,7 @@ const steps = [
     description: "Vous recevez des dossiers qualifiés, plus simples à comparer.",
     icon: <Route className="h-5 w-5" />,
     illustration: (
-      <div className="relative h-36 overflow-hidden rounded-[22px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-4 shadow-inner">
+      <div className="relative h-28 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-32 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
         <div className="grid h-full grid-cols-2 gap-3">
           <div className="rounded-[18px] border border-emerald-100 bg-emerald-50/80 p-3 shadow-sm">
             <div className="text-[10px] uppercase tracking-[0.18em] text-emerald-600 font-body">Validé</div>
@@ -125,25 +125,25 @@ export function HowItWorks() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-12 grid grid-cols-2 gap-3.5 md:mt-14 md:grid-cols-2 md:gap-5 xl:grid-cols-4">
           {steps.map((step) => (
             <article
               key={step.number}
-              className="reveal-animation reveal-card group flex h-full flex-col rounded-[32px] border border-white/85 bg-[#fbfcff]/92 p-5 shadow-[0_22px_60px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(15,23,42,0.07)] md:p-6"
+              className="reveal-animation reveal-card group flex h-full flex-col rounded-[24px] border border-white/85 bg-[#fbfcff]/92 p-3.5 shadow-[0_20px_54px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(15,23,42,0.07)] sm:rounded-[28px] sm:p-4 md:rounded-[32px] md:p-6"
             >
               {step.illustration}
-              <div className="mt-5 flex items-center justify-between">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-blue-100 bg-white text-primary shadow-sm">
+              <div className="mt-3.5 flex items-center justify-between sm:mt-4 md:mt-5">
+                <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-blue-100 bg-white text-primary shadow-sm sm:h-10 sm:w-10 md:h-11 md:w-11 md:rounded-2xl">
                   {step.icon}
                 </div>
-                <span className="text-sm font-semibold tracking-[0.24em] text-slate-300 font-body">
+                <span className="text-[11px] font-semibold tracking-[0.18em] text-slate-300 font-body sm:text-xs sm:tracking-[0.2em] md:text-sm md:tracking-[0.24em]">
                   {step.number}
                 </span>
               </div>
-              <h3 className="mt-4 text-2xl font-medium tracking-tight text-slate-950 font-headline">
+              <h3 className="mt-3 text-[1.15rem] leading-[1.1] font-medium tracking-tight text-slate-950 font-headline sm:text-[1.25rem] md:mt-4 md:text-2xl">
                 {step.title}
               </h3>
-              <p className="mt-3 text-[15px] leading-7 text-slate-500 font-body">
+              <p className="mt-2 text-[13px] leading-5 text-slate-500 font-body sm:text-[14px] sm:leading-6 md:mt-3 md:text-[15px] md:leading-7">
                 {step.description}
               </p>
             </article>
