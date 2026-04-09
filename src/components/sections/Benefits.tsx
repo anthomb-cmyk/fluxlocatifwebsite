@@ -180,7 +180,7 @@ export function Benefits() {
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-3.5 sm:grid-cols-2 md:grid-cols-3 md:gap-5">
+        <div className="mt-10 grid grid-cols-2 gap-2.5 md:grid-cols-3 md:gap-5">
           {topCards.map((card, idx) => (
             <article
               key={card.title}

@@ -149,7 +149,7 @@ export function HowItWorks() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-3.5 sm:grid-cols-2 md:mt-14 md:grid-cols-2 md:gap-5 xl:grid-cols-4">
+        <div className="mt-12 grid grid-cols-2 gap-2.5 md:mt-14 md:gap-5 xl:grid-cols-4">
           {steps.map((step, idx) => (
             <article
               key={step.number}

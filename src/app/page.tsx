@@ -186,7 +186,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="mt-12 grid grid-cols-1 gap-3.5 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+            <div className="mt-12 grid grid-cols-2 gap-2.5 sm:mt-14 sm:gap-3.5 lg:grid-cols-3 lg:gap-5">
               {painPoints.map((item, idx) => (
                 <article
                   key={item.title}
