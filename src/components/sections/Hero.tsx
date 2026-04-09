@@ -40,11 +40,11 @@ export function Hero() {
           </div>
 
           <h1 className="reveal-animation reveal-title mx-auto mt-5 max-w-[22rem] text-balance text-[2.6rem] font-medium leading-[0.94] tracking-[-0.045em] text-slate-950 sm:mt-7 sm:max-w-[32rem] sm:text-[3.45rem] md:text-[4.35rem] lg:text-[4.8rem] font-headline">
-            Structurez vos locations sans alourdir vos opérations.
+            On répond, on trie, on structure.
           </h1>
 
           <p className="reveal-animation reveal-title mx-auto mt-4 max-w-[21rem] text-pretty text-[15.5px] leading-[1.65] text-slate-500 sm:mt-6 sm:max-w-[28rem] sm:text-[19px] sm:leading-9 font-body">
-            FluxLocatif prend en charge les demandes entrantes, la préqualification et le suivi des dossiers pour vous aider à louer avec plus de méthode et moins de charge.
+            Moins de temps perdu sur les messages et plus de clarté dans le traitement des dossiers.
           </p>
 
           <div className="reveal-animation reveal-title mt-6 flex flex-col items-center justify-center gap-3 sm:mt-8 sm:gap-4 sm:flex-row">
