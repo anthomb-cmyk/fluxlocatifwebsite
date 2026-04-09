@@ -4,15 +4,11 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Filter, LayoutDashboard, CheckCircle2, ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function ServicesPage() {
-  const managementImg = PlaceHolderImages.find(img => img.id === "service-management");
-  const prequalifyImg = PlaceHolderImages.find(img => img.id === "service-prequalify");
-
   const services = [
     {
       icon: <LayoutDashboard className="h-6 w-6" />,
@@ -23,7 +19,8 @@ export default function ServicesPage() {
         "Gestion complète des appels & emails",
         "Centralisation des flux de demandes"
       ],
-      image: managementImg
+      imageSrc: "/interface-v3.png",
+      imageAlt: "Interface Bureau de location externalisé FluxLocatif"
     },
     {
       icon: <Filter className="h-6 w-6" />,
@@ -34,7 +31,8 @@ export default function ServicesPage() {
         "Analyse de solvabilité rigoureuse",
         "Contrôle systématique des références"
       ],
-      image: prequalifyImg
+      imageSrc: "/interface-v4.png",
+      imageAlt: "Interface Préqualification et vetting FluxLocatif"
     }
   ];
 
@@ -98,16 +96,14 @@ export default function ServicesPage() {
                 <div className="lg:col-span-7">
                   <div className="relative aspect-[16/10] w-full">
                     <div className="relative h-full w-full rounded-[2.5rem] overflow-hidden shadow-2xl">
-                      {service.image && (
-                        <Image 
-                          src={service.image.imageUrl} 
-                          alt={service.image.description} 
-                          fill 
-                          unoptimized
-                          className="object-cover object-top"
-                          priority={idx === 0}
-                        />
-                      )}
+                      <Image
+                        src={service.imageSrc}
+                        alt={service.imageAlt}
+                        fill
+                        unoptimized
+                        className="object-cover object-center"
+                        priority={idx === 0}
+                      />
                     </div>
                   </div>
                 </div>
