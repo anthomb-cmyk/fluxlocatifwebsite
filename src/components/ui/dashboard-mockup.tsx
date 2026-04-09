@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import {
   ArrowUpRight,
   Bell,
@@ -17,6 +18,15 @@ import {
 import { cn } from "@/lib/utils";
 
 export function DashboardMockup() {
+  const [activeView, setActiveView] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveView((v) => (v + 1) % 3);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, []);
+
   const sidebarItems = [
     { icon: <LayoutDashboard className="h-3.5 w-3.5" />, label: "Tableau de bord", active: true },
     { icon: <Briefcase className="h-3.5 w-3.5" />, label: "Propriétés" },
@@ -193,94 +203,200 @@ export function DashboardMockup() {
           </div>
         </div>
 
-        <div className="hidden md:block flex-1 space-y-8 overflow-auto p-8">
-          <div className="flex items-center justify-between">
-            <div className="space-y-1">
-              <h2 className="text-2xl font-headline text-[#0F172A] tracking-tight">Pipeline locatif</h2>
-              <div className="flex items-center gap-2">
-                <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                <p className="text-[12px] text-slate-400">Demandes en cours de traitement.</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-2 rounded-full border border-emerald-100/50 bg-emerald-50/50 px-4 py-2 text-[11px] text-emerald-600">
-              <CheckCircle2 className="h-4 w-4" />
-              Bureau actif
-            </div>
-          </div>
-
-          <div className="grid grid-cols-3 gap-6">
-            {metrics.map((m, i) => (
-              <div key={i} className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md">
-                <div className={cn("absolute -right-8 -top-8 h-24 w-24 rounded-full blur-3xl opacity-20", m.bg)} />
-                <p className="mb-4 text-[11px] uppercase tracking-wider text-slate-400">{m.label}</p>
-                <p className="mb-4 text-3xl text-[#0F172A]">{m.value}</p>
-                <div className={cn("flex items-center gap-2 text-[11px]", m.color)}>
-                  {m.icon || <ArrowUpRight className="h-3.5 w-3.5" />}
-                  <span>{m.trend}</span>
+        <div className="relative hidden flex-1 md:block">
+          <div
+            style={{
+              opacity: activeView === 0 ? 1 : 0,
+              transition: "opacity 0.6s ease",
+              position: activeView === 0 ? "relative" : "absolute",
+              inset: 0,
+            }}
+            className="h-full overflow-auto p-8"
+          >
+            <div className="space-y-8">
+              <div className="flex items-center justify-between">
+                <div className="space-y-1">
+                  <h2 className="text-2xl font-headline tracking-tight text-[#0F172A]">Pipeline locatif</h2>
+                  <div className="flex items-center gap-2">
+                    <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                    <p className="text-[12px] text-slate-400">Demandes en cours de traitement.</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 rounded-full border border-emerald-100/50 bg-emerald-50/50 px-4 py-2 text-[11px] text-emerald-600">
+                  <CheckCircle2 className="h-4 w-4" />
+                  Bureau actif
                 </div>
               </div>
-            ))}
-          </div>
 
-          <div className="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm">
-            <div className="flex items-center justify-between border-b border-slate-100 bg-[#F8FAFC]/50 px-8 py-4">
-              <h3 className="flex items-center gap-2 text-[12px] text-[#0F172A]">
-                <Users className="h-4 w-4 text-slate-300" />
-                Demandes récentes
-              </h3>
-              <div className="flex items-center gap-2 text-[11px] text-slate-400">
-                <Filter className="h-3.5 w-3.5" /> Filtrer
+              <div className="grid grid-cols-3 gap-6">
+                {metrics.map((m, i) => (
+                  <div
+                    key={i}
+                    className="group relative overflow-hidden rounded-2xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md"
+                  >
+                    <div className={cn("absolute -right-8 -top-8 h-24 w-24 rounded-full blur-3xl opacity-20", m.bg)} />
+                    <p className="mb-4 text-[11px] uppercase tracking-wider text-slate-400">{m.label}</p>
+                    <p className="mb-4 text-3xl text-[#0F172A]">{m.value}</p>
+                    <div className={cn("flex items-center gap-2 text-[11px]", m.color)}>
+                      {m.icon || <ArrowUpRight className="h-3.5 w-3.5" />}
+                      <span>{m.trend}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm">
+                <div className="flex items-center justify-between border-b border-slate-100 bg-[#F8FAFC]/50 px-8 py-4">
+                  <h3 className="flex items-center gap-2 text-[12px] text-[#0F172A]">
+                    <Users className="h-4 w-4 text-slate-300" />
+                    Demandes récentes
+                  </h3>
+                  <div className="flex items-center gap-2 text-[11px] text-slate-400">
+                    <Filter className="h-3.5 w-3.5" /> Filtrer
+                  </div>
+                </div>
+
+                <table className="w-full border-collapse text-left">
+                  <thead>
+                    <tr className="border-b border-slate-50">
+                      <th className="px-8 py-4 text-[11px] uppercase tracking-wider text-slate-400">Candidat</th>
+                      <th className="px-8 py-4 text-[11px] uppercase tracking-wider text-slate-400">Propriété</th>
+                      <th className="px-8 py-4 text-[11px] uppercase tracking-wider text-slate-400">Revenu</th>
+                      <th className="px-8 py-4 text-[11px] uppercase tracking-wider text-slate-400">Statut</th>
+                      <th className="px-8 py-4 text-right text-[11px] uppercase tracking-wider text-slate-400">Score</th>
+                      <th className="px-8 py-4" />
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-50">
+                    {candidates.map((c, i) => (
+                      <tr key={i} className="group transition-all duration-200 hover:bg-slate-50/50">
+                        <td className="px-8 py-4">
+                          <div className="flex items-center gap-3">
+                            <div className="h-9 w-9 overflow-hidden rounded-full border border-slate-200 bg-slate-100 shadow-sm">
+                              <img src={c.img} alt={c.name} className="h-full w-full object-cover" />
+                            </div>
+                            <div>
+                              <p className="text-[13px] text-[#0F172A]">{c.name}</p>
+                              <p className="text-[10px] text-slate-400">Dossier structuré</p>
+                            </div>
+                          </div>
+                        </td>
+                        <td className="px-8 py-4 text-[13px] text-slate-500">{c.property}</td>
+                        <td className="px-8 py-4 text-[13px] text-slate-600">{c.income}</td>
+                        <td className="px-8 py-4">
+                          <span className={cn("inline-flex items-center whitespace-nowrap rounded-full border px-2.5 py-1 text-[10px]", c.statusColor)}>{c.status}</span>
+                        </td>
+                        <td className="px-8 py-4 text-right">
+                          <div className="inline-flex items-center gap-2">
+                            <div className="h-1.5 w-12 overflow-hidden rounded-full bg-slate-100">
+                              <div className="h-full rounded-full bg-emerald-500" style={{ width: `${c.score}%` }} />
+                            </div>
+                            <span className="text-[12px] text-slate-700">{c.score}</span>
+                          </div>
+                        </td>
+                        <td className="px-8 py-4 text-right">
+                          <button className="rounded-lg p-1.5 text-slate-300 transition-all hover:bg-slate-100 hover:text-slate-600">
+                            <MoreHorizontal className="h-4 w-4" />
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
-
-            <table className="w-full border-collapse text-left">
-              <thead>
-                <tr className="border-b border-slate-50">
-                  <th className="px-8 py-4 text-[11px] uppercase tracking-wider text-slate-400">Candidat</th>
-                  <th className="px-8 py-4 text-[11px] uppercase tracking-wider text-slate-400">Propriété</th>
-                  <th className="px-8 py-4 text-[11px] uppercase tracking-wider text-slate-400">Revenu</th>
-                  <th className="px-8 py-4 text-[11px] uppercase tracking-wider text-slate-400">Statut</th>
-                  <th className="px-8 py-4 text-right text-[11px] uppercase tracking-wider text-slate-400">Score</th>
-                  <th className="px-8 py-4" />
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-50">
-                {candidates.map((c, i) => (
-                  <tr key={i} className="group transition-all duration-200 hover:bg-slate-50/50">
-                    <td className="px-8 py-4">
-                      <div className="flex items-center gap-3">
-                        <div className="h-9 w-9 overflow-hidden rounded-full border border-slate-200 bg-slate-100 shadow-sm">
-                          <img src={c.img} alt={c.name} className="h-full w-full object-cover" />
-                        </div>
-                        <div>
-                          <p className="text-[13px] text-[#0F172A]">{c.name}</p>
-                          <p className="text-[10px] text-slate-400">Dossier structuré</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-8 py-4 text-[13px] text-slate-500">{c.property}</td>
-                    <td className="px-8 py-4 text-[13px] text-slate-600">{c.income}</td>
-                    <td className="px-8 py-4">
-                      <span className={cn("inline-flex items-center whitespace-nowrap rounded-full border px-2.5 py-1 text-[10px]", c.statusColor)}>{c.status}</span>
-                    </td>
-                    <td className="px-8 py-4 text-right">
-                      <div className="inline-flex items-center gap-2">
-                        <div className="h-1.5 w-12 overflow-hidden rounded-full bg-slate-100">
-                          <div className="h-full rounded-full bg-emerald-500" style={{ width: `${c.score}%` }} />
-                        </div>
-                        <span className="text-[12px] text-slate-700">{c.score}</span>
-                      </div>
-                    </td>
-                    <td className="px-8 py-4 text-right">
-                      <button className="rounded-lg p-1.5 text-slate-300 transition-all hover:bg-slate-100 hover:text-slate-600">
-                        <MoreHorizontal className="h-4 w-4" />
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
           </div>
+
+          <div
+            style={{
+              opacity: activeView === 1 ? 1 : 0,
+              transition: "opacity 0.6s ease",
+              position: activeView === 1 ? "relative" : "absolute",
+              inset: 0,
+            }}
+          >
+            <div className="hidden flex-1 overflow-auto p-8 md:block">
+              <div className="mb-6 flex items-center justify-between">
+                <h2 className="text-2xl font-headline tracking-tight text-[#0F172A]">Dossiers préqualifiés</h2>
+                <span className="rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1 text-[12px] font-medium text-emerald-600">
+                  4 prêts
+                </span>
+              </div>
+              <div className="space-y-3">
+                {[
+                  { name: "Léa M.", property: "Loft Vieux-Mtl", score: 94, status: "Vérifié", statusColor: "bg-emerald-50 text-emerald-600 border-emerald-100", barColor: "bg-emerald-400" },
+                  { name: "Marc D.", property: "Studio Plateau", score: 88, status: "En cours", statusColor: "bg-blue-50 text-blue-600 border-blue-100", barColor: "bg-blue-400" },
+                  { name: "Sophie L.", property: "Condo Griffintown", score: 81, status: "En cours", statusColor: "bg-blue-50 text-blue-600 border-blue-100", barColor: "bg-blue-400" },
+                  { name: "Julien R.", property: "Loft Vieux-Mtl", score: 76, status: "Attente", statusColor: "bg-slate-50 text-slate-500 border-slate-100", barColor: "bg-slate-300" },
+                ].map((c) => (
+                  <div key={c.name} className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-[13px] font-medium text-slate-600">
+                      {c.name.charAt(0)}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="mb-1.5 flex items-center justify-between">
+                        <span className="text-[13px] font-medium text-slate-900">{c.name}</span>
+                        <span className={`rounded-full border px-2.5 py-0.5 text-[11px] ${c.statusColor}`}>{c.status}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="h-1.5 flex-1 rounded-full bg-slate-100">
+                          <div className={`h-1.5 rounded-full ${c.barColor}`} style={{ width: `${c.score}%` }} />
+                        </div>
+                        <span className="w-8 text-[12px] font-semibold text-slate-600">{c.score}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div
+            style={{
+              opacity: activeView === 2 ? 1 : 0,
+              transition: "opacity 0.6s ease",
+              position: activeView === 2 ? "relative" : "absolute",
+              inset: 0,
+            }}
+          >
+            <div className="hidden flex-1 overflow-auto p-8 md:block">
+              <h2 className="mb-6 text-2xl font-headline tracking-tight text-[#0F172A]">Pipeline locatif</h2>
+              <div className="grid h-[280px] grid-cols-3 gap-4">
+                {[
+                  { label: "Entrée", count: 18, color: "border-blue-200 bg-blue-50/40", dot: "bg-blue-400", items: ["Marc D.", "Amélie R.", "Thomas L."] },
+                  { label: "Préqualification", count: 9, color: "border-amber-200 bg-amber-50/40", dot: "bg-amber-400", items: ["Léa M.", "Sophie B."] },
+                  { label: "Prêt à présenter", count: 4, color: "border-emerald-200 bg-emerald-50/40", dot: "bg-emerald-400", items: ["Julien R."] },
+                ].map((col) => (
+                  <div key={col.label} className={`rounded-2xl border p-3 ${col.color}`}>
+                    <div className="mb-3 flex items-center justify-between">
+                      <span className="text-[12px] font-semibold text-slate-700">{col.label}</span>
+                      <span className="rounded-full border border-slate-100 bg-white px-2 py-0.5 text-[11px] text-slate-500">{col.count}</span>
+                    </div>
+                    <div className="space-y-2">
+                      {col.items.map((name) => (
+                        <div key={name} className="flex items-center gap-2 rounded-xl border border-white bg-white p-2.5 shadow-sm">
+                          <div className={`h-2 w-2 shrink-0 rounded-full ${col.dot}`} />
+                          <span className="truncate text-[12px] font-medium text-slate-700">{name}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="hidden items-center justify-center gap-2 border-t border-slate-100 py-3 md:flex">
+          {[0, 1, 2].map((idx) => (
+            <span
+              key={idx}
+              className={cn(
+                "h-1.5 rounded-full transition-all duration-300",
+                activeView === idx ? "w-6 bg-blue-500" : "w-1.5 bg-slate-300"
+              )}
+            />
+          ))}
         </div>
       </main>
     </div>

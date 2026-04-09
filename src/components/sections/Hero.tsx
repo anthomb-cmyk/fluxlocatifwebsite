@@ -57,6 +57,17 @@ export function Hero() {
             <span>SERVICE LOCATIF EXTERNALISÉ</span>
           </div>
 
+          <div className="reveal-animation reveal-title mb-4 mt-4 inline-flex items-center gap-3 rounded-full border border-slate-100 bg-white px-4 py-2 font-body text-[12px] text-slate-500 shadow-sm">
+            <span className="flex items-center gap-1">
+              <span className="h-2 w-2 rounded-full bg-emerald-400" />
+              <span className="font-medium text-slate-700">Réponse en moins de 24h</span>
+            </span>
+            <span className="h-3 w-px bg-slate-200" />
+            <span>100% des demandes traitées</span>
+            <span className="h-3 w-px bg-slate-200" />
+            <span>Sans engagement</span>
+          </div>
+
           <h1 className="scroll-blur-in mx-auto mt-5 w-full max-w-[22rem] px-2 text-balance text-[2rem] font-medium leading-[1.08] tracking-[-0.045em] text-slate-950 sm:mt-7 sm:max-w-[32rem] sm:px-0 sm:text-[2.8rem] md:text-[3.5rem] lg:text-[4rem] font-headline">
             On répond, on trie, on structure.
           </h1>

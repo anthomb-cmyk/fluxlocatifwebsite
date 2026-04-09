@@ -1,5 +1,6 @@
 import Link from "next/link";
 import {
+  ArrowRight,
   BadgeCheck,
   Building2,
   Layers3,
@@ -15,7 +16,6 @@ import { Benefits } from "@/components/sections/Benefits";
 import { FAQPreview } from "@/components/sections/FAQPreview";
 import { Hero } from "@/components/sections/Hero";
 import { HowItWorks } from "@/components/sections/HowItWorks";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const painPoints = [
@@ -173,17 +173,21 @@ export default function Home() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.06),transparent_38%)]" />
           <div className="section-grid section-fade absolute inset-0 opacity-60" />
           <div className="container relative mx-auto px-6">
-            <div className="reveal-animation reveal-title mx-auto max-w-3xl text-center">
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/90 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary shadow-[0_12px_30px_rgba(15,23,42,0.05)] backdrop-blur-sm font-body">
-                <Sparkles className="h-3.5 w-3.5" />
-                LES FRICTIONS QUE NOUS ENLEVONS
+            <div className="reveal-animation reveal-title mb-12">
+              <div className="mb-6 inline-flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+                <span className="font-body text-[13px] font-semibold uppercase tracking-[0.16em] text-blue-500">
+                  LES FRICTIONS QUE NOUS ENLEVONS
+                </span>
               </div>
-              <h2 className="scroll-blur-in mx-auto mt-6 max-w-3xl text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
-                Ce qui alourdit le plus les locations.
-              </h2>
-              <p className="mx-auto mt-6 max-w-2xl text-lg leading-7 text-slate-500 font-body">
-                Quand le volume augmente, le vrai problème n’est pas seulement le nombre de demandes. C’est le temps perdu, le manque de structure et la difficulté à faire ressortir les bons dossiers.
-              </p>
+              <div className="grid items-end gap-6 md:grid-cols-2">
+                <h2 className="scroll-blur-in text-balance font-headline text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl">
+                  Ce qui alourdit le plus les locations.
+                </h2>
+                <p className="font-body text-[15px] leading-7 text-slate-500 md:pb-1">
+                  Quand le volume augmente, le vrai problème n&apos;est pas seulement le nombre de demandes. C&apos;est le temps perdu, le manque de structure et la difficulté à faire ressortir les bons dossiers.
+                </p>
+              </div>
             </div>
 
             <div className="mt-12 grid grid-cols-2 gap-2.5 sm:mt-14 sm:gap-3.5 lg:grid-cols-3 lg:gap-5">
@@ -216,17 +220,21 @@ export default function Home() {
         <section id="services" className="relative overflow-hidden bg-white py-24 md:py-32">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.05),transparent_34%)]" />
           <div className="container relative mx-auto px-6">
-            <div className="reveal-animation reveal-title mx-auto max-w-3xl text-center">
-              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-600 shadow-[0_12px_30px_rgba(15,23,42,0.04)] font-body">
-                <Building2 className="h-3.5 w-3.5 text-primary" />
-                CE QUE NOUS PRENONS EN CHARGE
+            <div className="reveal-animation reveal-title mb-12">
+              <div className="mb-6 inline-flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+                <span className="font-body text-[13px] font-semibold uppercase tracking-[0.16em] text-blue-500">
+                  CE QUE NOUS PRENONS EN CHARGE
+                </span>
               </div>
-              <h2 className="mt-6 text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
-                Deux blocs de service pour structurer vos locations.
-              </h2>
-              <p className="mx-auto mt-6 max-w-2xl text-lg leading-7 text-slate-500 font-body">
-                FluxLocatif agit comme une extension opérationnelle de votre équipe sur les tâches locatives qui demandent le plus de constance.
-              </p>
+              <div className="grid items-end gap-6 md:grid-cols-2">
+                <h2 className="text-balance font-headline text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl">
+                  Deux blocs de service pour structurer vos locations.
+                </h2>
+                <p className="font-body text-[15px] leading-7 text-slate-500 md:pb-1">
+                  FluxLocatif agit comme une extension opérationnelle de votre équipe sur les tâches locatives qui demandent le plus de constance.
+                </p>
+              </div>
             </div>
 
             <div className="mt-12 grid gap-5 lg:grid-cols-2">
@@ -268,17 +276,21 @@ export default function Home() {
 
         <section className="bg-white py-24 md:py-36">
           <div className="container mx-auto px-6">
-            <div className="reveal-animation reveal-title mx-auto max-w-3xl text-center">
-              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-600 shadow-[0_12px_30px_rgba(15,23,42,0.04)] font-body">
-                <Building2 className="h-3.5 w-3.5 text-primary" />
-                POURQUOI FLUXLOCATIF
+            <div className="reveal-animation reveal-title mb-12">
+              <div className="mb-6 inline-flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
+                <span className="font-body text-[13px] font-semibold uppercase tracking-[0.16em] text-blue-500">
+                  POURQUOI FLUXLOCATIF
+                </span>
               </div>
-              <h2 className="mt-6 text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
-                Un modèle pensé pour alléger la location sans vous retirer le contrôle.
-              </h2>
-              <p className="mx-auto mt-6 max-w-2xl text-lg leading-7 text-slate-500 font-body">
-                FluxLocatif n’est ni une compagnie de gestion complète, ni un outil à piloter seul.
-              </p>
+              <div className="grid items-end gap-6 md:grid-cols-2">
+                <h2 className="text-balance font-headline text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl">
+                  Un modèle pensé pour alléger la location sans vous retirer le contrôle.
+                </h2>
+                <p className="font-body text-[15px] leading-7 text-slate-500 md:pb-1">
+                  FluxLocatif n’est ni une compagnie de gestion complète, ni un outil à piloter seul.
+                </p>
+              </div>
             </div>
 
             <div className="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
@@ -307,29 +319,38 @@ export default function Home() {
 
         <FAQPreview />
 
-        <section className="relative overflow-hidden bg-[#f8fbff] py-24 md:py-32">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.08),transparent_42%)]" />
-          <div className="section-grid section-fade absolute inset-0 opacity-40" />
-          <div className="container relative mx-auto px-6">
-            <div className="reveal-animation reveal-title mx-auto max-w-4xl rounded-[40px] border border-white/90 bg-white/94 px-6 py-10 text-center shadow-[0_30px_90px_rgba(15,23,42,0.08)] backdrop-blur-sm md:px-10 md:py-16">
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary shadow-[0_12px_30px_rgba(15,23,42,0.05)] font-body">
-                <Sparkles className="h-3.5 w-3.5" />
-                Commencer dès aujourd&apos;hui
-              </div>
-              <h2 className="scroll-blur-in mx-auto mt-6 max-w-3xl text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
-                Prêt à structurer vos locations ?
-              </h2>
-              <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-500 font-body">
-                Parlons de votre volume, de vos critères et de la façon la plus simple d’intégrer le service à vos locations.
-              </p>
-              <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <Button asChild className="h-14 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 px-8 text-base font-semibold text-white shadow-[0_16px_40px_rgba(59,130,246,0.26)] font-body">
-                  <Link href="/contact">Démarrer le service</Link>
-                </Button>
-                <Button asChild variant="outline" className="h-14 rounded-full border-slate-200 bg-white px-8 text-base font-medium text-slate-700 shadow-[0_10px_30px_rgba(15,23,42,0.04)] font-body">
-                  <Link href="/contact">Réserver un appel</Link>
-                </Button>
-              </div>
+        <section className="relative overflow-hidden bg-slate-950 py-24 md:py-32">
+          <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
+          <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 translate-y-8 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+          <div className="container relative mx-auto max-w-4xl px-6 text-center">
+            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 font-body text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-400">
+              <Sparkles className="h-3.5 w-3.5" />
+              Commencer dès aujourd&apos;hui
+            </div>
+
+            <h2 className="scroll-blur-in mb-6 font-headline text-3xl font-medium leading-tight tracking-[-0.04em] text-white md:text-5xl">
+              Prêt à structurer vos locations ?
+            </h2>
+
+            <p className="mx-auto mb-10 max-w-2xl font-body text-lg leading-8 text-slate-400">
+              Parlons de votre volume, de vos critères et de la façon la plus simple d&apos;intégrer le service à vos locations.
+            </p>
+
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Link
+                href="/contact"
+                className="inline-flex h-14 items-center justify-center rounded-full bg-blue-500 px-8 font-body text-base font-semibold text-white shadow-[0_16px_40px_rgba(59,130,246,0.3)] transition-colors hover:bg-blue-400"
+              >
+                Démarrer le service
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex h-14 items-center justify-center rounded-full border border-white/10 bg-white/5 px-8 font-body text-base font-medium text-white transition-colors hover:bg-white/10"
+              >
+                Réserver un appel
+              </Link>
             </div>
           </div>
         </section>
