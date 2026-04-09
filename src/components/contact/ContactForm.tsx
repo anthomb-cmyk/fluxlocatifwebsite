@@ -24,7 +24,6 @@ import {
 } from "@/components/ui/select";
 import { toast } from "@/hooks/use-toast";
 import { Loader2, CheckCircle2, Send } from "lucide-react";
-import { aiLeadQualificationAndRouting } from "@/ai/flows/ai-lead-qualification-and-routing";
 
 const formSchema = z.object({
   name: z.string().min(2, "Le nom est requis"),
@@ -54,9 +53,21 @@ export function ContactForm() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     try {
-      const analysis = await aiLeadQualificationAndRouting(values);
-      console.log("Analyse du prospect:", analysis);
-      
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => null);
+        throw new Error(
+          data?.message || "Une erreur est survenue lors de l'envoi."
+        );
+      }
+
       setIsSuccess(true);
       toast({
         title: "Demande envoyée !",
@@ -67,7 +78,10 @@ export function ContactForm() {
       toast({
         variant: "destructive",
         title: "Erreur lors de l'envoi",
-        description: "Une erreur est survenue, veuillez réessayer.",
+        description:
+          error instanceof Error
+            ? error.message
+            : "Une erreur est survenue, veuillez réessayer.",
       });
     } finally {
       setIsSubmitting(false);
