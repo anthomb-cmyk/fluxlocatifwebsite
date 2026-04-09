@@ -15,7 +15,7 @@ export function TrustTicker({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative mt-10 sm:mt-14 overflow-hidden w-full",
+        "relative mt-16 sm:mt-20 md:mt-24 overflow-hidden w-full",
         className
       )}
     >
