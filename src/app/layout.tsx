@@ -15,6 +15,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'FluxLocatif - Optimisation locative pour propriétaires actifs',
   description: 'FluxLocatif centralise les demandes, filtre les profils pertinents et structure votre processus de location.',
+  metadataBase: new URL('https://fluxlocatif.com'),
   openGraph: {
     title: 'FluxLocatif - Optimisation locative pour propriétaires actifs',
     description: 'FluxLocatif centralise les demandes, filtre les profils pertinents et structure votre processus de location.',
