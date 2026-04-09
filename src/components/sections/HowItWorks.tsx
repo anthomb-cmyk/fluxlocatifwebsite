@@ -4,7 +4,8 @@ const steps = [
   {
     number: "01",
     title: "Cadrage des critères",
-    description: "Vos filtres locatifs sont posés clairement dès le départ.",
+    description:
+      "Alignement sur vos standards de sélection et vos priorités locatives.",
     icon: <ClipboardCheck className="h-5 w-5" />,
     illustration: (
       <div className="relative h-28 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-32 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
@@ -63,7 +64,7 @@ const steps = [
   {
     number: "02",
     title: "Gestion des demandes",
-    description: "Les demandes entrantes sont reçues, triées et suivies.",
+    description: "Traitement et tri du volume entrant dans un cadre clair.",
     icon: <Inbox className="h-5 w-5" />,
     illustration: (
       <div className="relative h-28 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-32 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
@@ -83,8 +84,8 @@ const steps = [
   },
   {
     number: "03",
-    title: "Préqualification et matching",
-    description: "Les profils qui correspondent à vos critères remontent en priorité.",
+    title: "Préqualification et priorisation",
+    description: "Qualification des profils et hiérarchisation selon vos critères.",
     icon: <ShieldCheck className="h-5 w-5" />,
     illustration: (
       <div className="relative h-28 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-32 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
@@ -103,8 +104,8 @@ const steps = [
   },
   {
     number: "04",
-    title: "Décision mieux préparée",
-    description: "Vous recevez des dossiers qualifiés, plus simples à comparer.",
+    title: "Présentation pour décision",
+    description: "Remise de dossiers mieux préparés pour arbitrage rapide.",
     icon: <Route className="h-5 w-5" />,
     illustration: (
       <div className="relative h-28 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-32 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
@@ -127,19 +128,19 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="services" className="relative overflow-hidden bg-white py-24 md:py-36">
+    <section id="how-it-works" className="relative overflow-hidden bg-white py-24 md:py-36">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.05),transparent_34%)]" />
       <div className="container mx-auto px-6">
         <div className="reveal-animation reveal-title mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-600 shadow-[0_12px_30px_rgba(15,23,42,0.04)] font-body">
             <ArrowRight className="h-3.5 w-3.5 text-primary" />
-            Comment FluxLocatif fonctionne
+            COMMENT ÇA FONCTIONNE
           </div>
           <h2 className="mt-6 text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
-            Un cadre opérationnel clair, du premier message au dossier prêt.
+            Un processus clair, orienté décision.
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-7 text-slate-500 font-body">
-            Vous gardez le contrôle final. FluxLocatif gère les étapes répétitives, le tri et la préqualification.
+            Vous gardez la décision finale. Nous structurons l’amont pour vous remettre des dossiers plus faciles à traiter.
           </p>
         </div>
 

@@ -1,14 +1,11 @@
 import Link from "next/link";
 import {
-  ArrowUpRight,
   BadgeCheck,
   Building2,
-  Clock3,
   Layers3,
   MessageSquareMore,
   ShieldCheck,
   Sparkles,
-  TrendingDown,
   Users2,
 } from "lucide-react";
 
@@ -24,9 +21,9 @@ import { cn } from "@/lib/utils";
 const painPoints = [
   {
     icon: <MessageSquareMore className="h-5 w-5" />,
-    title: "Trop de temps perdu sur les messages entrants",
+    title: "Trop de demandes à traiter",
     description:
-      "Nous filtrons le volume entrant pour éviter les réponses répétitives.",
+      "Les mêmes questions reviennent, les messages s’accumulent et le tri prend rapidement trop de place.",
     illustration: (
       <div className="relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-44 md:rounded-[24px] md:p-4">
         <div className="flex items-center gap-2">
@@ -62,9 +59,9 @@ const painPoints = [
   },
   {
     icon: <Layers3 className="h-5 w-5" />,
-    title: "Un suivi locatif difficile à garder clair",
+    title: "Un suivi difficile à garder clair",
     description:
-      "Toutes les étapes restent visibles pour savoir quoi traiter, quoi relancer et quoi présenter.",
+      "Quand plusieurs candidats avancent en même temps, le pipeline devient vite plus lourd à suivre.",
     illustration: (
       <div className="relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-44 md:rounded-[24px] md:p-4">
         <div className="grid h-full grid-cols-3 gap-3">
@@ -93,9 +90,9 @@ const painPoints = [
   },
   {
     icon: <Users2 className="h-5 w-5" />,
-    title: "Trop de profils éloignés de vos critères",
+    title: "Des dossiers difficiles à prioriser",
     description:
-      "Le tri initial aide à faire remonter plus vite les dossiers les plus pertinents.",
+      "Sans cadre clair, il devient plus difficile de faire ressortir rapidement les dossiers les plus pertinents.",
     illustration: (
       <div className="relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-44 md:rounded-[24px] md:p-4">
         <div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-100/70 blur-2xl" />
@@ -119,31 +116,50 @@ const painPoints = [
   },
 ];
 
-const whyFluxLocatif = [
+const serviceBlocks = [
   {
-    title: "Un service opérationnel, pas un outil à piloter seul",
+    icon: <Building2 className="h-5 w-5" />,
+    title: "Bureau de location externalisé",
     description:
-      "Une extension de vos opérations locatives, sans vous laisser seul devant un logiciel.",
+      "Nous prenons en charge les demandes entrantes, les échanges de premier niveau et le suivi quotidien du flux locatif.",
+    points: [
+      "Centralisation des demandes",
+      "Réponses et suivi des échanges",
+      "Organisation continue du pipeline",
+    ],
+  },
+  {
     icon: <ShieldCheck className="h-5 w-5" />,
-  },
-  {
-    title: "Une méthode rigoureuse centrée sur les bons profils",
+    title: "Préqualification & vetting",
     description:
-      "Les profils avancent selon vos filtres, pas selon le volume de demandes reçues.",
-    icon: <BadgeCheck className="h-5 w-5" />,
-  },
-  {
-    title: "Un modèle plus léger que les options traditionnelles",
-    description:
-      "Jusqu’à 50 % moins cher qu’une agence de location traditionnelle.",
-    icon: <TrendingDown className="h-5 w-5" />,
+      "Nous appliquons vos critères pour filtrer, qualifier et prioriser les profils avant leur présentation.",
+    points: [
+      "Vérification des informations clés",
+      "Préqualification structurée",
+      "Priorisation des dossiers les plus pertinents",
+    ],
   },
 ];
 
-const operatorProfiles = [
-  "Investisseurs immobiliers qui veulent accélérer le traitement des demandes sans perdre le contrôle",
-  "Propriétaires multi-unités qui veulent plus de structure et moins de charge manuelle",
-  "Compagnies de gestion qui veulent délester leurs équipes du tri initial et de la préqualification",
+const whyFluxLocatif = [
+  {
+    title: "Une couche humaine d’exécution",
+    description:
+      "Une équipe prend en charge les tâches locatives en continu, avec un niveau de rigueur défini.",
+    icon: <ShieldCheck className="h-5 w-5" />,
+  },
+  {
+    title: "Matching structuré",
+    description:
+      "Les profils sont priorisés selon vos critères de décision, pas selon le simple ordre d’arrivée.",
+    icon: <BadgeCheck className="h-5 w-5" />,
+  },
+  {
+    title: "Contrôle client préservé",
+    description:
+      "Vous conservez l’arbitrage final sur les candidatures et la stratégie de location.",
+    icon: <Layers3 className="h-5 w-5" />,
+  },
 ];
 
 export default function Home() {
@@ -160,13 +176,13 @@ export default function Home() {
             <div className="reveal-animation reveal-title mx-auto max-w-3xl text-center">
               <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/90 px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary shadow-[0_12px_30px_rgba(15,23,42,0.05)] backdrop-blur-sm font-body">
                 <Sparkles className="h-3.5 w-3.5" />
-                Les frictions que nous enlevons
+                LES FRICTIONS QUE NOUS ENLEVONS
               </div>
               <h2 className="mx-auto mt-6 max-w-3xl text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
-                Les 3 problèmes qu’on enlève de votre quotidien.
+                Ce qui alourdit le plus les locations.
               </h2>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-7 text-slate-500 font-body">
-                FluxLocatif enlève le volume inutile, clarifie le suivi et aide à faire remonter les bons profils.
+                Quand le volume augmente, le vrai problème n’est pas seulement le nombre de demandes. C’est le temps perdu, le manque de structure et la difficulté à faire ressortir les bons dossiers.
               </p>
             </div>
 
@@ -195,72 +211,85 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="services" className="relative overflow-hidden bg-white py-24 md:py-32">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.05),transparent_34%)]" />
+          <div className="container relative mx-auto px-6">
+            <div className="reveal-animation reveal-title mx-auto max-w-3xl text-center">
+              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-600 shadow-[0_12px_30px_rgba(15,23,42,0.04)] font-body">
+                <Building2 className="h-3.5 w-3.5 text-primary" />
+                CE QUE NOUS PRENONS EN CHARGE
+              </div>
+              <h2 className="mt-6 text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
+                Deux blocs de service pour structurer vos locations.
+              </h2>
+              <p className="mx-auto mt-6 max-w-2xl text-lg leading-7 text-slate-500 font-body">
+                FluxLocatif agit comme une extension opérationnelle de votre équipe sur les tâches locatives qui demandent le plus de constance.
+              </p>
+            </div>
+
+            <div className="mt-12 grid gap-5 lg:grid-cols-2">
+              {serviceBlocks.map((service) => (
+                <article
+                  key={service.title}
+                  className="reveal-animation reveal-card rounded-[32px] border border-white/90 bg-[#fbfcff] p-6 shadow-[0_20px_60px_rgba(15,23,42,0.04)] md:p-8"
+                >
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-blue-100 bg-white text-primary shadow-sm">
+                    {service.icon}
+                  </div>
+                  <h3 className="mt-5 text-2xl font-medium tracking-tight text-slate-950 font-headline">
+                    {service.title}
+                  </h3>
+                  <p className="mt-4 text-[15px] leading-7 text-slate-500 font-body">
+                    {service.description}
+                  </p>
+
+                  <ul className="mt-6 space-y-3">
+                    {service.points.map((point) => (
+                      <li key={point} className="flex items-start gap-3 text-[15px] leading-7 text-slate-700 font-body">
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <HowItWorks />
         <Benefits />
 
         <section className="bg-white py-24 md:py-36">
           <div className="container mx-auto px-6">
-            <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-              <div>
-                <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-600 shadow-[0_12px_30px_rgba(15,23,42,0.04)] font-body">
-                  <Building2 className="h-3.5 w-3.5 text-primary" />
-                  Pourquoi FluxLocatif
-                </div>
-                <h2 className="mt-6 max-w-2xl text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
-                  Une façon plus simple d’opérer vos locations.
-                </h2>
-                <p className="mt-6 max-w-xl text-lg leading-7 text-slate-500 font-body">
-                  Nous prenons le travail répétitif en charge pour vous laisser les décisions importantes.
-                </p>
-
-                <div className="mt-8 space-y-4">
-                  {whyFluxLocatif.map((item) => (
-                    <div
-                      key={item.title}
-                      className="reveal-animation reveal-card rounded-[28px] border border-slate-200/70 bg-[#fbfcff] p-6 shadow-[0_18px_46px_rgba(15,23,42,0.04)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_56px_rgba(15,23,42,0.08)]"
-                    >
-                      <div className="flex items-center gap-3 text-slate-950">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-blue-100 bg-white text-primary">
-                          {item.icon}
-                        </div>
-                        <h3 className="text-lg font-medium tracking-tight font-headline">{item.title}</h3>
-                      </div>
-                      <p className="mt-4 pl-[3.25rem] text-[15px] leading-7 text-slate-500 font-body">
-                        {item.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+            <div className="reveal-animation reveal-title mx-auto max-w-3xl text-center">
+              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-600 shadow-[0_12px_30px_rgba(15,23,42,0.04)] font-body">
+                <Building2 className="h-3.5 w-3.5 text-primary" />
+                POURQUOI FLUXLOCATIF
               </div>
+              <h2 className="mt-6 text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
+                Un modèle pensé pour alléger la location sans vous retirer le contrôle.
+              </h2>
+              <p className="mx-auto mt-6 max-w-2xl text-lg leading-7 text-slate-500 font-body">
+                FluxLocatif n’est ni une compagnie de gestion complète, ni un outil à piloter seul.
+              </p>
+            </div>
 
-              <div className="rounded-[36px] border border-white/90 bg-[linear-gradient(180deg,rgba(248,251,255,0.96),rgba(255,255,255,0.98))] p-7 shadow-[0_28px_90px_rgba(15,23,42,0.07)] md:p-8">
-                <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary shadow-[0_10px_24px_rgba(15,23,42,0.04)] font-body">
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                  Clientèle cible
-                </div>
-                <h3 className="mt-6 text-2xl font-medium tracking-tight text-slate-950 font-headline">
-                  Pensé pour les propriétaires et opérateurs qui veulent plus d'efficacité locative.
-                </h3>
-                <div className="mt-8 space-y-4">
-                  {operatorProfiles.map((profile) => (
-                    <div
-                      key={profile}
-                      className="reveal-animation reveal-card rounded-[24px] border border-white bg-white/92 p-5 shadow-[0_12px_32px_rgba(15,23,42,0.04)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_42px_rgba(15,23,42,0.08)]"
-                    >
-                      <div className="flex gap-3">
-                        <div className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-blue-500" />
-                        <p className="text-sm leading-7 text-slate-600 font-body">{profile}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-8 rounded-[26px] border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-6 shadow-inner">
-                  <p className="text-sm uppercase tracking-[0.2em] text-slate-500 font-body">Point clé</p>
-                  <p className="mt-3 text-lg leading-8 text-slate-700 font-body">
-                    Vous gardez le contrôle final. Nous faisons le travail préparatoire pour simplifier vos décisions et alléger la gestion quotidienne.
+            <div className="mx-auto mt-10 grid max-w-5xl gap-4 md:grid-cols-3">
+              {whyFluxLocatif.map((item) => (
+                <div
+                  key={item.title}
+                  className="reveal-animation reveal-card rounded-[28px] border border-slate-200/70 bg-[#fbfcff] p-6 shadow-[0_18px_46px_rgba(15,23,42,0.04)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_56px_rgba(15,23,42,0.08)]"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-blue-100 bg-white text-primary">
+                    {item.icon}
+                  </div>
+                  <h3 className="mt-4 text-xl font-medium tracking-tight text-slate-950 font-headline">{item.title}</h3>
+                  <p className="mt-3 text-[15px] leading-7 text-slate-500 font-body">
+                    {item.description}
                   </p>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -277,10 +306,10 @@ export default function Home() {
                 Prêt à structurer vos locations
               </div>
               <h2 className="mx-auto mt-6 max-w-3xl text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
-                Réduisez le travail locatif manuel sans perdre la maîtrise de votre sélection.
+                Prêt à structurer vos locations ?
               </h2>
               <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-500 font-body">
-                Confiez à FluxLocatif le traitement structuré des demandes, la préqualification et le pilotage du pipeline pour consacrer votre temps aux meilleurs dossiers.
+                Parlons de votre volume, de vos critères et de la façon la plus simple d’intégrer le service à vos locations.
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Button asChild className="h-14 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 px-8 text-base font-semibold text-white shadow-[0_16px_40px_rgba(59,130,246,0.26)] font-body">

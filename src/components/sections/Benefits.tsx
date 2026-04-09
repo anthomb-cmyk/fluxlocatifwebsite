@@ -13,9 +13,9 @@ import { cn } from "@/lib/utils";
 
 const benefitCards = [
   {
-    eyebrow: "Temps",
-    title: "Moins de messages à gérer",
-    description: "Le tri initial enlève une partie du volume répétitif.",
+    eyebrow: "Charge",
+    title: "Moins de temps consacré au tri répétitif",
+    description: "Le tri initial enlève une part importante des échanges répétitifs.",
     icon: <MessagesSquare className="h-5 w-5" />,
     illustration: (
       <div className="relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
@@ -47,9 +47,9 @@ const benefitCards = [
     ),
   },
   {
-    eyebrow: "Qualité",
-    title: "Des dossiers mieux préparés",
-    description: "Les profils avancent avec plus de rigueur avant d’être présentés.",
+    eyebrow: "Préparation",
+    title: "Des dossiers mieux préparés avant revue",
+    description: "Les profils sont qualifiés plus tôt, avec un cadre de vérification clair.",
     icon: <ScanSearch className="h-5 w-5" />,
     illustration: (
       <div className="relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
@@ -98,9 +98,9 @@ const benefitCards = [
     ),
   },
   {
-    eyebrow: "Suivi",
-    title: "Une vue plus claire du pipeline",
-    description: "Les étapes restent faciles à suivre et à comparer.",
+    eyebrow: "Visibilité",
+    title: "Une visibilité plus claire d’un logement à l’autre",
+    description: "L’avancement reste lisible pour comparer les étapes et prioriser les actions.",
     icon: <Target className="h-5 w-5" />,
     illustration: (
       <div className="relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
@@ -137,8 +137,8 @@ const benefitCards = [
   },
   {
     eyebrow: "Décision",
-    title: "Des décisions plus simples",
-    description: "Vous gardez le choix final avec moins de travail préparatoire.",
+    title: "Des décisions plus simples à prendre",
+    description: "Vous gardez la décision finale avec un travail préparatoire déjà structuré.",
     icon: <TrendingUp className="h-5 w-5" />,
     illustration: (
       <div className="relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
@@ -200,8 +200,9 @@ const benefitCards = [
   },
   {
     eyebrow: "Coût",
-    title: "Une alternative plus souple",
-    description: "Une alternative plus efficace qu’un modèle locatif plus lourd.",
+    title: "Un modèle de coût plus compétitif",
+    description:
+      "Selon le volume et l’organisation recherchée, FluxLocatif peut coûter jusqu’à 50 % moins cher qu’une agence de location conventionnelle.",
     icon: <CircleDollarSign className="h-5 w-5" />,
     illustration: (
       <div className="relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
@@ -246,13 +247,13 @@ export function Benefits() {
         <div className="reveal-animation reveal-title mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary shadow-[0_12px_30px_rgba(15,23,42,0.04)] font-body">
             <ArrowUpRight className="h-3.5 w-3.5" />
-            Bénéfices concrets
+            RÉSULTATS OPÉRATIONNELS
           </div>
           <h2 className="mt-6 text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
-            Ce que vous gagnez concrètement.
+            Ce qui change concrètement pour votre équipe.
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-7 text-slate-500 font-body">
-            Moins de gestion répétitive, plus de clarté et des dossiers plus simples à traiter.
+            Moins de charge manuelle, plus de visibilité sur l’avancement et des décisions plus simples à prendre.
           </p>
         </div>
 

@@ -3,8 +3,8 @@
 const items = [
   "Bureau locatif externalisé",
   "Préqualification avant présentation",
-  "Matching selon vos critères",
-  "Suivi plus léger pour vos équipes",
+  "Suivi structuré du pipeline",
+  "Décision finale conservée par le client",
 ];
 
 export function TrustTicker() {

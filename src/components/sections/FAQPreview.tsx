@@ -7,29 +7,29 @@ import {
 
 const faqs = [
   {
-    question: "FluxLocatif est-il une agence immobilière ou une compagnie de gestion ?",
+    question: "FluxLocatif est-il une compagnie de gestion immobilière ?",
     answer:
-      "Non. FluxLocatif agit comme un bureau de location externalisé spécialisé dans le traitement des demandes, la préqualification et l'organisation du pipeline locatif. Nous ne remplaçons pas une compagnie de gestion et nous ne nous présentons pas comme une agence traditionnelle.",
+      "Non. FluxLocatif est un service locatif externalisé centré sur la gestion des demandes, la préqualification et le suivi des dossiers.",
   },
   {
-    question: "Qu'est-ce que vous prenez réellement en charge ?",
+    question: "Qui prend la décision finale sur les candidatures ?",
     answer:
-      "Nous prenons en charge la gestion des demandes entrantes, le tri initial, la préqualification rigoureuse, le matching selon vos critères et la structuration du suivi locatif jusqu'à la remise de dossiers mieux préparés.",
+      "Le client garde la décision finale. FluxLocatif prépare, qualifie et priorise les dossiers en amont.",
   },
   {
-    question: "À qui s'adresse le service ?",
+    question: "Que prenez-vous en charge exactement ?",
     answer:
-      "Le service est conçu pour les investisseurs immobiliers, propriétaires actifs, portefeuilles multi-unités et compagnies de gestion qui veulent réduire le travail locatif manuel sans perdre le contrôle sur la sélection finale.",
+      "Le flux entrant, le tri initial, la préqualification, le suivi du pipeline et la présentation structurée des dossiers.",
   },
   {
-    question: "Comment le matching intelligent est-il utilisé ?",
+    question: "À qui s’adresse le service ?",
     answer:
-      "Le matching sert à mieux aligner les candidatures avec vos critères réels: revenus, solvabilité, compatibilité du dossier et niveau de priorité. L'objectif est de vous faire gagner du temps et d'améliorer la qualité des dossiers transmis.",
+      "Aux investisseurs, propriétaires actifs, portefeuilles multi-unités et équipes de gestion qui veulent réduire la charge locative manuelle.",
   },
   {
-    question: "Comment se positionne le coût du service ?",
+    question: "Comment se compare le coût à une agence de location conventionnelle ?",
     answer:
-      "Le service se concentre sur les tâches locatives répétitives à forte charge opérationnelle. Cette approche permet une organisation plus souple et un modèle plus efficace que des options plus lourdes.",
+      "Selon le volume et l’organisation recherchée, FluxLocatif peut coûter jusqu’à 50 % moins cher qu’une agence de location conventionnelle.",
   },
 ];
 
@@ -43,7 +43,7 @@ export function FAQPreview() {
             Questions fréquentes
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-500 font-body">
-            Des réponses claires pour comprendre où FluxLocatif s'insère dans vos opérations locatives et ce que le service vous aide réellement à simplifier.
+            Les réponses aux points qui ralentissent le plus souvent la décision.
           </p>
         </div>
 
