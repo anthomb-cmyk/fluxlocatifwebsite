@@ -97,12 +97,32 @@ export function Hero() {
         <div id="hero-mockup" className="reveal-animation reveal-mockup relative mx-auto mt-3 mb-8 w-full max-w-[26.5rem] px-0 sm:mt-8 sm:mb-10 sm:max-w-[1160px] sm:px-1 md:mt-12 md:px-4">
           <div className="absolute inset-x-8 -bottom-8 h-40 rounded-full bg-blue-200/34 blur-3xl" />
           <div className="absolute inset-x-16 bottom-8 h-28 rounded-full bg-white/95 blur-[64px]" />
-          <div className="relative overflow-hidden rounded-[24px] border border-white/85 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(248,250,252,0.9))] p-[3px] shadow-[0_28px_70px_rgba(15,23,42,0.10)] backdrop-blur-sm transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_40px_90px_rgba(15,23,42,0.14)] sm:rounded-[30px] md:rounded-[36px] md:p-3">
-            <div className="pointer-events-none absolute inset-0 rounded-[36px] ring-1 ring-slate-200/70" />
-            <div className="relative overflow-hidden rounded-[24px] border border-slate-200/80 bg-white sm:rounded-[30px]">
-              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.46),transparent_28%)]" />
-              <div className="relative aspect-[1.08/1] w-full overflow-hidden sm:aspect-[1.24/1] md:aspect-[16/9]">
-                <DashboardMockup />
+
+          <div className="relative" style={{ paddingTop: "20px" }}>
+            <div
+              className="absolute inset-x-0 -top-5 mx-auto overflow-hidden rounded-[20px] border border-white/60 bg-white/40 backdrop-blur-sm sm:rounded-[26px] md:rounded-[32px]"
+              style={{ transform: "scale(0.90)", transformOrigin: "bottom center", opacity: 0.35, zIndex: 1 }}
+            >
+              <div className="aspect-[1.08/1] w-full sm:aspect-[1.24/1] md:aspect-[16/9]" />
+            </div>
+
+            <div
+              className="absolute inset-x-0 -top-2.5 mx-auto overflow-hidden rounded-[22px] border border-white/70 bg-white/60 backdrop-blur-sm sm:rounded-[28px] md:rounded-[34px]"
+              style={{ transform: "scale(0.95)", transformOrigin: "bottom center", opacity: 0.6, zIndex: 2 }}
+            >
+              <div className="aspect-[1.08/1] w-full sm:aspect-[1.24/1] md:aspect-[16/9]" />
+            </div>
+
+            <div
+              className="relative overflow-hidden rounded-[24px] border border-white/85 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(248,250,252,0.9))] p-[3px] shadow-[0_28px_70px_rgba(15,23,42,0.10)] backdrop-blur-sm transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_40px_90px_rgba(15,23,42,0.14)] sm:rounded-[30px] md:rounded-[36px] md:p-3"
+              style={{ zIndex: 3, position: "relative" }}
+            >
+              <div className="pointer-events-none absolute inset-0 rounded-[36px] ring-1 ring-slate-200/70" />
+              <div className="relative overflow-hidden rounded-[24px] border border-slate-200/80 bg-white sm:rounded-[30px]">
+                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.46),transparent_28%)]" />
+                <div className="relative aspect-[1.08/1] w-full overflow-hidden sm:aspect-[1.24/1] md:aspect-[16/9]">
+                  <DashboardMockup />
+                </div>
               </div>
             </div>
           </div>
