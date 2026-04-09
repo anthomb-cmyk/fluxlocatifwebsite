@@ -9,7 +9,25 @@ const steps = [
     illustration: (
       <div className="relative h-28 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-32 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
         <div className="absolute -right-8 -top-8 h-20 w-20 rounded-full bg-blue-100/60 blur-2xl" />
-        <div className="relative h-full rounded-[18px] border border-white bg-white/95 p-3.5 shadow-sm">
+        <div className="relative h-full rounded-[16px] border border-white bg-white/95 p-2.5 shadow-sm sm:hidden">
+          <div className="flex items-center justify-between">
+            <div className="text-[9px] font-semibold uppercase tracking-[0.14em] text-slate-400 font-body">
+              Critères
+            </div>
+            <div className="h-4 w-4 rounded-full border border-blue-100 bg-blue-50" />
+          </div>
+          <div className="mt-2.5 grid grid-cols-2 gap-1.5">
+            {["Revenu", "Crédit"].map((label, index) => (
+              <div key={label} className="rounded-lg border border-slate-100 bg-slate-50/70 px-1.5 py-1.5">
+                <div className="text-[8px] font-medium text-slate-500 font-body">{label}</div>
+                <div className="mt-1 h-1.5 rounded-full bg-slate-200">
+                  <div className={`h-1.5 rounded-full ${index === 0 ? "w-[82%] bg-blue-400" : "w-[72%] bg-emerald-400"}`} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="relative hidden h-full rounded-[18px] border border-white bg-white/95 p-3 shadow-sm sm:block md:p-3.5">
           <div className="flex items-center justify-between">
             <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400 font-body">
               Critères propriétaires
@@ -49,13 +67,13 @@ const steps = [
     icon: <Inbox className="h-5 w-5" />,
     illustration: (
       <div className="relative h-28 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-32 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
-        <div className="space-y-3">
+        <div className="space-y-2 sm:space-y-3">
           {[1, 2, 3].map((row) => (
-            <div key={row} className="flex items-center gap-3 rounded-[18px] border border-slate-100 bg-white px-3 py-2 shadow-sm">
-              <div className="h-8 w-8 rounded-full bg-slate-100" />
+            <div key={row} className={`flex items-center gap-2 rounded-[14px] border border-slate-100 bg-white px-2 py-1.5 shadow-sm sm:gap-3 sm:rounded-[18px] sm:px-3 sm:py-2 ${row === 3 ? "hidden sm:flex" : ""}`}>
+              <div className="h-6 w-6 rounded-full bg-slate-100 sm:h-8 sm:w-8" />
               <div className="flex-1">
                 <div className="h-2 w-24 rounded-full bg-slate-300/70" />
-                <div className="mt-1.5 h-2 w-16 rounded-full bg-slate-200/80" />
+                <div className="mt-1 h-2 w-16 rounded-full bg-slate-200/80 sm:mt-1.5" />
               </div>
             </div>
           ))}
@@ -72,11 +90,11 @@ const steps = [
       <div className="relative h-28 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-32 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
         <div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-100/70 blur-2xl" />
         <div className="relative flex h-full items-center justify-center">
-          <div className="rounded-[22px] border border-white bg-white px-5 py-4 shadow-sm">
-            <div className="text-[11px] uppercase tracking-[0.18em] text-slate-400 font-body">Compatibilité</div>
-            <div className="mt-2 flex items-end gap-2">
-              <span className="text-3xl font-medium text-slate-900 font-headline">94%</span>
-              <span className="pb-1 text-sm text-emerald-600 font-body">élevée</span>
+          <div className="rounded-[18px] border border-white bg-white px-3.5 py-3 shadow-sm sm:rounded-[22px] sm:px-5 sm:py-4">
+            <div className="text-[9px] uppercase tracking-[0.14em] text-slate-400 font-body sm:text-[11px] sm:tracking-[0.18em]">Compatibilité</div>
+            <div className="mt-1.5 flex items-end gap-1.5 sm:mt-2 sm:gap-2">
+              <span className="text-[2rem] font-medium text-slate-900 font-headline sm:text-3xl">94%</span>
+              <span className="pb-1 text-[11px] text-emerald-600 font-body sm:text-sm">élevée</span>
             </div>
           </div>
         </div>
@@ -90,14 +108,14 @@ const steps = [
     icon: <Route className="h-5 w-5" />,
     illustration: (
       <div className="relative h-28 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-32 sm:rounded-[20px] sm:p-3.5 md:h-36 md:rounded-[22px] md:p-4">
-        <div className="grid h-full grid-cols-2 gap-3">
-          <div className="rounded-[18px] border border-emerald-100 bg-emerald-50/80 p-3 shadow-sm">
-            <div className="text-[10px] uppercase tracking-[0.18em] text-emerald-600 font-body">Validé</div>
+        <div className="grid h-full grid-cols-2 gap-2 sm:gap-3">
+          <div className="rounded-[14px] border border-emerald-100 bg-emerald-50/80 p-2.5 shadow-sm sm:rounded-[18px] sm:p-3">
+            <div className="text-[9px] uppercase tracking-[0.12em] text-emerald-600 font-body sm:text-[10px] sm:tracking-[0.18em]">Validé</div>
             <div className="mt-3 h-2.5 w-16 rounded-full bg-emerald-200" />
             <div className="mt-2 h-2.5 w-12 rounded-full bg-emerald-200" />
           </div>
-          <div className="rounded-[18px] border border-slate-100 bg-white p-3 shadow-sm">
-            <div className="text-[10px] uppercase tracking-[0.18em] text-slate-400 font-body">À revoir</div>
+          <div className="rounded-[14px] border border-slate-100 bg-white p-2.5 shadow-sm sm:rounded-[18px] sm:p-3">
+            <div className="text-[9px] uppercase tracking-[0.12em] text-slate-400 font-body sm:text-[10px] sm:tracking-[0.18em]">À revoir</div>
             <div className="mt-3 h-2.5 w-14 rounded-full bg-slate-200" />
             <div className="mt-2 h-2.5 w-10 rounded-full bg-slate-200" />
           </div>
