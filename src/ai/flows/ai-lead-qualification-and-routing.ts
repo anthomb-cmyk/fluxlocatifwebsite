@@ -1,4 +1,3 @@
-'use server';
 /**
  * @fileOverview This flow analyzes contact form inquiries using AI to identify prospect's key needs,
  * suggest relevant next steps, and propose suitable sales team members for efficient lead qualification and personalized responses.
