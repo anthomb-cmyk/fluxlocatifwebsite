@@ -11,7 +11,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-white pt-20 pb-9 md:min-h-[125vh] md:pt-28 md:pb-0 lg:min-h-[135vh]"
+      className="relative bg-white pt-20 pb-9 md:min-h-[125vh] md:pt-28 md:pb-0 lg:min-h-[135vh]"
     >
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#ffffff_0%,#fbfdff_36%,#f7faff_100%)]" />
@@ -34,7 +34,7 @@ export function Hero() {
         <div className="absolute left-1/2 bottom-[4%] h-[15rem] w-[42rem] -translate-x-1/2 rounded-full bg-white/90 blur-[72px]" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-6">
+      <div className="container relative z-10 mx-auto px-6" style={{ position: "relative", zIndex: 10, overflow: "visible" }}>
         <div className="mx-auto max-w-[72rem] text-center">
           <div className="reveal-animation reveal-title inline-flex items-center gap-2 rounded-full border border-white/90 bg-white/88 px-3.5 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary shadow-[0_14px_34px_rgba(15,23,42,0.06)] backdrop-blur-md font-body sm:px-4 sm:py-2.5 sm:text-[11px] sm:tracking-[0.24em]">
             <Sparkles className="h-3.5 w-3.5" />
@@ -67,33 +67,30 @@ export function Hero() {
 
         </div>
 
-        <div id="hero-mockup" className="reveal-animation reveal-mockup relative mx-auto mt-3 mb-8 w-full max-w-[26.5rem] px-0 sm:mt-8 sm:mb-10 sm:max-w-[1160px] sm:px-1 md:mt-12 md:px-4">
-          <div className="relative" style={{ paddingTop: "32px" }}>
+        <div
+          id="hero-mockup"
+          className="reveal-animation reveal-mockup relative mx-auto w-full max-w-[26.5rem] px-0 sm:max-w-[1160px] sm:px-1 md:px-4"
+          style={{ marginTop: '2rem' }}
+        >
+          <div className="relative" style={{ paddingTop: '28px' }}>
+
+            {/* Back placeholder card - narrowest, sticks up the most */}
             <div
-              className="absolute inset-0 overflow-hidden rounded-[24px] border border-slate-200/40 bg-slate-50/80 sm:rounded-[30px] md:rounded-[36px]"
-              style={{ transform: "translateY(-24px) scale(0.91)", opacity: 0.4, zIndex: 1 }}
+              className="absolute left-8 right-8 top-0 h-full rounded-[18px] border border-slate-200/40 bg-slate-100/70 sm:left-14 sm:right-14 sm:rounded-[24px] md:left-20 md:right-20 md:rounded-[28px]"
+              style={{ transform: 'translateY(-22px)', zIndex: 1, opacity: 0.45 }}
             >
-              <div className="h-8 border-b border-slate-200/40 bg-white/50 md:h-12" />
-              <div className="grid grid-cols-3 gap-2 p-3 md:gap-4 md:p-6">
-                <div className="h-6 rounded-lg bg-slate-200/50 md:h-14" />
-                <div className="h-6 rounded-lg bg-slate-200/50 md:h-14" />
-                <div className="h-6 rounded-lg bg-slate-200/50 md:h-14" />
-              </div>
+              <div className="h-6 rounded-t-[18px] bg-slate-200/50 sm:h-9 sm:rounded-t-[24px] md:h-11 md:rounded-t-[28px]" />
             </div>
 
+            {/* Middle placeholder card */}
             <div
-              className="absolute inset-0 overflow-hidden rounded-[24px] border border-slate-200/60 bg-white/75 sm:rounded-[30px] md:rounded-[36px]"
-              style={{ transform: "translateY(-13px) scale(0.955)", opacity: 0.65, zIndex: 2 }}
+              className="absolute left-4 right-4 top-0 h-full rounded-[20px] border border-slate-200/60 bg-white/80 sm:left-7 sm:right-7 sm:rounded-[26px] md:left-10 md:right-10 md:rounded-[32px]"
+              style={{ transform: 'translateY(-12px)', zIndex: 2, opacity: 0.7 }}
             >
-              <div className="h-8 border-b border-slate-100 bg-white/80 md:h-12" />
-              <div className="grid grid-cols-3 gap-2 p-3 md:gap-4 md:p-6">
-                <div className="h-6 rounded-lg bg-slate-100 md:h-14" />
-                <div className="h-6 rounded-lg bg-slate-100 md:h-14" />
-                <div className="h-6 rounded-lg bg-slate-100 md:h-14" />
-              </div>
-              <div className="mx-3 h-8 rounded-lg bg-slate-100/70 md:mx-6 md:h-16" />
+              <div className="h-6 rounded-t-[20px] border-b border-slate-100 bg-slate-50/80 sm:h-9 sm:rounded-t-[26px] md:h-11 md:rounded-t-[32px]" />
             </div>
 
+            {/* Front card - real dashboard */}
             <div
               className="relative overflow-hidden rounded-[24px] border border-white/85 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(248,250,252,0.9))] p-[3px] shadow-[0_28px_70px_rgba(15,23,42,0.10)] backdrop-blur-sm sm:rounded-[30px] md:rounded-[36px] md:p-3"
               style={{ zIndex: 3 }}
@@ -106,6 +103,7 @@ export function Hero() {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
 
