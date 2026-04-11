@@ -3,11 +3,13 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useLang } from "@/context/LanguageContext";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { lang, setLang, t } = useLang();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -16,10 +18,10 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Services", href: "/services" },
-    { name: "À propos", href: "/about" },
-    { name: "Tarifs", href: "/pricing" },
-    { name: "Réserver un appel", href: "/contact" },
+    { name: t("Services", "Services"), href: "/services" },
+    { name: t("À propos", "About"), href: "/about" },
+    { name: t("Tarifs", "Pricing"), href: "/pricing" },
+    { name: t("Réserver un appel", "Book a call"), href: "/contact" },
   ];
 
   return (
@@ -56,11 +58,17 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-3">
+            <button
+              onClick={() => setLang(lang === "fr" ? "en" : "fr")}
+              className="hidden md:inline-flex items-center justify-center h-10 px-3 rounded-full border border-slate-200/80 bg-white/80 text-[12px] font-semibold text-slate-600 tracking-wide hover:bg-white transition-colors font-body"
+            >
+              {lang === "fr" ? "EN" : "FR"}
+            </button>
             <Link
               href="/contact"
               className="hidden h-10 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-blue-600 px-6 text-[13px] font-semibold text-white shadow-[0_12px_28px_rgba(59,130,246,0.2)] transition duration-300 hover:scale-[1.01] hover:shadow-[0_18px_34px_rgba(59,130,246,0.24)] md:inline-flex font-body"
             >
-              Démarrer
+              {t("Démarrer", "Get started")}
             </Link>
 
             <button
@@ -81,6 +89,12 @@ export function Navbar() {
         )}
       >
         <div className="flex flex-col gap-5 px-6">
+          <button
+            onClick={() => setLang(lang === "fr" ? "en" : "fr")}
+            className="inline-flex h-11 items-center justify-center rounded-full border border-slate-200/80 bg-white text-[13px] font-semibold text-slate-600 tracking-wide transition-colors hover:bg-slate-50 font-body"
+          >
+            {lang === "fr" ? "EN" : "FR"}
+          </button>
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -96,7 +110,7 @@ export function Navbar() {
             className="inline-flex h-12 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-blue-600 px-7 text-[15px] font-semibold text-white shadow-[0_12px_30px_rgba(59,130,246,0.22)] transition hover:scale-[1.01] font-body"
             onClick={() => setIsOpen(false)}
           >
-            Démarrer le service
+            {t("Démarrer le service", "Get started")}
           </Link>
         </div>
       </div>

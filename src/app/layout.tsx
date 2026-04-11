@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { ScrollRevealHandler } from "@/components/ui/scroll-reveal-handler";
+import { LanguageProvider } from '@/context/LanguageContext';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import { Inter } from 'next/font/google';
@@ -52,9 +53,11 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/favicon.svg" />
       </head>
       <body className="font-body antialiased min-h-screen bg-background text-foreground">
-        {children}
-        <Toaster />
-        <ScrollRevealHandler />
+        <LanguageProvider>
+          {children}
+          <Toaster />
+          <ScrollRevealHandler />
+        </LanguageProvider>
       </body>
     </html>
   );
