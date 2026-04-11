@@ -72,22 +72,22 @@ export function Hero() {
           className="reveal-animation reveal-mockup relative mx-auto w-full max-w-[26.5rem] px-0 sm:max-w-[1160px] sm:px-1 md:px-4"
           style={{ marginTop: '2rem' }}
         >
-          <div className="relative" style={{ paddingTop: '28px' }}>
+          <div className="relative" style={{ paddingTop: '40px' }}>
 
             {/* Back placeholder card - narrowest, sticks up the most */}
             <div
-              className="absolute left-8 right-8 top-0 h-full rounded-[18px] border border-slate-200/40 bg-slate-100/70 sm:left-14 sm:right-14 sm:rounded-[24px] md:left-20 md:right-20 md:rounded-[28px]"
-              style={{ transform: 'translateY(-22px)', zIndex: 1, opacity: 0.45 }}
+              className="absolute left-6 right-6 top-0 h-full rounded-[18px] border border-slate-300/50 bg-gradient-to-b from-slate-100 to-slate-50 shadow-[0_2px_8px_rgba(0,0,0,0.04)] sm:left-12 sm:right-12 sm:rounded-[24px] md:left-16 md:right-16 md:rounded-[28px]"
+              style={{ transform: 'translateY(-34px)', zIndex: 1, opacity: 0.5 }}
             >
-              <div className="h-6 rounded-t-[18px] bg-slate-200/50 sm:h-9 sm:rounded-t-[24px] md:h-11 md:rounded-t-[28px]" />
+              <div className="h-6 rounded-t-[18px] bg-slate-200/60 sm:h-9 sm:rounded-t-[24px] md:h-11 md:rounded-t-[28px]" />
             </div>
 
             {/* Middle placeholder card */}
             <div
-              className="absolute left-4 right-4 top-0 h-full rounded-[20px] border border-slate-200/60 bg-white/80 sm:left-7 sm:right-7 sm:rounded-[26px] md:left-10 md:right-10 md:rounded-[32px]"
-              style={{ transform: 'translateY(-12px)', zIndex: 2, opacity: 0.7 }}
+              className="absolute left-3 right-3 top-0 h-full rounded-[20px] border border-slate-200/70 bg-gradient-to-b from-white to-slate-50/90 shadow-[0_4px_12px_rgba(0,0,0,0.05)] sm:left-6 sm:right-6 sm:rounded-[26px] md:left-8 md:right-8 md:rounded-[32px]"
+              style={{ transform: 'translateY(-18px)', zIndex: 2, opacity: 0.75 }}
             >
-              <div className="h-6 rounded-t-[20px] border-b border-slate-100 bg-slate-50/80 sm:h-9 sm:rounded-t-[26px] md:h-11 md:rounded-t-[32px]" />
+              <div className="h-6 rounded-t-[20px] border-b border-slate-100 bg-slate-50/90 sm:h-9 sm:rounded-t-[26px] md:h-11 md:rounded-t-[32px]" />
             </div>
 
             {/* Front card - real dashboard */}
