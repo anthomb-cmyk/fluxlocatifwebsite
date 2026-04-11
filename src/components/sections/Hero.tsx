@@ -17,17 +17,40 @@ export function Hero() {
     const handleScroll = () => {
       const y = window.scrollY;
       const el = document.getElementById("hero-mockup");
-      if (el) el.style.transform = `translateY(${y * 0.12}px)`;
+      if (el) {
+        el.style.transform = `translateY(${y * 0.12}px)`;
+      }
+
+      const progress = Math.min(y / 400, 1);
+      const back3 = el?.querySelector('[data-stack="3"]') as HTMLElement | null;
+      const back2 = el?.querySelector('[data-stack="2"]') as HTMLElement | null;
+
+      if (back3) {
+        const scale = 0.92 + progress * 0.08;
+        const translateY = -20 + progress * 20;
+        const opacity = 0.5 + progress * 0.3;
+        back3.style.transform = `translateY(${translateY}px) scale(${scale})`;
+        back3.style.opacity = String(opacity);
+      }
+
+      if (back2) {
+        const scale = 0.96 + progress * 0.04;
+        const translateY = -11 + progress * 11;
+        const opacity = 0.75 + progress * 0.2;
+        back2.style.transform = `translateY(${translateY}px) scale(${scale})`;
+        back2.style.opacity = String(opacity);
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-white pt-20 pb-9 md:pt-28 md:pb-20"
+      className="relative overflow-hidden bg-white pt-20 pb-9 md:min-h-[125vh] md:pt-28 md:pb-0 lg:min-h-[135vh]"
     >
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#ffffff_0%,#fbfdff_36%,#f7faff_100%)]" />
@@ -64,8 +87,6 @@ export function Hero() {
             </span>
             <span className="h-3 w-px bg-slate-200" />
             <span>100% des demandes traitées</span>
-            <span className="h-3 w-px bg-slate-200" />
-            <span>Sans engagement</span>
           </div>
 
           <h1 className="scroll-blur-in mx-auto mt-5 w-full max-w-[22rem] px-2 text-balance text-[2rem] font-medium leading-[1.08] tracking-[-0.045em] text-slate-950 sm:mt-7 sm:max-w-[32rem] sm:px-0 sm:text-[2.8rem] md:text-[3.5rem] lg:text-[4rem] font-headline">
@@ -94,28 +115,26 @@ export function Hero() {
 
         </div>
 
-        <div id="hero-mockup" className="reveal-animation reveal-mockup relative mx-auto mt-3 mb-8 w-full max-w-[26.5rem] px-0 sm:mt-8 sm:mb-10 sm:max-w-[1160px] sm:px-1 md:mt-12 md:px-4">
+        <div id="hero-mockup" className="reveal-animation reveal-mockup relative mx-auto mt-3 mb-8 w-full max-w-[26.5rem] px-0 sm:mt-8 sm:mb-10 sm:max-w-[1160px] sm:px-1 md:sticky md:top-24 md:mt-12 md:px-4">
           <div className="absolute inset-x-8 -bottom-8 h-40 rounded-full bg-blue-200/34 blur-3xl" />
           <div className="absolute inset-x-16 bottom-8 h-28 rounded-full bg-white/95 blur-[64px]" />
 
-          <div className="relative" style={{ paddingTop: "20px" }}>
+          <div className="relative" style={{ paddingTop: "28px" }}>
             <div
-              className="absolute inset-x-0 -top-5 mx-auto overflow-hidden rounded-[20px] border border-white/60 bg-white/40 backdrop-blur-sm sm:rounded-[26px] md:rounded-[32px]"
-              style={{ transform: "scale(0.90)", transformOrigin: "bottom center", opacity: 0.35, zIndex: 1 }}
-            >
-              <div className="aspect-[1.08/1] w-full sm:aspect-[1.24/1] md:aspect-[16/9]" />
-            </div>
+              data-stack="3"
+              className="absolute inset-x-4 top-0 h-full rounded-[24px] border border-slate-200/60 bg-slate-50/80 sm:inset-x-8 sm:rounded-[28px] md:inset-x-12 md:rounded-[32px]"
+              style={{ transform: "translateY(-20px) scale(0.92)", zIndex: 1, opacity: 0.5 }}
+            />
 
             <div
-              className="absolute inset-x-0 -top-2.5 mx-auto overflow-hidden rounded-[22px] border border-white/70 bg-white/60 backdrop-blur-sm sm:rounded-[28px] md:rounded-[34px]"
-              style={{ transform: "scale(0.95)", transformOrigin: "bottom center", opacity: 0.6, zIndex: 2 }}
-            >
-              <div className="aspect-[1.08/1] w-full sm:aspect-[1.24/1] md:aspect-[16/9]" />
-            </div>
+              data-stack="2"
+              className="absolute inset-x-2 top-0 h-full rounded-[24px] border border-slate-200/70 bg-white/70 sm:inset-x-5 sm:rounded-[28px] md:inset-x-7 md:rounded-[34px]"
+              style={{ transform: "translateY(-11px) scale(0.96)", zIndex: 2, opacity: 0.75 }}
+            />
 
             <div
-              className="relative overflow-hidden rounded-[24px] border border-white/85 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(248,250,252,0.9))] p-[3px] shadow-[0_28px_70px_rgba(15,23,42,0.10)] backdrop-blur-sm transition duration-500 hover:-translate-y-0.5 hover:shadow-[0_40px_90px_rgba(15,23,42,0.14)] sm:rounded-[30px] md:rounded-[36px] md:p-3"
-              style={{ zIndex: 3, position: "relative" }}
+              className="relative overflow-hidden rounded-[24px] border border-white/85 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(248,250,252,0.9))] p-[3px] shadow-[0_28px_70px_rgba(15,23,42,0.10)] backdrop-blur-sm sm:rounded-[30px] md:rounded-[36px] md:p-3"
+              style={{ zIndex: 3 }}
             >
               <div className="pointer-events-none absolute inset-0 rounded-[36px] ring-1 ring-slate-200/70" />
               <div className="relative overflow-hidden rounded-[24px] border border-slate-200/80 bg-white sm:rounded-[30px]">
