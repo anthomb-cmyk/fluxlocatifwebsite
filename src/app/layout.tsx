@@ -30,9 +30,12 @@ export const metadata: Metadata = {
     description: 'FluxLocatif centralise les demandes, filtre les profils pertinents et structure votre processus de location.',
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+    ],
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
   },
 };
 
@@ -43,6 +46,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={`${GeistSans.variable} ${GeistMono.variable} ${inter.variable}`} suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon.svg" />
+      </head>
       <body className="font-body antialiased min-h-screen bg-background text-foreground">
         {children}
         <Toaster />
