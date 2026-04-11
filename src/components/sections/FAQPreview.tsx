@@ -1,9 +1,12 @@
+"use client";
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useLang } from "@/context/LanguageContext";
 
 const faqs = [
   {
@@ -34,13 +37,15 @@ const faqs = [
 ];
 
 export function FAQPreview() {
+  const { t } = useLang();
+
   return (
     <section id="faq" className="relative overflow-hidden bg-[#fbfcff] py-24 md:py-36">
       <div className="section-grid section-fade absolute inset-0 opacity-40" />
       <div className="container mx-auto px-6">
         <div className="reveal-animation reveal-title mx-auto max-w-3xl text-center">
           <h2 className="text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl font-headline">
-            Questions fréquentes
+            {t("Questions fréquentes", "Frequently asked questions")}
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-500 font-body">
             Les réponses aux points qui ralentissent le plus souvent la décision.

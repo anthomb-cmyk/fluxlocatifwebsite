@@ -28,10 +28,8 @@ export default function Home() {
     {
       icon: <MessageSquareMore className="h-5 w-5" />,
       title: t("Trop de demandes à traiter", "Too many requests to handle"),
-      description: t(
+      description:
         "Les mêmes questions reviennent, les messages s’accumulent et le tri prend rapidement trop de place.",
-        "The same questions keep coming, messages pile up, and sorting quickly takes over too much space."
-      ),
       illustration: (
         <div className="card-illustration relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-44 md:rounded-[24px] md:p-4">
           <div className="flex items-center gap-2">
@@ -68,10 +66,8 @@ export default function Home() {
     {
       icon: <Layers3 className="h-5 w-5" />,
       title: t("Un suivi difficile à garder clair", "A pipeline that's hard to keep clear"),
-      description: t(
+      description:
         "Quand plusieurs candidats avancent en même temps, le pipeline devient vite plus lourd à suivre.",
-        "When multiple candidates move forward at the same time, the pipeline quickly becomes heavier to track."
-      ),
       illustration: (
         <div className="card-illustration relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-44 md:rounded-[24px] md:p-4">
           <div className="grid h-full grid-cols-3 gap-3">
@@ -101,10 +97,8 @@ export default function Home() {
     {
       icon: <Users2 className="h-5 w-5" />,
       title: t("Des dossiers difficiles à prioriser", "Files that are hard to prioritize"),
-      description: t(
+      description:
         "Sans cadre clair, il devient plus difficile de faire ressortir rapidement les dossiers les plus pertinents.",
-        "Without a clear framework, it becomes harder to quickly surface the most relevant files."
-      ),
       illustration: (
         <div className="card-illustration relative h-24 overflow-hidden rounded-[18px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-3 shadow-inner sm:h-28 sm:rounded-[20px] sm:p-3.5 md:h-44 md:rounded-[24px] md:p-4">
           <div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-100/70 blur-2xl" />
@@ -132,27 +126,23 @@ export default function Home() {
     {
       icon: <Building2 className="h-5 w-5" />,
       title: t("Bureau de location externalisé", "Outsourced Leasing Office"),
-      description: t(
+      description:
         "Nous prenons en charge les demandes entrantes, les échanges de premier niveau et le suivi quotidien du flux locatif.",
-        "We handle incoming requests, first-level exchanges, and the day-to-day follow-up of the leasing flow."
-      ),
       points: [
-        t("Centralisation des demandes", "Request centralization"),
-        t("Réponses et suivi des échanges", "Responses and follow-up"),
-        t("Organisation continue du pipeline", "Continuous pipeline organization"),
+        "Centralisation des demandes",
+        "Réponses et suivi des échanges",
+        "Organisation continue du pipeline",
       ],
     },
     {
       icon: <ShieldCheck className="h-5 w-5" />,
       title: t("Préqualification & vetting", "Pre-qualification & vetting"),
-      description: t(
+      description:
         "Nous appliquons vos critères pour filtrer, qualifier et prioriser les profils avant leur présentation.",
-        "We apply your criteria to filter, qualify, and prioritize profiles before they are presented."
-      ),
       points: [
-        t("Vérification des informations clés", "Key information verification"),
-        t("Préqualification structurée", "Structured pre-qualification"),
-        t("Priorisation des dossiers les plus pertinents", "Prioritization of the most relevant files"),
+        "Vérification des informations clés",
+        "Préqualification structurée",
+        "Priorisation des dossiers les plus pertinents",
       ],
     },
   ];
@@ -160,26 +150,20 @@ export default function Home() {
   const whyFluxLocatif = [
     {
       title: t("Une couche humaine d’exécution", "A human execution layer"),
-      description: t(
+      description:
         "Une équipe prend en charge les tâches locatives en continu, avec un niveau de rigueur défini.",
-        "A team handles leasing tasks continuously, with a clearly defined level of rigor."
-      ),
       icon: <ShieldCheck className="h-5 w-5" />,
     },
     {
       title: t("Matching structuré", "Structured matching"),
-      description: t(
+      description:
         "Les profils sont priorisés selon vos critères de décision, pas selon le simple ordre d’arrivée.",
-        "Profiles are prioritized according to your decision criteria, not simply by order of arrival."
-      ),
       icon: <BadgeCheck className="h-5 w-5" />,
     },
     {
       title: t("Contrôle client préservé", "Client control preserved"),
-      description: t(
+      description:
         "Vous conservez l’arbitrage final sur les candidatures et la stratégie de location.",
-        "You retain the final say on applications and leasing strategy."
-      ),
       icon: <Layers3 className="h-5 w-5" />,
     },
   ];
@@ -203,13 +187,10 @@ export default function Home() {
               </div>
               <div className="grid items-end gap-6 md:grid-cols-2">
                 <h2 className="scroll-blur-in text-balance font-headline text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl">
-                  {t("Ce qui alourdit le plus les locations.", "What makes rentals harder than they need to be.")}
+                  {t("Ce qui alourdit le plus les locations.", "What makes rentals harder.")}
                 </h2>
                 <p className="font-body text-[15px] leading-7 text-slate-500 md:pb-1">
-                  {t(
-                    "Quand le volume augmente, le vrai problème n'est pas seulement le nombre de demandes. C'est le temps perdu, le manque de structure et la difficulté à faire ressortir les bons dossiers.",
-                    "When volume increases, the real problem is not just the number of requests. It is lost time, lack of structure, and the difficulty of surfacing the right files."
-                  )}
+                  Quand le volume augmente, le vrai problème n&apos;est pas seulement le nombre de demandes. C&apos;est le temps perdu, le manque de structure et la difficulté à faire ressortir les bons dossiers.
                 </p>
               </div>
             </div>
@@ -249,6 +230,7 @@ export default function Home() {
                 <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
                 <span className="font-body text-[13px] font-semibold uppercase tracking-[0.16em] text-blue-500">
                   {t("CE QUE NOUS PRENONS EN CHARGE", "WHAT WE HANDLE FOR YOU")}
+                  
                 </span>
               </div>
               <div className="grid items-end gap-6 md:grid-cols-2">
@@ -256,10 +238,7 @@ export default function Home() {
                   {t("Deux blocs de service pour structurer vos locations.", "Two service blocks to structure your rentals.")}
                 </h2>
                 <p className="font-body text-[15px] leading-7 text-slate-500 md:pb-1">
-                  {t(
-                    "FluxLocatif agit comme une extension opérationnelle de votre équipe sur les tâches locatives qui demandent le plus de constance.",
-                    "FluxLocatif acts as an operational extension of your team for the leasing tasks that require the most consistency."
-                  )}
+                  FluxLocatif agit comme une extension opérationnelle de votre équipe sur les tâches locatives qui demandent le plus de constance.
                 </p>
               </div>
             </div>
@@ -318,10 +297,7 @@ export default function Home() {
                   )}
                 </h2>
                 <p className="font-body text-[15px] leading-7 text-slate-500 md:pb-1">
-                  {t(
-                    "FluxLocatif n’est ni une compagnie de gestion complète, ni un outil à piloter seul.",
-                    "FluxLocatif is neither a full property management company nor a tool you have to operate alone."
-                  )}
+                  FluxLocatif n’est ni une compagnie de gestion complète, ni un outil à piloter seul.
                 </p>
               </div>
             </div>
@@ -367,10 +343,7 @@ export default function Home() {
             </h2>
 
             <p className="mx-auto mb-10 max-w-2xl font-body text-lg leading-8 text-slate-400">
-              {t(
-                "Parlons de votre volume, de vos critères et de la façon la plus simple d'intégrer le service à vos locations.",
-                "Let's talk about your volume, your criteria, and the simplest way to integrate the service into your rentals."
-              )}
+              Parlons de votre volume, de vos critères et de la façon la plus simple d&apos;intégrer le service à vos locations.
             </p>
 
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -378,14 +351,14 @@ export default function Home() {
                 href="/contact"
                 className="inline-flex h-14 items-center justify-center rounded-full bg-blue-500 px-8 font-body text-base font-semibold text-white shadow-[0_16px_40px_rgba(59,130,246,0.3)] transition-colors hover:bg-blue-400"
               >
-                {t("Démarrer le service", "Get started")}
+                Démarrer le service
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
               <Link
                 href="/contact"
                 className="inline-flex h-14 items-center justify-center rounded-full border border-white/10 bg-white/5 px-8 font-body text-base font-medium text-white transition-colors hover:bg-white/10"
               >
-                {t("Réserver un appel", "Book a call")}
+                Réserver un appel
               </Link>
             </div>
           </div>

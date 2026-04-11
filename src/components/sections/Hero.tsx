@@ -1,59 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
 import { DashboardMockup } from "@/components/ui/dashboard-mockup";
 
 export function Hero() {
   const { t } = useLang();
-  const views: Array<"tableau" | "dossiers" | "pipeline"> = ["tableau", "dossiers", "pipeline"];
-  const [activeView, setActiveView] = useState(0);
-  const ticking = useRef(false);
-  const lastScrollY = useRef(0);
-  const accumulatedScroll = useRef(0);
-  const stack = [
-    activeView,
-    (activeView + 1) % 3,
-    (activeView + 2) % 3,
-  ];
-
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    if (prefersReducedMotion) {
-      return;
-    }
-
-    const handleScroll = () => {
-      if (ticking.current) return;
-      ticking.current = true;
-
-      requestAnimationFrame(() => {
-        const currentY = window.scrollY;
-        const delta = currentY - lastScrollY.current;
-        lastScrollY.current = currentY;
-
-        accumulatedScroll.current += delta;
-
-        if (accumulatedScroll.current >= 200) {
-          accumulatedScroll.current = 0;
-          setActiveView((prev) => (prev + 1) % 3);
-        } else if (accumulatedScroll.current <= -200) {
-          accumulatedScroll.current = 0;
-          setActiveView((prev) => (prev - 1 + 3) % 3);
-        }
-
-        ticking.current = false;
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    lastScrollY.current = window.scrollY;
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <section
@@ -93,10 +46,7 @@ export function Hero() {
           </h1>
 
           <p className="reveal-animation reveal-title mx-auto mt-4 max-w-[21rem] text-pretty text-[15.5px] leading-[1.65] text-slate-500 sm:mt-6 sm:max-w-[28rem] sm:text-[19px] sm:leading-9 font-body">
-            {t(
-              "Moins de temps perdu sur les messages et plus de clarté dans le traitement des dossiers.",
-              "Less time lost on messages and more clarity in handling files."
-            )}
+            Moins de temps perdu sur les messages et plus de clarté dans le traitement des dossiers.
           </p>
 
           <div className="reveal-animation reveal-title mt-6 flex flex-col items-center justify-center gap-3 sm:mt-8 sm:gap-4 sm:flex-row">
@@ -104,14 +54,14 @@ export function Hero() {
               href="/contact"
               className="inline-flex h-12 w-full items-center justify-center rounded-full bg-gradient-to-r from-blue-500 via-blue-500 to-blue-600 px-6 text-[15px] font-semibold text-white shadow-[0_12px_30px_rgba(59,130,246,0.24)] transition duration-300 hover:scale-[1.01] hover:shadow-[0_20px_46px_rgba(59,130,246,0.3)] sm:h-14 sm:w-auto sm:px-8 sm:text-base font-body"
             >
-              {t("Démarrer le service", "Get started")}
+              Démarrer le service
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
             <Link
               href="/contact"
               className="inline-flex h-12 w-full items-center justify-center rounded-full border border-slate-200 bg-white/92 px-6 text-[15px] font-medium text-slate-700 shadow-[0_10px_26px_rgba(15,23,42,0.05)] backdrop-blur-sm transition duration-300 hover:bg-white hover:shadow-[0_14px_36px_rgba(15,23,42,0.08)] sm:h-14 sm:w-auto sm:px-8 sm:text-base font-body"
             >
-              {t("Réserver un appel", "Book a call")}
+              Réserver un appel
             </Link>
           </div>
 
@@ -120,74 +70,42 @@ export function Hero() {
         <div id="hero-mockup" className="reveal-animation reveal-mockup relative mx-auto mt-3 mb-8 w-full max-w-[26.5rem] px-0 sm:mt-8 sm:mb-10 sm:max-w-[1160px] sm:px-1 md:mt-12 md:px-4">
           <div className="relative" style={{ paddingTop: "32px" }}>
             <div
-              className="absolute inset-0 overflow-hidden rounded-[24px] border border-slate-200/50 bg-slate-50 sm:rounded-[30px] md:rounded-[36px]"
-              style={{
-                transform: `translateY(${stack[2] >= 0 ? -26 : -26}px) scale(0.92)`,
-                opacity: 0.4,
-                zIndex: 1,
-                transition: "transform 0.6s cubic-bezier(0.22,1,0.36,1), opacity 0.6s ease",
-              }}
+              className="absolute inset-0 overflow-hidden rounded-[24px] border border-slate-200/40 bg-slate-50/80 sm:rounded-[30px] md:rounded-[36px]"
+              style={{ transform: "translateY(-24px) scale(0.91)", opacity: 0.4, zIndex: 1 }}
             >
-              <div className="h-8 border-b border-slate-200/60 bg-white/60 md:h-12" />
+              <div className="h-8 border-b border-slate-200/40 bg-white/50 md:h-12" />
               <div className="grid grid-cols-3 gap-2 p-3 md:gap-4 md:p-6">
-                <div className="h-8 rounded-lg bg-slate-200/40 md:h-16" />
-                <div className="h-8 rounded-lg bg-slate-200/40 md:h-16" />
-                <div className="h-8 rounded-lg bg-slate-200/40 md:h-16" />
+                <div className="h-6 rounded-lg bg-slate-200/50 md:h-14" />
+                <div className="h-6 rounded-lg bg-slate-200/50 md:h-14" />
+                <div className="h-6 rounded-lg bg-slate-200/50 md:h-14" />
               </div>
-              <div className="mx-3 h-20 rounded-lg bg-slate-200/30 md:mx-6 md:h-32" />
             </div>
 
             <div
-              className="absolute inset-0 overflow-hidden rounded-[24px] border border-slate-200/60 bg-white/80 sm:rounded-[30px] md:rounded-[36px]"
-              style={{
-                transform: "translateY(-14px) scale(0.96)",
-                opacity: 0.65,
-                zIndex: 2,
-                transition: "transform 0.6s cubic-bezier(0.22,1,0.36,1), opacity 0.6s ease",
-              }}
+              className="absolute inset-0 overflow-hidden rounded-[24px] border border-slate-200/60 bg-white/75 sm:rounded-[30px] md:rounded-[36px]"
+              style={{ transform: "translateY(-13px) scale(0.955)", opacity: 0.65, zIndex: 2 }}
             >
-              <div className="h-8 border-b border-slate-100 bg-white md:h-12">
-                <div className="flex items-center gap-2 px-3 pt-2 md:px-5 md:pt-3">
-                  <div className="h-2 w-16 rounded-full bg-slate-200 md:h-3 md:w-24" />
-                </div>
-              </div>
+              <div className="h-8 border-b border-slate-100 bg-white/80 md:h-12" />
               <div className="grid grid-cols-3 gap-2 p-3 md:gap-4 md:p-6">
-                <div className="h-8 rounded-lg bg-slate-100 md:h-16" />
-                <div className="h-8 rounded-lg bg-slate-100 md:h-16" />
-                <div className="h-8 rounded-lg bg-slate-100 md:h-16" />
+                <div className="h-6 rounded-lg bg-slate-100 md:h-14" />
+                <div className="h-6 rounded-lg bg-slate-100 md:h-14" />
+                <div className="h-6 rounded-lg bg-slate-100 md:h-14" />
               </div>
-              <div className="mx-3 space-y-2 md:mx-6">
-                <div className="h-8 rounded-lg bg-slate-100/80 md:h-12" />
-                <div className="h-8 rounded-lg bg-slate-100/60 md:h-12" />
-              </div>
+              <div className="mx-3 h-8 rounded-lg bg-slate-100/70 md:mx-6 md:h-16" />
             </div>
 
             <div
               className="relative overflow-hidden rounded-[24px] border border-white/85 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(248,250,252,0.9))] p-[3px] shadow-[0_28px_70px_rgba(15,23,42,0.10)] backdrop-blur-sm sm:rounded-[30px] md:rounded-[36px] md:p-3"
-              style={{
-                zIndex: 3,
-                transition: "transform 0.6s cubic-bezier(0.22,1,0.36,1)",
-              }}
+              style={{ zIndex: 3 }}
             >
               <div className="pointer-events-none absolute inset-0 rounded-[36px] ring-1 ring-slate-200/70" />
               <div className="relative overflow-hidden rounded-[24px] border border-slate-200/80 bg-white sm:rounded-[30px]">
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.46),transparent_28%)]" />
                 <div className="relative aspect-[1.08/1] w-full overflow-hidden sm:aspect-[1.24/1] md:aspect-[16/9]">
-                  <DashboardMockup view={views[activeView]} />
+                  <DashboardMockup />
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="relative z-10 mt-4 flex justify-center gap-1.5">
-            {views.map((_, i) => (
-              <div
-                key={i}
-                className={`h-1.5 rounded-full transition-all duration-500 ${
-                  activeView === i ? "w-4 bg-blue-500" : "w-1.5 bg-slate-300"
-                }`}
-              />
-            ))}
           </div>
         </div>
 

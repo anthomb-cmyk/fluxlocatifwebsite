@@ -1,35 +1,39 @@
+ "use client";
+
 import { ArrowRight, ClipboardCheck, Inbox, Route, ShieldCheck } from "lucide-react";
+import { useLang } from "@/context/LanguageContext";
 import { cn } from "@/lib/utils";
 
-const steps = [
-  {
-    number: "01",
-    title: "Cadrage des critères",
-    description:
-      "Alignement sur vos standards de sélection et vos priorités locatives.",
-    icon: <ClipboardCheck className="h-5 w-5" />,
-  },
-  {
-    number: "02",
-    title: "Gestion des demandes",
-    description: "Traitement et tri du volume entrant dans un cadre clair.",
-    icon: <Inbox className="h-5 w-5" />,
-  },
-  {
-    number: "03",
-    title: "Préqualification et priorisation",
-    description: "Qualification des profils et hiérarchisation selon vos critères.",
-    icon: <ShieldCheck className="h-5 w-5" />,
-  },
-  {
-    number: "04",
-    title: "Présentation pour décision",
-    description: "Remise de dossiers mieux préparés pour arbitrage rapide.",
-    icon: <Route className="h-5 w-5" />,
-  },
-];
-
 export function HowItWorks() {
+  const { t } = useLang();
+  const steps = [
+    {
+      number: "01",
+      title: t("Cadrage des critères", "Criteria framing"),
+      description:
+        "Alignement sur vos standards de sélection et vos priorités locatives.",
+      icon: <ClipboardCheck className="h-5 w-5" />,
+    },
+    {
+      number: "02",
+      title: t("Gestion des demandes", "Request management"),
+      description: "Traitement et tri du volume entrant dans un cadre clair.",
+      icon: <Inbox className="h-5 w-5" />,
+    },
+    {
+      number: "03",
+      title: t("Préqualification et priorisation", "Pre-qualification & prioritization"),
+      description: "Qualification des profils et hiérarchisation selon vos critères.",
+      icon: <ShieldCheck className="h-5 w-5" />,
+    },
+    {
+      number: "04",
+      title: t("Présentation pour décision", "Presentation for decision"),
+      description: "Remise de dossiers mieux préparés pour arbitrage rapide.",
+      icon: <Route className="h-5 w-5" />,
+    },
+  ];
+
   return (
     <section id="how-it-works" className="relative overflow-hidden bg-white py-24 md:py-36">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.05),transparent_34%)]" />
@@ -38,12 +42,12 @@ export function HowItWorks() {
           <div className="mb-6 inline-flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
             <span className="font-body text-[13px] font-semibold uppercase tracking-[0.16em] text-blue-500">
-              COMMENT ÇA FONCTIONNE
+              {t("COMMENT ÇA FONCTIONNE", "HOW IT WORKS")}
             </span>
           </div>
           <div className="grid items-end gap-6 md:grid-cols-2">
             <h2 className="text-balance font-headline text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl">
-              Un processus clair, orienté décision.
+              {t("Un processus clair, orienté décision.", "A clear, decision-oriented process.")}
             </h2>
             <p className="font-body text-[15px] leading-7 text-slate-500 md:pb-1">
               Vous gardez la décision finale. Nous structurons l’amont pour vous remettre des dossiers plus faciles à traiter.

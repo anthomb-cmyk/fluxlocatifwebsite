@@ -30,9 +30,9 @@ export function Footer() {
           <div>
             <h4 className="mb-4 text-sm font-body font-medium uppercase tracking-widest text-slate-100">{t("Navigation", "Navigation")}</h4>
             <ul className="space-y-2 text-sm font-body font-normal text-slate-400">
-              <li><Link href="/pricing" className="transition-colors hover:text-white">{t("Tarifs", "Pricing")}</Link></li>
-              <li><Link href="/services" className="transition-colors hover:text-white">{t("Services", "Services")}</Link></li>
-              <li><Link href="/about" className="transition-colors hover:text-white">{t("À propos", "About")}</Link></li>
+              <li><Link href="/pricing" className="transition-colors hover:text-white">Tarifs</Link></li>
+              <li><Link href="/services" className="transition-colors hover:text-white">Services</Link></li>
+              <li><Link href="/about" className="transition-colors hover:text-white">À propos</Link></li>
               <li><Link href="/faq" className="transition-colors hover:text-white">FAQ</Link></li>
             </ul>
           </div>
@@ -40,8 +40,8 @@ export function Footer() {
           <div>
             <h4 className="mb-4 text-sm font-body font-medium uppercase tracking-widest text-slate-100">{t("Contact", "Contact")}</h4>
             <ul className="space-y-2 text-sm font-body font-normal text-slate-400">
-              <li><Link href="/contact" className="transition-colors hover:text-white">{t("Remplir le formulaire", "Fill out the form")}</Link></li>
-              <li><Link href="/contact" className="transition-colors hover:text-white">{t("Réserver un appel", "Book a call")}</Link></li>
+              <li><Link href="/contact" className="transition-colors hover:text-white">Remplir le formulaire</Link></li>
+              <li><Link href="/contact" className="transition-colors hover:text-white">Réserver un appel</Link></li>
             </ul>
           </div>
         </div>

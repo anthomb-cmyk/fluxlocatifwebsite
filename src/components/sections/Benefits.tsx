@@ -1,3 +1,5 @@
+ "use client";
+
 import {
   ArrowUpRight,
   CheckCircle2,
@@ -7,15 +9,19 @@ import {
   Target,
   TrendingUp,
 } from "lucide-react";
+import { useLang } from "@/context/LanguageContext";
 import { cn } from "@/lib/utils";
 
-const benefitCards = [
-  {
-    eyebrow: "Charge",
-    title: "Moins de temps consacré au tri répétitif",
-    description: "Le tri initial enlève une part importante des échanges répétitifs.",
-    icon: <MessagesSquare className="h-5 w-5" />,
-    illustration: (
+export function Benefits() {
+  const { t } = useLang();
+
+  const benefitCards = [
+    {
+      eyebrow: "Charge",
+      title: t("Moins de temps consacré au tri répétitif", "Less time spent on repetitive sorting"),
+      description: "Le tri initial enlève une part importante des échanges répétitifs.",
+      icon: <MessagesSquare className="h-5 w-5" />,
+      illustration: (
       <div className="relative h-24 overflow-hidden rounded-[16px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-2.5 shadow-inner sm:h-28 md:h-36">
         <div className="flex h-full flex-col justify-between">
           <div className="flex items-center justify-between">
@@ -37,14 +43,14 @@ const benefitCards = [
           </div>
         </div>
       </div>
-    ),
-  },
-  {
-    eyebrow: "Préparation",
-    title: "Des dossiers mieux préparés avant revue",
-    description: "Les profils sont qualifiés plus tôt, avec un cadre de vérification clair.",
-    icon: <ScanSearch className="h-5 w-5" />,
-    illustration: (
+      ),
+    },
+    {
+      eyebrow: "Préparation",
+      title: t("Des dossiers mieux préparés avant revue", "Better prepared files before review"),
+      description: "Les profils sont qualifiés plus tôt, avec un cadre de vérification clair.",
+      icon: <ScanSearch className="h-5 w-5" />,
+      illustration: (
       <div className="relative h-24 overflow-hidden rounded-[16px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-2.5 shadow-inner sm:h-28 md:h-36">
         <div className="flex h-full flex-col justify-between">
           <span className="text-[8px] font-semibold uppercase tracking-[0.1em] text-slate-400 font-body">Checklist</span>
@@ -60,14 +66,14 @@ const benefitCards = [
           </div>
         </div>
       </div>
-    ),
-  },
-  {
-    eyebrow: "Visibilité",
-    title: "Une visibilité plus claire d’un logement à l’autre",
-    description: "L’avancement reste lisible pour comparer les étapes et prioriser les actions.",
-    icon: <Target className="h-5 w-5" />,
-    illustration: (
+      ),
+    },
+    {
+      eyebrow: "Visibilité",
+      title: t("Une visibilité plus claire d’un logement à l’autre", "Clearer visibility across properties"),
+      description: "L’avancement reste lisible pour comparer les étapes et prioriser les actions.",
+      icon: <Target className="h-5 w-5" />,
+      illustration: (
       <div className="relative h-24 overflow-hidden rounded-[16px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-2.5 shadow-inner sm:h-28 md:h-36">
         <div className="grid h-full grid-cols-3 gap-1.5">
           {[
@@ -85,14 +91,14 @@ const benefitCards = [
           ))}
         </div>
       </div>
-    ),
-  },
-  {
-    eyebrow: "Décision",
-    title: "Des décisions plus simples à prendre",
-    description: "Vous gardez la décision finale avec un travail préparatoire déjà structuré.",
-    icon: <TrendingUp className="h-5 w-5" />,
-    illustration: (
+      ),
+    },
+    {
+      eyebrow: "Décision",
+      title: t("Des décisions plus simples à prendre", "Simpler decisions to make"),
+      description: "Vous gardez la décision finale avec un travail préparatoire déjà structuré.",
+      icon: <TrendingUp className="h-5 w-5" />,
+      illustration: (
       <div className="relative h-24 overflow-hidden rounded-[16px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-2.5 shadow-inner sm:h-28 md:h-36">
         <div className="flex h-full flex-col justify-between">
           <span className="text-[8px] font-semibold uppercase tracking-[0.1em] text-slate-400 font-body">Arbitrage</span>
@@ -111,15 +117,15 @@ const benefitCards = [
           </div>
         </div>
       </div>
-    ),
-  },
-  {
-    eyebrow: "Coût",
-    title: "Un modèle de coût plus compétitif",
-    description:
-      "Selon le volume et l’organisation recherchée, FluxLocatif peut coûter jusqu’à 50 % moins cher qu’une agence de location conventionnelle.",
-    icon: <CircleDollarSign className="h-5 w-5" />,
-    illustration: (
+      ),
+    },
+    {
+      eyebrow: "Coût",
+      title: t("Un modèle de coût plus compétitif", "A more competitive cost model"),
+      description:
+        "Selon le volume et l’organisation recherchée, FluxLocatif peut coûter jusqu’à 50 % moins cher qu’une agence de location conventionnelle.",
+      icon: <CircleDollarSign className="h-5 w-5" />,
+      illustration: (
       <div className="relative h-24 overflow-hidden rounded-[16px] border border-slate-100 bg-[linear-gradient(180deg,#ffffff,#f8fbff)] p-2.5 shadow-inner sm:h-28 md:h-36">
         <div className="flex h-full flex-col justify-between">
           <span className="text-[8px] font-semibold uppercase tracking-[0.1em] text-slate-400 font-body">Coût / mois</span>
@@ -148,11 +154,10 @@ const benefitCards = [
           </div>
         </div>
       </div>
-    ),
-  },
-];
+      ),
+    },
+  ];
 
-export function Benefits() {
   const topCards = benefitCards.slice(0, 3);
   const bottomCards = benefitCards.slice(3);
 
@@ -164,12 +169,12 @@ export function Benefits() {
           <div className="mb-6 inline-flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
             <span className="font-body text-[13px] font-semibold uppercase tracking-[0.16em] text-blue-500">
-              RÉSULTATS OPÉRATIONNELS
+              {t("RÉSULTATS OPÉRATIONNELS", "OPERATIONAL RESULTS")}
             </span>
           </div>
           <div className="grid items-end gap-6 md:grid-cols-2">
             <h2 className="text-balance font-headline text-3xl font-medium leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl">
-              Ce que vous gagnez concrètement.
+              {t("Ce que vous gagnez concrètement.", "What you concretely gain.")}
             </h2>
             <p className="font-body text-[15px] leading-7 text-slate-500 md:pb-1">
               Moins de gestion répétitive, plus de clarté et des dossiers plus simples à traiter.
