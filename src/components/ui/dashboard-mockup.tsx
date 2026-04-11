@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import {
   ArrowUpRight,
   Bell,
@@ -17,15 +16,14 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export function DashboardMockup() {
-  const [activeView, setActiveView] = useState(0);
+type DashboardView = "tableau" | "dossiers" | "pipeline";
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveView((v) => (v + 1) % 3);
-    }, 3500);
-    return () => clearInterval(interval);
-  }, []);
+type DashboardMockupProps = {
+  view?: DashboardView;
+};
+
+export function DashboardMockup({ view = "tableau" }: DashboardMockupProps) {
+  const activeView = view === "dossiers" ? 1 : view === "pipeline" ? 2 : 0;
 
   const sidebarItems = [
     { icon: <LayoutDashboard className="h-3.5 w-3.5" />, label: "Tableau de bord", active: true },

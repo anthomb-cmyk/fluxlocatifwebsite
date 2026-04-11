@@ -1,11 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { DashboardMockup } from "@/components/ui/dashboard-mockup";
 
 export function Hero() {
+  const views: Array<"tableau" | "dossiers" | "pipeline"> = ["tableau", "dossiers", "pipeline"];
+  const [activeView, setActiveView] = useState(0);
+  const lastScrollY = useRef(0);
+  const accumulatedScroll = useRef(0);
+  const shuffleThreshold = 180;
+  const stack = [
+    activeView,
+    (activeView + 1) % 3,
+    (activeView + 2) % 3,
+  ];
+
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
@@ -16,33 +27,26 @@ export function Hero() {
 
     const handleScroll = () => {
       const y = window.scrollY;
+      const delta = y - lastScrollY.current;
+      lastScrollY.current = y;
+      accumulatedScroll.current += delta;
+
       const el = document.getElementById("hero-mockup");
       if (el) {
         el.style.transform = `translateY(${y * 0.12}px)`;
       }
 
-      const progress = Math.min(y / 400, 1);
-      const back3 = el?.querySelector('[data-stack="3"]') as HTMLElement | null;
-      const back2 = el?.querySelector('[data-stack="2"]') as HTMLElement | null;
-
-      if (back3) {
-        const scale = 0.92 + progress * 0.08;
-        const translateY = -20 + progress * 20;
-        const opacity = 0.5 + progress * 0.3;
-        back3.style.transform = `translateY(${translateY}px) scale(${scale})`;
-        back3.style.opacity = String(opacity);
-      }
-
-      if (back2) {
-        const scale = 0.96 + progress * 0.04;
-        const translateY = -11 + progress * 11;
-        const opacity = 0.75 + progress * 0.2;
-        back2.style.transform = `translateY(${translateY}px) scale(${scale})`;
-        back2.style.opacity = String(opacity);
+      if (accumulatedScroll.current >= shuffleThreshold) {
+        accumulatedScroll.current = 0;
+        setActiveView((prev) => (prev + 1) % 3);
+      } else if (accumulatedScroll.current <= -shuffleThreshold) {
+        accumulatedScroll.current = 0;
+        setActiveView((prev) => (prev - 1 + 3) % 3);
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    lastScrollY.current = window.scrollY;
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -120,30 +124,54 @@ export function Hero() {
           <div className="absolute inset-x-16 bottom-8 h-28 rounded-full bg-white/95 blur-[64px]" />
 
           <div className="relative" style={{ paddingTop: "28px" }}>
-            <div
-              data-stack="3"
-              className="absolute inset-x-4 top-0 h-full rounded-[24px] border border-slate-200/60 bg-slate-50/80 sm:inset-x-8 sm:rounded-[28px] md:inset-x-12 md:rounded-[32px]"
-              style={{ transform: "translateY(-20px) scale(0.92)", zIndex: 1, opacity: 0.5 }}
-            />
+            <div className="relative aspect-[1.08/1] w-full sm:aspect-[1.24/1] md:aspect-[16/9]">
+              {stack.map((viewIndex, position) => {
+                const isFront = position === 0;
+                const isMiddle = position === 1;
+                const isBack = position === 2;
 
-            <div
-              data-stack="2"
-              className="absolute inset-x-2 top-0 h-full rounded-[24px] border border-slate-200/70 bg-white/70 sm:inset-x-5 sm:rounded-[28px] md:inset-x-7 md:rounded-[34px]"
-              style={{ transform: "translateY(-11px) scale(0.96)", zIndex: 2, opacity: 0.75 }}
-            />
-
-            <div
-              className="relative overflow-hidden rounded-[24px] border border-white/85 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(248,250,252,0.9))] p-[3px] shadow-[0_28px_70px_rgba(15,23,42,0.10)] backdrop-blur-sm sm:rounded-[30px] md:rounded-[36px] md:p-3"
-              style={{ zIndex: 3 }}
-            >
-              <div className="pointer-events-none absolute inset-0 rounded-[36px] ring-1 ring-slate-200/70" />
-              <div className="relative overflow-hidden rounded-[24px] border border-slate-200/80 bg-white sm:rounded-[30px]">
-                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.46),transparent_28%)]" />
-                <div className="relative aspect-[1.08/1] w-full overflow-hidden sm:aspect-[1.24/1] md:aspect-[16/9]">
-                  <DashboardMockup />
-                </div>
-              </div>
+                return (
+                  <div
+                    key={`${views[viewIndex]}-${position}`}
+                    className="left-0 top-0 w-full"
+                    style={{
+                      position: isFront ? "relative" : "absolute",
+                      zIndex: isFront ? 3 : isMiddle ? 2 : 1,
+                      transform: isFront
+                        ? "translateY(0) scale(1)"
+                        : isMiddle
+                          ? "translateY(-14px) scale(0.96)"
+                          : "translateY(-26px) scale(0.92)",
+                      opacity: isFront ? 1 : isMiddle ? 0.7 : 0.4,
+                      transition:
+                        "transform 0.6s cubic-bezier(0.22,1,0.36,1), opacity 0.6s ease",
+                    }}
+                  >
+                    <div className="relative overflow-hidden rounded-[24px] border border-white/85 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(248,250,252,0.9))] p-[3px] shadow-[0_28px_70px_rgba(15,23,42,0.10)] backdrop-blur-sm sm:rounded-[30px] md:rounded-[36px] md:p-3">
+                      <div className="pointer-events-none absolute inset-0 rounded-[36px] ring-1 ring-slate-200/70" />
+                      <div className="relative overflow-hidden rounded-[24px] border border-slate-200/80 bg-white sm:rounded-[30px]">
+                        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.46),transparent_28%)]" />
+                        <div className="relative aspect-[1.08/1] w-full overflow-hidden sm:aspect-[1.24/1] md:aspect-[16/9]">
+                          <DashboardMockup view={views[viewIndex]} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
+          </div>
+          <div className="mt-4 hidden items-center justify-center gap-2 md:flex">
+            {[0, 1, 2].map((idx) => (
+              <span
+                key={idx}
+                className={
+                  idx === activeView
+                    ? "h-1.5 w-6 rounded-full bg-blue-500 transition-all duration-300"
+                    : "h-1.5 w-1.5 rounded-full bg-slate-300 transition-all duration-300"
+                }
+              />
+            ))}
           </div>
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.96),transparent_72%)]" />
         </div>
