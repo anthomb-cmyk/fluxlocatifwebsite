@@ -10,8 +10,8 @@ import { useStaggerReveal } from "@/hooks/useStaggerReveal";
 const plans = [
   {
     name: "Démarrage",
-    price: "$399",
-    period: "frais unique",
+    price: "Consultez-nous",
+    period: "",
     scope: "1 logement actif",
     description:
       "Pour lancer un mandat locatif avec une structure claire dès le départ.",
@@ -25,8 +25,8 @@ const plans = [
   },
   {
     name: "Croissance",
-    price: "$699",
-    period: "/mois",
+    price: "Consultez-nous",
+    period: "",
     scope: "Jusqu'à 3 logements",
     description:
       "Pour les propriétaires et opérateurs qui veulent déléguer une part active du travail locatif.",
@@ -41,8 +41,8 @@ const plans = [
   },
   {
     name: "Échelle",
-    price: "$1 200",
-    period: "/mois",
+    price: "Consultez-nous",
+    period: "",
     scope: "Jusqu'à 6 logements",
     description:
       "Pour les portefeuilles plus denses qui ont besoin d'un bureau de location externalisé plus soutenu.",
@@ -82,10 +82,12 @@ function PricingPlanCard({ plan, index }: { plan: Plan; index: number }) {
           {plan.name}
         </p>
         <div className="mt-5 flex items-end gap-2">
-          <span className="text-4xl font-medium tracking-[-0.05em] text-slate-950 md:text-5xl font-headline">
+          <span className="text-2xl font-medium tracking-[-0.03em] text-slate-950 md:text-3xl font-headline">
             {plan.price}
           </span>
-          <span className="pb-1 text-sm text-slate-500 font-body">{plan.period}</span>
+          {plan.period && (
+            <span className="pb-1 text-sm text-slate-500 font-body">{plan.period}</span>
+          )}
         </div>
         <p className="mt-3 text-base font-medium text-slate-900 font-body">{plan.scope}</p>
         <p className="mt-4 text-base leading-7 text-slate-500 font-body">{plan.description}</p>
