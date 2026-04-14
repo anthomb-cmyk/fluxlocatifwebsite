@@ -231,10 +231,8 @@ function DayPanel({
 }) {
   const [showForm, setShowForm] = useState(false);
 
-  function handleSuccess({ gcalHref, autoSynced }: { gcalHref?: string; autoSynced?: boolean }) {
+  function handleSuccess(_result: { gcalHref?: string; autoSynced?: boolean }) {
     setShowForm(false);
-    // If not auto-synced, open fallback link so the event gets into Google Calendar
-    if (!autoSynced && gcalHref) window.open(gcalHref, '_blank', 'noopener');
   }
 
   const sorted = [...events].sort((a, b) => a.startsAt.localeCompare(b.startsAt));
@@ -706,7 +704,7 @@ export function SalesCalendarClient({ events, todayKey, statusMessage, isConnect
           <div className="px-5 pb-5 pt-0">
             <NewEventForm
               defaultDate={todayKey}
-              onSuccess={({ gcalHref, autoSynced }) => { setSelectedKey(null); if (!autoSynced && gcalHref) window.open(gcalHref, '_blank', 'noopener'); }}
+              onSuccess={() => setSelectedKey(null)}
               onCancel={() => setSelectedKey(null)}
               isConnected={isConnected}
             />
