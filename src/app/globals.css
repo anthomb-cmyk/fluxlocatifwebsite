@@ -310,3 +310,145 @@ html, body {
     height: 96px !important;
   }
 }
+
+/* ===== CRM Layout overrides ===== */
+.crm-shell {
+  min-height: 100vh;
+  background: #F7F8FA !important;
+  background-image: none !important;
+}
+
+.crm-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 40;
+  height: 100vh;
+  width: 248px;
+  background: #ffffff;
+  border-right: 1px solid #E8EAED;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.2s ease;
+  overflow: hidden;
+}
+
+.crm-sidebar.collapsed {
+  width: 68px;
+}
+
+.crm-main {
+  margin-left: 248px;
+  min-height: 100vh;
+  transition: margin-left 0.2s ease;
+}
+
+.crm-sidebar.collapsed ~ .crm-main {
+  margin-left: 68px;
+}
+
+.crm-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+  background: rgba(247, 248, 250, 0.94);
+  padding: 10px 24px;
+  backdrop-filter: blur(12px);
+}
+
+.crm-content {
+  padding: 24px;
+  max-width: 1440px;
+}
+
+/* ===== Sales CRM Layout ===== */
+.sales-shell {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(15, 23, 42, 0.06), transparent 30%),
+    linear-gradient(180deg, #f7f8fb 0%, #eef1f5 100%);
+}
+
+.sales-shell *,
+.sales-shell *::before,
+.sales-shell *::after {
+  box-sizing: border-box;
+}
+
+.sales-sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 40;
+  display: flex;
+  width: 280px;
+  height: 100vh;
+  flex-direction: column;
+  overflow: hidden;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(10, 15, 25, 0.98) 0%, rgba(15, 23, 42, 0.98) 100%);
+  transition: width 0.2s ease;
+  backdrop-filter: blur(16px);
+}
+
+.sales-sidebar.collapsed {
+  width: 92px;
+}
+
+.sales-main {
+  min-height: 100vh;
+  transition: margin-left 0.2s ease;
+}
+
+.sales-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+  background: rgba(247, 248, 251, 0.92);
+  padding: 10px 24px;
+  backdrop-filter: blur(16px);
+}
+
+.sales-content {
+  width: 100%;
+  max-width: 1520px;
+  padding: 24px;
+}
+
+.sales-workspace {
+  min-height: calc(100vh - 104px);
+}
+
+@media (max-width: 1024px) {
+  .sales-sidebar,
+  .sales-sidebar.collapsed {
+    position: sticky;
+    width: 100%;
+    height: auto;
+  }
+
+  .sales-main,
+  .sales-main.collapsed {
+    margin-left: 0 !important;
+  }
+
+  .sales-topbar {
+    padding: 8px 16px;
+  }
+
+  .sales-content {
+    padding: 16px;
+  }
+}
