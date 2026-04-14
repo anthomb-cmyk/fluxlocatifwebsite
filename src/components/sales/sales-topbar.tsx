@@ -23,19 +23,19 @@ export function SalesTopbar() {
 
       <div className="flex items-center gap-2">
         <Button asChild variant="outline" className="h-8 rounded-full border-slate-200 bg-white px-3 text-xs text-slate-700 hover:bg-slate-50">
-          <Link href="/sales/tasks">
+          <Link href="/crm/tasks">
             <ListChecks className="h-3.5 w-3.5" />
             Tasks
           </Link>
         </Button>
         <Button asChild variant="outline" className="h-8 rounded-full border-slate-200 bg-white px-3 text-xs text-slate-700 hover:bg-slate-50">
-          <Link href="/sales/pipeline">
+          <Link href="/crm/pipeline">
             <CalendarPlus2 className="h-3.5 w-3.5" />
             Pipeline
           </Link>
         </Button>
         <Button asChild className="h-8 rounded-full bg-slate-950 px-3 text-xs text-white hover:bg-slate-800">
-          <Link href="/sales/leads">
+          <Link href="/crm/leads">
             <Plus className="h-3.5 w-3.5" />
             Leads
           </Link>
@@ -46,28 +46,28 @@ export function SalesTopbar() {
 }
 
 function getPageMeta(pathname: string) {
-  if (pathname.startsWith('/sales/leads/')) {
+  if (pathname.startsWith('/crm/leads/')) {
     return { eyebrow: 'Lead detail' };
   }
-  if (pathname.startsWith('/sales/leads')) {
+  if (pathname.startsWith('/crm/leads')) {
     return { eyebrow: 'Leads' };
   }
-  if (pathname.startsWith('/sales/deals/')) {
+  if (pathname.startsWith('/crm/deals/')) {
     return { eyebrow: 'Deal detail' };
   }
-  if (pathname.startsWith('/sales/pipeline')) {
+  if (pathname.startsWith('/crm/pipeline')) {
     return { eyebrow: 'Pipeline' };
   }
-  if (pathname.startsWith('/sales/tasks')) {
+  if (pathname.startsWith('/crm/tasks')) {
     return { eyebrow: 'Tasks' };
   }
-  if (pathname.startsWith('/sales/customers/')) {
+  if (pathname.startsWith('/crm/customers/')) {
     return { eyebrow: 'Customer detail' };
   }
-  if (pathname.startsWith('/sales/customers')) {
+  if (pathname.startsWith('/crm/customers')) {
     return { eyebrow: 'Customers' };
   }
-  if (pathname.startsWith('/sales/calendar')) {
+  if (pathname.startsWith('/crm/calendar')) {
     return { eyebrow: 'Calendar' };
   }
   return { eyebrow: 'Dashboard' };

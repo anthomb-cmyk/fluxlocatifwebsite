@@ -11,12 +11,12 @@ export async function GET(request: NextRequest) {
 
   if (error) {
     return NextResponse.redirect(
-      new URL(`/sales/calendar/setup?error=${encodeURIComponent(error)}`, request.url)
+      new URL(`/crm/calendar/setup?error=${encodeURIComponent(error)}`, request.url)
     );
   }
 
   if (!code) {
-    return NextResponse.redirect(new URL('/sales/calendar/setup?error=no_code', request.url));
+    return NextResponse.redirect(new URL('/crm/calendar/setup?error=no_code', request.url));
   }
 
   try {
@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
 
     if (!tokens.refresh_token) {
       return NextResponse.redirect(
-        new URL('/sales/calendar/setup?error=no_refresh_token', request.url)
+        new URL('/crm/calendar/setup?error=no_refresh_token', request.url)
       );
     }
 
@@ -48,11 +48,11 @@ export async function GET(request: NextRequest) {
     // Also set it for this process session so it works immediately without restart
     process.env.GOOGLE_CALENDAR_REFRESH_TOKEN = tokens.refresh_token;
 
-    return NextResponse.redirect(new URL('/sales/calendar/setup?connected=1', request.url));
+    return NextResponse.redirect(new URL('/crm/calendar/setup?connected=1', request.url));
   } catch (err) {
     console.error('[GCal OAuth] callback error:', err);
     return NextResponse.redirect(
-      new URL('/sales/calendar/setup?error=token_exchange_failed', request.url)
+      new URL('/crm/calendar/setup?error=token_exchange_failed', request.url)
     );
   }
 }

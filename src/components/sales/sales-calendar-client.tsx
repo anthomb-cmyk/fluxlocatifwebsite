@@ -59,9 +59,9 @@ function formatTime(isoString: string) {
 }
 
 function entityHref(event: EnrichedEvent) {
-  if (event.entityType === 'lead' && event.entityId) return `/sales/leads/${event.entityId}`;
-  if (event.entityType === 'customer' && event.entityId) return `/sales/customers/${event.entityId}`;
-  if (event.entityType === 'deal' && event.entityId) return `/sales/deals/${event.entityId}`;
+  if (event.entityType === 'lead' && event.entityId) return `/crm/leads/${event.entityId}`;
+  if (event.entityType === 'customer' && event.entityId) return `/crm/customers/${event.entityId}`;
+  if (event.entityType === 'deal' && event.entityId) return `/crm/deals/${event.entityId}`;
   return null;
 }
 
@@ -191,7 +191,7 @@ function NewEventForm({
       <p className="text-[11px] text-slate-400">
         {isConnected
           ? <>Saved to CRM and <span className="font-medium text-emerald-600">auto-synced</span> to <span className="font-medium text-slate-600">anthony@fluxlocatif.com</span></>
-          : <>Saved to CRM — <Link href="/sales/calendar/setup" className="font-medium text-amber-600 hover:underline">connect Google Calendar</Link> to auto-sync</>
+          : <>Saved to CRM — <Link href="/crm/calendar/setup" className="font-medium text-amber-600 hover:underline">connect Google Calendar</Link> to auto-sync</>
         }
       </p>
 

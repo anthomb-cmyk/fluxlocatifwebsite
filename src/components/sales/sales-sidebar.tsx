@@ -16,12 +16,12 @@ import {
 import { cn } from '@/lib/utils';
 
 const items = [
-  { href: '/sales/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/sales/leads', label: 'Leads', icon: ContactRound },
-  { href: '/sales/pipeline', label: 'Pipeline', icon: KanbanSquare },
-  { href: '/sales/tasks', label: 'Tasks', icon: ListChecks },
-  { href: '/sales/customers', label: 'Customers', icon: BadgeDollarSign },
-  { href: '/sales/calendar', label: 'Calendar', icon: CalendarDays },
+  { href: '/crm/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  { href: '/crm/leads', label: 'Leads', icon: ContactRound },
+  { href: '/crm/pipeline', label: 'Pipeline', icon: KanbanSquare },
+  { href: '/crm/tasks', label: 'Tasks', icon: ListChecks },
+  { href: '/crm/customers', label: 'Customers', icon: BadgeDollarSign },
+  { href: '/crm/calendar', label: 'Calendar', icon: CalendarDays },
 ];
 
 interface SalesSidebarProps {
@@ -35,7 +35,7 @@ export function SalesSidebar({ collapsed, onToggle }: SalesSidebarProps) {
   return (
     <aside className={cn('sales-sidebar', collapsed && 'collapsed')}>
       <div className="border-b border-white/8 px-4 py-4">
-        <Link href="/sales/dashboard" className="flex min-w-0 items-center gap-3">
+        <Link href="/crm/dashboard" className="flex min-w-0 items-center gap-3">
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[14px] bg-emerald-400/10 text-emerald-300 ring-1 ring-white/10">
             <ArrowRightLeft className="h-4 w-4" />
           </div>

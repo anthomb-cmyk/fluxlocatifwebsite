@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://fluxlocatif.com
+
+# Sitemaps
+Sitemap: https://fluxlocatif.com/sitemap.xml

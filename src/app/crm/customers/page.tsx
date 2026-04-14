@@ -1,15 +1,15 @@
 import Link from 'next/link';
-import { SalesEmptyState } from '@/components/sales/sales-empty-state';
-import { SalesNewCustomerDialog } from '@/components/sales/sales-new-customer-dialog';
+import { SalesEmptyState } from '@/components/crm/sales-empty-state';
+import { SalesNewCustomerDialog } from '@/components/crm/sales-new-customer-dialog';
 import {
   SalesPanel,
   SalesPanelBody,
   SalesPanelEyebrow,
   SalesPanelHeader,
   SalesPanelTitle,
-} from '@/components/sales/sales-panel';
-import { SalesPageHeader } from '@/components/sales/sales-page-header';
-import { SalesHealthBadge } from '@/components/sales/sales-stage-badge';
+} from '@/components/crm/sales-panel';
+import { SalesPageHeader } from '@/components/crm/sales-page-header';
+import { SalesHealthBadge } from '@/components/crm/sales-stage-badge';
 import { formatSalesCurrency, formatSalesDate, getOwnerTypeLabel, getPropertyTypeLabel } from '@/lib/sales/format';
 import { getSalesCustomersView } from '@/lib/sales/service';
 
@@ -43,7 +43,7 @@ export default async function SalesCustomersPage() {
             {customers.length ? customers.map((customer) => (
               <Link
                 key={customer.id}
-                href={`/sales/customers/${customer.id}`}
+                href={`/crm/customers/${customer.id}`}
                 className="flex gap-5 border-b border-slate-100 py-4 transition-colors hover:bg-slate-50/60 last:border-b-0"
               >
                 <div className="min-w-0 flex-1 space-y-1.5">
@@ -91,7 +91,7 @@ export default async function SalesCustomersPage() {
               {customers.filter((c) => c.health !== 'healthy').length ? customers
                 .filter((c) => c.health !== 'healthy')
                 .map((customer) => (
-                  <Link key={customer.id} href={`/sales/customers/${customer.id}`} className="block rounded-[16px] border border-slate-200 bg-slate-50/60 px-4 py-3 transition-colors hover:bg-slate-100/80">
+                  <Link key={customer.id} href={`/crm/customers/${customer.id}`} className="block rounded-[16px] border border-slate-200 bg-slate-50/60 px-4 py-3 transition-colors hover:bg-slate-100/80">
                     <div className="flex items-center justify-between gap-3">
                       <div>
                         <p className="text-[13px] font-semibold text-slate-950">{customer.companyName}</p>
@@ -121,7 +121,7 @@ export default async function SalesCustomersPage() {
                 .map((customer) => (
                   <Link
                     key={customer.id}
-                    href="/sales/dashboard"
+                    href="/crm/dashboard"
                     className="block rounded-[16px] border border-slate-200 bg-slate-50/60 px-4 py-3 transition-colors hover:bg-slate-100/80"
                   >
                     <p className="text-[13px] font-semibold text-slate-950">{customer.companyName}</p>

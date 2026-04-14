@@ -1,12 +1,12 @@
 import Link from 'next/link';
-import { SalesMarkTaskDoneButton } from '@/components/sales/sales-mark-task-done-button';
-import { SalesNewTaskDialog } from '@/components/sales/sales-new-task-dialog';
+import { SalesMarkTaskDoneButton } from '@/components/crm/sales-mark-task-done-button';
+import { SalesNewTaskDialog } from '@/components/crm/sales-new-task-dialog';
 import {
   SalesPanel,
   SalesPanelBody,
-} from '@/components/sales/sales-panel';
-import { SalesPageHeader } from '@/components/sales/sales-page-header';
-import { SalesPriorityBadge } from '@/components/sales/sales-stage-badge';
+} from '@/components/crm/sales-panel';
+import { SalesPageHeader } from '@/components/crm/sales-page-header';
+import { SalesPriorityBadge } from '@/components/crm/sales-stage-badge';
 import { cn } from '@/lib/utils';
 import { formatSalesDateTime, isDueToday, getDaysUntil } from '@/lib/sales/format';
 import { getSalesTasksView } from '@/lib/sales/service';
@@ -116,7 +116,7 @@ export default async function SalesTasksPage() {
                             <span>{formatSalesDateTime(task.dueAt)}</span>
                             {task.lead ? (
                               <Link
-                                href={`/sales/leads/${task.lead.id}`}
+                                href={`/crm/leads/${task.lead.id}`}
                                 className="font-medium text-slate-600 underline-offset-4 hover:underline"
                               >
                                 {task.lead.companyName}
@@ -124,7 +124,7 @@ export default async function SalesTasksPage() {
                             ) : null}
                             {task.customer ? (
                               <Link
-                                href={`/sales/customers/${task.customer.id}`}
+                                href={`/crm/customers/${task.customer.id}`}
                                 className="font-medium text-slate-600 underline-offset-4 hover:underline"
                               >
                                 {task.customer.companyName}

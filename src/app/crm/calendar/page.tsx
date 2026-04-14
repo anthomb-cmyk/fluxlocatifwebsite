@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { Settings } from 'lucide-react';
 import { getSalesCalendarView } from '@/lib/sales/service';
 import { getSalesCalendarStatus } from '@/lib/sales/calendar/service';
-import { SalesPageHeader } from '@/components/sales/sales-page-header';
-import { SalesCalendarClient } from '@/components/sales/sales-calendar-client';
+import { SalesPageHeader } from '@/components/crm/sales-page-header';
+import { SalesCalendarClient } from '@/components/crm/sales-calendar-client';
 
 const TODAY_KEY = '2026-04-14';
 
@@ -31,7 +31,7 @@ export default async function SalesCalendarPage() {
         ]}
         actions={
           <Link
-            href="/sales/calendar/setup"
+            href="/crm/calendar/setup"
             className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-[12px] font-medium text-slate-600 hover:bg-slate-50 transition-colors"
           >
             <span className={`h-2 w-2 rounded-full ${status.configured ? 'bg-emerald-500' : 'bg-amber-400'}`} />
@@ -49,7 +49,7 @@ export default async function SalesCalendarPage() {
             Events are saved to the CRM but won't auto-sync until you connect anthony@fluxlocatif.com.
           </p>
           <Link
-            href="/sales/calendar/setup"
+            href="/crm/calendar/setup"
             className="shrink-0 rounded-full bg-amber-600 px-4 py-1.5 text-[12px] font-medium text-white hover:bg-amber-700 transition-colors"
           >
             Set up →

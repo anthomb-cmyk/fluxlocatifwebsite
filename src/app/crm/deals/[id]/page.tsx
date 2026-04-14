@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowUpRight } from 'lucide-react';
-import { SalesActivityFeed } from '@/components/sales/sales-activity-feed';
-import { SalesCalendarPanel } from '@/components/sales/sales-calendar-panel';
-import { SalesEmptyState } from '@/components/sales/sales-empty-state';
-import { SalesNotesPanel } from '@/components/sales/sales-notes-panel';
+import { SalesActivityFeed } from '@/components/crm/sales-activity-feed';
+import { SalesCalendarPanel } from '@/components/crm/sales-calendar-panel';
+import { SalesEmptyState } from '@/components/crm/sales-empty-state';
+import { SalesNotesPanel } from '@/components/crm/sales-notes-panel';
 import {
   SalesPanel,
   SalesPanelBody,
@@ -12,9 +12,9 @@ import {
   SalesPanelEyebrow,
   SalesPanelHeader,
   SalesPanelTitle,
-} from '@/components/sales/sales-panel';
-import { SalesPageHeader } from '@/components/sales/sales-page-header';
-import { SalesStageBadge } from '@/components/sales/sales-stage-badge';
+} from '@/components/crm/sales-panel';
+import { SalesPageHeader } from '@/components/crm/sales-page-header';
+import { SalesStageBadge } from '@/components/crm/sales-stage-badge';
 import { Button } from '@/components/ui/button';
 import { formatSalesCurrency, formatSalesDate, formatSalesPercent } from '@/lib/sales/format';
 import { getSalesDealDetail } from '@/lib/sales/service';
@@ -43,7 +43,7 @@ export default async function SalesDealDetailPage({ params }: { params: Promise<
         ]}
         actions={linkedLead ? (
           <Button asChild variant="outline" className="h-8 rounded-full border-slate-200 bg-white px-3 text-xs">
-            <Link href={`/sales/leads/${linkedLead.id}`}>
+            <Link href={`/crm/leads/${linkedLead.id}`}>
               Open lead
               <ArrowUpRight className="h-3.5 w-3.5" />
             </Link>

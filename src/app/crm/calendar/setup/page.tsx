@@ -8,8 +8,9 @@ async function getAppBaseUrl() {
   // 1. Explicit env override (set this in your hosting provider)
   if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, '');
 
-  // 2. Vercel / Railway / Render inject the public URL automatically
+  // 2. Hosting providers inject the public URL automatically
   if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
+  if (process.env.RAILWAY_PUBLIC_DOMAIN) return `https://${process.env.RAILWAY_PUBLIC_DOMAIN}`;
   if (process.env.RAILWAY_STATIC_URL) return `https://${process.env.RAILWAY_STATIC_URL}`;
   if (process.env.RENDER_EXTERNAL_URL) return process.env.RENDER_EXTERNAL_URL.replace(/\/$/, '');
 
@@ -44,7 +45,7 @@ export default async function CalendarSetupPage({ searchParams }: Props) {
   return (
     <div className="mx-auto max-w-2xl space-y-6">
       <div>
-        <Link href="/sales/calendar" className="mb-4 inline-flex items-center gap-1.5 text-[12px] text-slate-400 hover:text-slate-700">
+        <Link href="/crm/calendar" className="mb-4 inline-flex items-center gap-1.5 text-[12px] text-slate-400 hover:text-slate-700">
           <ArrowLeft className="h-3 w-3" />
           Back to calendar
         </Link>

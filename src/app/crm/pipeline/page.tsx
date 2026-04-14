@@ -2,9 +2,9 @@ import Link from 'next/link';
 import {
   SalesPanel,
   SalesPanelBody,
-} from '@/components/sales/sales-panel';
-import { SalesPageHeader } from '@/components/sales/sales-page-header';
-import { SalesFitBadge, SalesStageBadge } from '@/components/sales/sales-stage-badge';
+} from '@/components/crm/sales-panel';
+import { SalesPageHeader } from '@/components/crm/sales-page-header';
+import { SalesFitBadge, SalesStageBadge } from '@/components/crm/sales-stage-badge';
 import { formatSalesDate } from '@/lib/sales/format';
 import { getSalesPipelineBoard } from '@/lib/sales/service';
 import { salesPipelineStages, salesStageLabels } from '@/lib/sales/mock-data';
@@ -62,7 +62,7 @@ export default async function SalesPipelinePage() {
         ]}
         actions={(
           <Link
-            href="/sales/leads"
+            href="/crm/leads"
             className="h-8 inline-flex items-center rounded-full border border-slate-200 bg-white px-3 text-xs font-medium text-slate-700 hover:bg-slate-50"
           >
             List view
@@ -96,7 +96,7 @@ export default async function SalesPipelinePage() {
                 {items.map(lead => (
                   <Link
                     key={lead.id}
-                    href={lead.linkedDealId ? `/sales/deals/${lead.linkedDealId}` : `/sales/leads/${lead.id}`}
+                    href={lead.linkedDealId ? `/crm/deals/${lead.linkedDealId}` : `/crm/leads/${lead.id}`}
                     className={cn(
                       'flex items-center gap-4 border-l-2 border-t border-slate-100 py-3 pl-4 first:border-t-0 transition-colors hover:bg-slate-50/60',
                       STAGE_ACCENT[stage] ?? 'border-l-slate-200'

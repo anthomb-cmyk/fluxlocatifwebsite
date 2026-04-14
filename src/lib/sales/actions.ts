@@ -108,9 +108,9 @@ export async function createLeadAction(formData: FormData) {
     actor: 'Anthony',
   });
 
-  revalidatePath('/sales/leads');
-  revalidatePath('/sales/dashboard');
-  revalidatePath('/sales/pipeline');
+  revalidatePath('/crm/leads');
+  revalidatePath('/crm/dashboard');
+  revalidatePath('/crm/pipeline');
   return { success: true };
 }
 
@@ -163,8 +163,8 @@ export async function createCustomerAction(formData: FormData) {
     actor: 'Anthony',
   });
 
-  revalidatePath('/sales/customers');
-  revalidatePath('/sales/dashboard');
+  revalidatePath('/crm/customers');
+  revalidatePath('/crm/dashboard');
   return { success: true };
 }
 
@@ -197,10 +197,10 @@ export async function createTaskAction(formData: FormData) {
     customerId,
   });
 
-  revalidatePath('/sales/tasks');
-  revalidatePath('/sales/dashboard');
-  if (leadId) revalidatePath(`/sales/leads/${leadId}`);
-  if (customerId) revalidatePath(`/sales/customers/${customerId}`);
+  revalidatePath('/crm/tasks');
+  revalidatePath('/crm/dashboard');
+  if (leadId) revalidatePath(`/crm/leads/${leadId}`);
+  if (customerId) revalidatePath(`/crm/customers/${customerId}`);
   return { success: true };
 }
 
@@ -245,10 +245,10 @@ export async function createNoteAction(formData: FormData) {
     customerId: entityType === 'customer' ? entityId : undefined,
   });
 
-  revalidatePath('/sales/leads');
-  revalidatePath(`/sales/leads/${entityId}`);
-  revalidatePath(`/sales/customers/${entityId}`);
-  revalidatePath(`/sales/deals/${entityId}`);
+  revalidatePath('/crm/leads');
+  revalidatePath(`/crm/leads/${entityId}`);
+  revalidatePath(`/crm/customers/${entityId}`);
+  revalidatePath(`/crm/deals/${entityId}`);
   return { success: true };
 }
 
@@ -256,8 +256,8 @@ export async function createNoteAction(formData: FormData) {
 
 export async function markTaskDoneAction(taskId: string) {
   await salesRepository.updateTask(taskId, { status: 'done' });
-  revalidatePath('/sales/tasks');
-  revalidatePath('/sales/dashboard');
+  revalidatePath('/crm/tasks');
+  revalidatePath('/crm/dashboard');
   return { success: true };
 }
 
@@ -328,7 +328,7 @@ export async function createCalendarEventAction(formData: FormData) {
     attendees,
   });
 
-  revalidatePath('/sales/calendar');
-  revalidatePath('/sales/dashboard');
+  revalidatePath('/crm/calendar');
+  revalidatePath('/crm/dashboard');
   return { success: true, gcalHref, autoSynced: status === 'scheduled' };
 }

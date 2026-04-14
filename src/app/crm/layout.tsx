@@ -1,4 +1,4 @@
-import { SalesShell } from '@/components/sales/sales-shell';
+import { SalesShell } from '@/components/crm/sales-shell';
 
 export default function SalesLayout({ children }: { children: React.ReactNode }) {
   return <SalesShell>{children}</SalesShell>;

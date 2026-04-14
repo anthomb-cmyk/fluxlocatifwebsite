@@ -1,21 +1,21 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowRight, Mail, Phone } from 'lucide-react';
-import { SalesActivityFeed } from '@/components/sales/sales-activity-feed';
-import { SalesAddNoteForm } from '@/components/sales/sales-add-note-form';
-import { SalesCalendarPanel } from '@/components/sales/sales-calendar-panel';
-import { SalesEmptyState } from '@/components/sales/sales-empty-state';
-import { SalesNewTaskDialog } from '@/components/sales/sales-new-task-dialog';
-import { SalesNotesPanel } from '@/components/sales/sales-notes-panel';
+import { SalesActivityFeed } from '@/components/crm/sales-activity-feed';
+import { SalesAddNoteForm } from '@/components/crm/sales-add-note-form';
+import { SalesCalendarPanel } from '@/components/crm/sales-calendar-panel';
+import { SalesEmptyState } from '@/components/crm/sales-empty-state';
+import { SalesNewTaskDialog } from '@/components/crm/sales-new-task-dialog';
+import { SalesNotesPanel } from '@/components/crm/sales-notes-panel';
 import {
   SalesPanel,
   SalesPanelBody,
   SalesPanelEyebrow,
   SalesPanelHeader,
   SalesPanelTitle,
-} from '@/components/sales/sales-panel';
-import { SalesPageHeader } from '@/components/sales/sales-page-header';
-import { SalesFitBadge, SalesStageBadge } from '@/components/sales/sales-stage-badge';
+} from '@/components/crm/sales-panel';
+import { SalesPageHeader } from '@/components/crm/sales-page-header';
+import { SalesFitBadge, SalesStageBadge } from '@/components/crm/sales-stage-badge';
 import { Button } from '@/components/ui/button';
 import {
   formatSalesDate,
@@ -58,7 +58,7 @@ export default async function SalesLeadDetailPage({ params }: { params: Promise<
             </Button>
             {linkedDeal ? (
               <Button asChild className="h-8 rounded-full bg-slate-950 px-3 text-xs text-white hover:bg-slate-800">
-                <Link href={`/sales/deals/${linkedDeal.id}`}>
+                <Link href={`/crm/deals/${linkedDeal.id}`}>
                   Open deal
                   <ArrowRight className="h-3.5 w-3.5" />
                 </Link>

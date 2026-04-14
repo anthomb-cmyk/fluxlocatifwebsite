@@ -1,16 +1,16 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { SalesNewLeadDialog } from '@/components/sales/sales-new-lead-dialog';
+import { SalesNewLeadDialog } from '@/components/crm/sales-new-lead-dialog';
 import {
   SalesPanel,
   SalesPanelBody,
   SalesPanelEyebrow,
   SalesPanelHeader,
   SalesPanelTitle,
-} from '@/components/sales/sales-panel';
+} from '@/components/crm/sales-panel';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { SalesPageHeader } from '@/components/sales/sales-page-header';
-import { SalesFitBadge, SalesStageBadge } from '@/components/sales/sales-stage-badge';
+import { SalesPageHeader } from '@/components/crm/sales-page-header';
+import { SalesFitBadge, SalesStageBadge } from '@/components/crm/sales-stage-badge';
 import { formatSalesDate, getOwnerTypeLabel, getPropertyTypeLabel, getSourceLabel } from '@/lib/sales/format';
 import { getSalesLeadsIndex } from '@/lib/sales/service';
 import { salesPipelineStages, salesStageLabels } from '@/lib/sales/mock-data';
@@ -35,7 +35,7 @@ export default async function SalesLeadsPage() {
         actions={(
           <>
             <Button asChild variant="outline" className="h-8 rounded-full border-slate-200 bg-white px-3 text-xs">
-              <Link href="/sales/pipeline">Board view</Link>
+              <Link href="/crm/pipeline">Board view</Link>
             </Button>
             <SalesNewLeadDialog />
           </>
@@ -76,7 +76,7 @@ export default async function SalesLeadsPage() {
                     <TableCell className="whitespace-nowrap text-[12px] text-slate-500">{formatSalesDate(lead.nextFollowUpDate)}</TableCell>
                     <TableCell className="text-right">
                       <Button asChild variant="ghost" className="h-7 rounded-full px-3 text-xs">
-                        <Link href={`/sales/leads/${lead.id}`}>Open</Link>
+                        <Link href={`/crm/leads/${lead.id}`}>Open</Link>
                       </Button>
                     </TableCell>
                   </TableRow>
@@ -96,7 +96,7 @@ export default async function SalesLeadsPage() {
               {nextToTouch.map((lead) => (
                 <Link
                   key={lead.id}
-                  href={`/sales/leads/${lead.id}`}
+                  href={`/crm/leads/${lead.id}`}
                   className="flex items-center justify-between gap-3 rounded-[16px] border border-slate-200 bg-slate-50/60 px-4 py-3 transition-colors hover:bg-slate-100/80"
                 >
                   <div className="min-w-0">

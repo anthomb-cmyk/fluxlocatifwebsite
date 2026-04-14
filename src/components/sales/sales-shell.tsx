@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { SalesSidebar } from '@/components/sales/sales-sidebar';
-import { SalesTopbar } from '@/components/sales/sales-topbar';
+import { SalesSidebar } from '@/components/crm/sales-sidebar';
+import { SalesTopbar } from '@/components/crm/sales-topbar';
 
 export function SalesShell({ children }: { children: React.ReactNode }) {
   const [collapsed, setCollapsed] = useState(false);

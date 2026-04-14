@@ -11,7 +11,7 @@ import {
   SalesPanelEyebrow,
   SalesPanelHeader,
   SalesPanelTitle,
-} from '@/components/sales/sales-panel';
+} from '@/components/crm/sales-panel';
 import { createNoteAction } from '@/lib/sales/actions';
 
 const NOTE_CATEGORIES = [
