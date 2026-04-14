@@ -1,16 +1,16 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { SalesNewLeadDialog } from '@/components/crm/sales-new-lead-dialog';
+import { SalesNewLeadDialog } from '@/components/sales/sales-new-lead-dialog';
 import {
   SalesPanel,
   SalesPanelBody,
   SalesPanelEyebrow,
   SalesPanelHeader,
   SalesPanelTitle,
-} from '@/components/crm/sales-panel';
+} from '@/components/sales/sales-panel';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { SalesPageHeader } from '@/components/crm/sales-page-header';
-import { SalesFitBadge, SalesStageBadge } from '@/components/crm/sales-stage-badge';
+import { SalesPageHeader } from '@/components/sales/sales-page-header';
+import { SalesFitBadge, SalesStageBadge } from '@/components/sales/sales-stage-badge';
 import { formatSalesDate, getOwnerTypeLabel, getPropertyTypeLabel, getSourceLabel } from '@/lib/sales/format';
 import { getSalesLeadsIndex } from '@/lib/sales/service';
 import { salesPipelineStages, salesStageLabels } from '@/lib/sales/mock-data';

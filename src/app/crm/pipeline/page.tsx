@@ -2,9 +2,9 @@ import Link from 'next/link';
 import {
   SalesPanel,
   SalesPanelBody,
-} from '@/components/crm/sales-panel';
-import { SalesPageHeader } from '@/components/crm/sales-page-header';
-import { SalesFitBadge, SalesStageBadge } from '@/components/crm/sales-stage-badge';
+} from '@/components/sales/sales-panel';
+import { SalesPageHeader } from '@/components/sales/sales-page-header';
+import { SalesFitBadge, SalesStageBadge } from '@/components/sales/sales-stage-badge';
 import { formatSalesDate } from '@/lib/sales/format';
 import { getSalesPipelineBoard } from '@/lib/sales/service';
 import { salesPipelineStages, salesStageLabels } from '@/lib/sales/mock-data';

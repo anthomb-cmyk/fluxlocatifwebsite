@@ -1,12 +1,12 @@
 import Link from 'next/link';
-import { SalesMarkTaskDoneButton } from '@/components/crm/sales-mark-task-done-button';
-import { SalesNewTaskDialog } from '@/components/crm/sales-new-task-dialog';
+import { SalesMarkTaskDoneButton } from '@/components/sales/sales-mark-task-done-button';
+import { SalesNewTaskDialog } from '@/components/sales/sales-new-task-dialog';
 import {
   SalesPanel,
   SalesPanelBody,
-} from '@/components/crm/sales-panel';
-import { SalesPageHeader } from '@/components/crm/sales-page-header';
-import { SalesPriorityBadge } from '@/components/crm/sales-stage-badge';
+} from '@/components/sales/sales-panel';
+import { SalesPageHeader } from '@/components/sales/sales-page-header';
+import { SalesPriorityBadge } from '@/components/sales/sales-stage-badge';
 import { cn } from '@/lib/utils';
 import { formatSalesDateTime, isDueToday, getDaysUntil } from '@/lib/sales/format';
 import { getSalesTasksView } from '@/lib/sales/service';

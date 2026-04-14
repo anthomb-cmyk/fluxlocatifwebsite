@@ -1,15 +1,15 @@
 import Link from 'next/link';
-import { SalesEmptyState } from '@/components/crm/sales-empty-state';
-import { SalesNewCustomerDialog } from '@/components/crm/sales-new-customer-dialog';
+import { SalesEmptyState } from '@/components/sales/sales-empty-state';
+import { SalesNewCustomerDialog } from '@/components/sales/sales-new-customer-dialog';
 import {
   SalesPanel,
   SalesPanelBody,
   SalesPanelEyebrow,
   SalesPanelHeader,
   SalesPanelTitle,
-} from '@/components/crm/sales-panel';
-import { SalesPageHeader } from '@/components/crm/sales-page-header';
-import { SalesHealthBadge } from '@/components/crm/sales-stage-badge';
+} from '@/components/sales/sales-panel';
+import { SalesPageHeader } from '@/components/sales/sales-page-header';
+import { SalesHealthBadge } from '@/components/sales/sales-stage-badge';
 import { formatSalesCurrency, formatSalesDate, getOwnerTypeLabel, getPropertyTypeLabel } from '@/lib/sales/format';
 import { getSalesCustomersView } from '@/lib/sales/service';
 

@@ -1,11 +1,11 @@
-import { SalesEmptyState } from '@/components/crm/sales-empty-state';
+import { SalesEmptyState } from '@/components/sales/sales-empty-state';
 import {
   SalesPanel,
   SalesPanelBody,
   SalesPanelEyebrow,
   SalesPanelHeader,
   SalesPanelTitle,
-} from '@/components/crm/sales-panel';
+} from '@/components/sales/sales-panel';
 import { getSalesNotesStatus } from '@/lib/sales/notes/service';
 import { formatSalesDate } from '@/lib/sales/format';
 import type { SalesNote } from '@/lib/sales/types';

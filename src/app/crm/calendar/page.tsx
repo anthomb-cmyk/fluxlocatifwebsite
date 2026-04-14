@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { Settings } from 'lucide-react';
 import { getSalesCalendarView } from '@/lib/sales/service';
 import { getSalesCalendarStatus } from '@/lib/sales/calendar/service';
-import { SalesPageHeader } from '@/components/crm/sales-page-header';
-import { SalesCalendarClient } from '@/components/crm/sales-calendar-client';
+import { SalesPageHeader } from '@/components/sales/sales-page-header';
+import { SalesCalendarClient } from '@/components/sales/sales-calendar-client';
 
 const TODAY_KEY = '2026-04-14';
 
@@ -46,7 +46,7 @@ export default async function SalesCalendarPage() {
         <div className="flex items-center justify-between gap-4 rounded-[18px] border border-amber-200 bg-amber-50/60 px-5 py-3">
           <p className="text-[13px] text-amber-800">
             <span className="font-semibold">Google Calendar not connected.</span>{' '}
-            Events are saved to the CRM but won't auto-sync until you connect anthony@fluxlocatif.com.
+            Events are saved to the CRM but won&apos;t auto-sync until you connect anthony@fluxlocatif.com.
           </p>
           <Link
             href="/crm/calendar/setup"

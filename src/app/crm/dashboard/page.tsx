@@ -1,17 +1,17 @@
 import Link from 'next/link';
 import { ArrowRight, CalendarDays, MoveRight } from 'lucide-react';
-import { SalesActivityFeed } from '@/components/crm/sales-activity-feed';
-import { SalesCalendarPanel } from '@/components/crm/sales-calendar-panel';
-import { SalesEmptyState } from '@/components/crm/sales-empty-state';
+import { SalesActivityFeed } from '@/components/sales/sales-activity-feed';
+import { SalesCalendarPanel } from '@/components/sales/sales-calendar-panel';
+import { SalesEmptyState } from '@/components/sales/sales-empty-state';
 import {
   SalesPanel,
   SalesPanelBody,
   SalesPanelEyebrow,
   SalesPanelHeader,
   SalesPanelTitle,
-} from '@/components/crm/sales-panel';
-import { SalesPageHeader } from '@/components/crm/sales-page-header';
-import { SalesFitBadge, SalesStageBadge } from '@/components/crm/sales-stage-badge';
+} from '@/components/sales/sales-panel';
+import { SalesPageHeader } from '@/components/sales/sales-page-header';
+import { SalesFitBadge, SalesStageBadge } from '@/components/sales/sales-stage-badge';
 import { Button } from '@/components/ui/button';
 import { formatSalesCurrency, formatSalesDate, getStageLabel } from '@/lib/sales/format';
 import { getSalesDashboardView } from '@/lib/sales/service';
