@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { writeFileSync, readFileSync, existsSync } from 'fs';
 import { join } from 'path';
+import { cookies } from 'next/headers';
 import { salesCalendarProvider } from '@/lib/sales/calendar/provider';
 
 // GET /api/auth/google/callback — exchange code for tokens and save refresh_token
@@ -17,6 +18,14 @@ export async function GET(request: NextRequest) {
 
   if (!code) {
     return NextResponse.redirect(new URL('/crm/calendar/setup?error=no_code', request.url));
+  }
+
+  // Verify state to prevent CSRF
+  const returnedState = searchParams.get('state');
+  const cookieStore = await cookies();
+  const savedState = cookieStore.get('gcal_oauth_state')?.value;
+  if (!returnedState || !savedState || returnedState !== savedState) {
+    return NextResponse.redirect(new URL('/crm/calendar/setup?error=state_mismatch', request.url));
   }
 
   try {
