@@ -3,7 +3,6 @@
 import { revalidatePath } from 'next/cache';
 import { SALES_REFERENCE_DATE } from '@/lib/sales/mock-data';
 import { salesRepository } from '@/lib/sales/repository';
-import { buildSalesCalendarCreateLink } from '@/lib/sales/calendar/service';
 import { salesCalendarProvider } from '@/lib/sales/calendar/provider';
 import type {
   SalesCalendarEventKind,
@@ -264,71 +263,55 @@ export async function markTaskDoneAction(taskId: string) {
 // ─── Create Calendar Event ────────────────────────────────────────────────────
 
 export async function createCalendarEventAction(formData: FormData) {
-  const title = String(formData.get('title') ?? '').trim();
-  const date = String(formData.get('date') ?? '').trim();          // YYYY-MM-DD
-  const startTime = String(formData.get('startTime') ?? '09:00');  // HH:MM
-  const durationMin = Number(formData.get('duration') ?? 45);
-  const kind = (formData.get('kind') as SalesCalendarEventKind) ?? 'follow_up';
-  const attendeeEmail = String(formData.get('attendeeEmail') ?? '').trim();
-  const description = String(formData.get('description') ?? '').trim();
+  try {
+    const title = String(formData.get('title') ?? '').trim();
+    const date = String(formData.get('date') ?? '').trim();
+    const startTime = String(formData.get('startTime') ?? '09:00');
+    const durationMin = Number(formData.get('duration') ?? 45);
+    const kind = (formData.get('kind') as SalesCalendarEventKind) ?? 'follow_up';
+    const attendeeEmail = String(formData.get('attendeeEmail') ?? '').trim();
+    const description = String(formData.get('description') ?? '').trim();
 
-  if (!title || !date) return { error: 'Title and date are required.' };
+    if (!title || !date) return { error: 'Title and date are required.' };
 
-  const startsAt = `${date}T${startTime}:00-04:00`;
-  const endDate = new Date(`${date}T${startTime}:00`);
-  endDate.setMinutes(endDate.getMinutes() + durationMin);
-  const endsAt = `${date}T${endDate.toTimeString().slice(0, 5)}:00-04:00`;
+    const startsAt = `${date}T${startTime}:00-04:00`;
+    const endDate = new Date(`${date}T${startTime}:00`);
+    endDate.setMinutes(endDate.getMinutes() + durationMin);
+    const endsAt = `${date}T${endDate.toTimeString().slice(0, 5)}:00-04:00`;
 
-  const eventId = uid('calendar');
-  const attendees = attendeeEmail
-    ? ['anthony@fluxlocatif.com', attendeeEmail]
-    : ['anthony@fluxlocatif.com'];
+    const eventId = uid('calendar');
+    const attendees = attendeeEmail
+      ? ['anthony@fluxlocatif.com', attendeeEmail]
+      : ['anthony@fluxlocatif.com'];
 
-  const input = {
-    title,
-    description,
-    startsAt,
-    endsAt,
-    attendees,
-    entityType: 'lead' as const,
-    entityId: eventId,
-  };
+    // Save to CRM first
+    await salesRepository.createCalendarEvent({
+      id: eventId,
+      provider: 'google_calendar',
+      title,
+      description,
+      startsAt,
+      endsAt,
+      kind,
+      status: 'scheduled',
+      entityType: 'lead',
+      entityId: '',
+      attendees,
+    });
 
-  // Try to push directly to Google Calendar
-  let status: 'scheduled' | 'pending_integration' = 'pending_integration';
-  let gcalHref: string | undefined;
-
-  if (salesCalendarProvider.isConfigured()) {
-    try {
-      await salesCalendarProvider.createEvent!(input);
-      status = 'scheduled';
-    } catch (err) {
-      console.error('[GCal] Failed to create event:', err);
-      // Fall through — save to CRM and return link fallback
-      const link = await buildSalesCalendarCreateLink(input);
-      gcalHref = link.href;
+    // Try to push to Google Calendar in background — never block or redirect on failure
+    if (salesCalendarProvider.isConfigured()) {
+      salesCalendarProvider.createEvent!({
+        title, description, startsAt, endsAt, attendees,
+        entityType: 'lead', entityId: eventId,
+      }).catch((err) => console.error('[GCal] sync failed:', err));
     }
-  } else {
-    // Not connected yet — return fallback link
-    const link = await buildSalesCalendarCreateLink(input);
-    gcalHref = link.href;
+
+    revalidatePath('/crm/calendar');
+    revalidatePath('/crm/dashboard');
+    return { success: true };
+  } catch (err) {
+    console.error('[createCalendarEventAction]', err);
+    return { error: 'Failed to save event. Please try again.' };
   }
-
-  await salesRepository.createCalendarEvent({
-    id: eventId,
-    provider: 'google_calendar',
-    title,
-    description,
-    startsAt,
-    endsAt,
-    kind,
-    status,
-    entityType: 'lead',
-    entityId: '',
-    attendees,
-  });
-
-  revalidatePath('/crm/calendar');
-  revalidatePath('/crm/dashboard');
-  return { success: true, gcalHref, autoSynced: status === 'scheduled' };
 }
