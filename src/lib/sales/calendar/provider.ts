@@ -77,25 +77,12 @@ class GoogleCalendarProvider implements SalesCalendarProvider {
       };
     }
 
-    // Verify the token works by doing a lightweight check
-    try {
-      const auth = getAuthenticatedClient();
-      const cal = google.calendar({ version: 'v3', auth });
-      await cal.calendarList.get({ calendarId: 'primary' });
-      return {
-        providerName: 'Google Calendar',
-        configured: true,
-        mode: 'google_oauth',
-        message: `Auto-syncing to ${CALENDAR_ACCOUNT}`,
-      };
-    } catch {
-      return {
-        providerName: 'Google Calendar',
-        configured: false,
-        mode: 'google_template_link',
-        message: `Token invalid — reconnect Google Calendar for ${CALENDAR_ACCOUNT}.`,
-      };
-    }
+    return {
+      providerName: 'Google Calendar',
+      configured: true,
+      mode: 'google_oauth',
+      message: `Auto-syncing to ${CALENDAR_ACCOUNT}`,
+    };
   }
 
   async listEvents(): Promise<SalesCalendarEvent[]> {
