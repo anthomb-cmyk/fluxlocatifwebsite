@@ -100,7 +100,7 @@ function NewEventForm({
   isConnected,
 }: {
   defaultDate: string;
-  onSuccess: (result: { gcalHref?: string; autoSynced?: boolean }) => void;
+  onSuccess: () => void;
   onCancel: () => void;
   isConnected?: boolean;
 }) {
@@ -108,21 +108,23 @@ function NewEventForm({
   const [error, setError] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
-  function handleSubmit(formData: FormData) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
     setError(null);
+    const formData = new FormData(e.currentTarget);
     startTransition(async () => {
       const result = await createCalendarEventAction(formData);
       if (result?.error) {
         setError(result.error);
       } else {
         formRef.current?.reset();
-        onSuccess({ gcalHref: result.gcalHref, autoSynced: result.autoSynced });
+        onSuccess();
       }
     });
   }
 
   return (
-    <form ref={formRef} action={handleSubmit} className="mt-4 space-y-3 rounded-[18px] border border-slate-200 bg-slate-50/60 p-4">
+    <form ref={formRef} onSubmit={handleSubmit} className="mt-4 space-y-3 rounded-[18px] border border-slate-200 bg-slate-50/60 p-4">
       <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">New event</p>
 
       {/* Title */}
@@ -150,10 +152,11 @@ function NewEventForm({
         />
         <select
           name="duration"
+          defaultValue="45"
           className="col-span-1 h-9 rounded-xl border border-slate-200 bg-white px-3 text-[13px] text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900"
         >
           <option value="30">30 min</option>
-          <option value="45" selected>45 min</option>
+          <option value="45">45 min</option>
           <option value="60">1 hour</option>
           <option value="90">1.5 hours</option>
         </select>
@@ -199,10 +202,9 @@ function NewEventForm({
         <button
           type="submit"
           disabled={isPending}
-          className="flex items-center gap-1.5 rounded-full bg-slate-900 px-4 py-1.5 text-[12px] font-medium text-white hover:bg-slate-700 transition-colors disabled:opacity-50"
+          className="rounded-full bg-slate-900 px-4 py-1.5 text-[12px] font-medium text-white hover:bg-slate-700 transition-colors disabled:opacity-50"
         >
-          {isConnected ? null : <ExternalLink className="h-3 w-3" />}
-          {isPending ? 'Saving…' : isConnected ? 'Save event' : 'Save & open in Google Calendar'}
+          {isPending ? 'Saving…' : 'Save event'}
         </button>
         <button
           type="button"
@@ -231,7 +233,7 @@ function DayPanel({
 }) {
   const [showForm, setShowForm] = useState(false);
 
-  function handleSuccess(_result: { gcalHref?: string; autoSynced?: boolean }) {
+  function handleSuccess() {
     setShowForm(false);
   }
 
